@@ -1,0 +1,47 @@
+.layout-header {
+	height: 16rem;
+	background-color: #fff;
+	border-top: 5px solid #92c271;
+	box-shadow: 0 0.2rem 0.8rem rgba(22, 63, 75, 0.4);
+	box-sizing: border-box;
+
+	&__wrapper {
+		@extend .layout;
+	}
+
+	&__logo {
+		position: absolute;
+		left: 0;
+		top: 27px;
+	}
+
+	&__feedback {
+		height: 3.6rem;
+		position: absolute;
+		right: 0;
+		top: 27px;
+		display: block;
+		padding: 0 4rem;
+		text-decoration: none;
+		text-shadow: 0 0.1rem 0.1rem rgba(53, 149, 0, 0.5);
+		color: #fff;
+		font-size: 1.2rem;
+		font-weight: 700;
+		line-height: 3.6rem;
+		text-transform: uppercase;
+		background-color: #92c271;
+		border-radius: 18px;
+		box-shadow: 0 0.1rem 0.1rem rgba(28, 88, 48, 0.6);
+		transition: background-color $time;
+
+		&:hover {
+			background-color: #9dd775;
+		}
+	}
+
+	&__navigation {
+		position: absolute;
+		left: 0;
+		bottom: 20px;
+	}
+}

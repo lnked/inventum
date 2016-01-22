@@ -1,0 +1,113 @@
+.selectbox {
+	border: 1px solid #acacac;
+	background: #f3f3f3 url(../images/select.png) 0 0 repeat-x;
+	border-radius: 0;
+	box-sizing: border-box;
+	z-index: 10;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 32px;
+	color: #595959;
+	
+	&, &__select {
+		width: 100%;
+		height: 32px;
+		display: block;
+		position: relative;
+	}
+
+	&__select {
+		z-index: 10000;
+
+		&__text {
+			height: 100%;
+			padding: 0 30px 0 9px;
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+	&__trigger {
+		right: 0;
+		top: 0;
+
+		&, &__arrow{
+			width: 25px;
+			height: 100%;
+			position: absolute;
+			display: block;
+		}
+
+		&__arrow {
+			top: 0;
+			left: 0;
+			background: #f00 url(../images/select-arrow.png) no-repeat center center;
+		}
+	}
+
+	&__dropdown {
+		min-width: 100%;
+		position: absolute;
+		top: 30px;
+		left: -1px;
+	    right: -1px;
+	    list-style: none;
+		background-color: #f9f9f9;
+		border: 1px solid #acacac;
+		border-radius: 0;
+		z-index: 9999;
+		overflow: auto;
+		overflow-x: hidden;
+		box-shadow: 0.5px 0.9px 2px rgba(0, 0, 0, 0.37);
+		box-sizing: border-box;
+
+		&__list {
+			list-style-type: none;
+		}
+	
+		&__item {
+			margin: 0;
+			line-height: 15px;
+			padding: 7px 9px;
+			border: none;
+			background-image: none;
+			
+			&.last-child {
+				border-bottom: 0;
+			}
+
+			&.selected {
+				background: #fff;
+			}
+
+			&.sel {
+				display: none;
+			}
+
+			&:hover {
+				background: #6fadc9;
+				color: #fff;
+			}
+
+			&.disabled {
+				color: #aaa;
+			}
+
+			&.disabled:hover {
+				background: none;
+			}
+		}
+	}
+}
+
+.selectbox-active {
+	.selectbox__select,
+	.selectbox__dropdown {
+		
+	}
+}

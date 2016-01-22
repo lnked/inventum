@@ -1,0 +1,64 @@
+.subscribe {
+	width: 30rem;
+	margin: 0 auto;
+	padding-top: 1rem;
+	text-align: left;
+
+	&__block {
+		clear: both;
+		position: relative;
+		margin: 0 0 15px;
+	}
+
+	&__field {
+		width: 180px;
+		height: 3.6rem;
+		padding: 0 11px;
+		color: #000;
+		float: left;
+		font-size: 1.6rem;
+		font-weight: 400;
+		border: 0;
+		background-color: #fff;
+		box-sizing: border-box;
+	}
+
+	&__button {
+		width: 12rem;
+		height: 3.6rem;
+		line-height: 3.6rem;
+		background-color: #007394;
+		text-shadow: 0 0.1rem 0.1rem rgba(0, 116, 149, 0.5);
+		color: #fff;
+		font-size: 1.2rem;
+		font-weight: 700;
+		border: 0;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-transform: uppercase;
+	}
+
+	&__unsibscribe {
+		clear: both;
+
+		&__checkbox {
+			position: relative;
+			float: left;
+
+			&__input {
+				display: block;
+			}
+		}
+
+		&__label {
+			margin-left: 22px;
+			display: block;
+			color: #babdbe;
+			font-size: 1.6rem;
+			font-weight: 400;
+			line-height: 2rem;
+		}
+	}
+}

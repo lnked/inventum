@@ -1,0 +1,30 @@
+.gallery {
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+
+	&__item {
+		@extend .inline;
+		margin: 0 2rem 5rem;
+
+		&__image {
+			display: block;
+
+			&__src {
+
+			}
+		}
+	}
+
+	&__more {
+		clear: both;
+
+		&__link {
+			color: #1a6785;
+			font-size: 1.6rem;
+			font-weight: 700;
+			line-height: 2.2rem;
+			text-decoration: underline;
+		}
+	}
+}

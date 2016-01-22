@@ -1,0 +1,86 @@
+::-moz-selection, ::selection, ::-o-selection, ::-ms-selection, ::-webkit-selection {
+    color: $selectcolor;
+    background-color: $selectBackground;
+    text-shadow: none;
+}
+
+svg {
+    shape-rendering: optimizeSpeed;
+}
+
+// img[src$=".gif"], img[src$=".png"] {
+//     image-rendering: -moz-crisp-edges;         /* Firefox */
+//     image-rendering:   -o-crisp-edges;         /* Opera */
+//     image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+//     image-rendering: crisp-edges;
+//     -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+// }
+
+// .div { 
+//     background: url(chessboard.gif) no-repeat 50% 50%;
+//     image-rendering: -moz-crisp-edges;         /* Firefox */
+//     image-rendering:   -o-crisp-edges;         /* Opera */
+//     image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+//     image-rendering: crisp-edges;
+//     -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+// }
+
+.clearfix {
+    zoom: 1; // For IE 6/7 (trigger hasLayout)
+
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.inner {
+    width: 100%;
+    display: table;
+
+    &:after {
+        width: 100%;
+        display: block;
+        content: ' ';
+        clear: both;
+    }
+}
+
+* html .inner {
+    margin-left: -3px;
+}
+
+.image {
+	font: 0/0 a;
+	border: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.vmcenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.disable-hover,
+.disable-hover * {
+    pointer-events: none !important;
+}
+
+a:focus {
+    outline: 0;
+}

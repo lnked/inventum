@@ -1,0 +1,27 @@
+.navigation {
+	clear: both;
+	
+	&__list {
+		width: 100%;
+	}
+	
+	&__item {
+		@extend .inline;
+		margin-right: 3rem;
+	}
+
+	&__link {
+		display: block;
+		color: #333;
+		font-size: 1.6rem;
+		font-weight: 700;
+		line-height: 2.5rem;
+		text-decoration: none;
+		border-bottom: 5px solid #fff;
+		transition: border-color $time;
+		
+		&:hover {
+			border-color: #92c271;
+		}
+	}
+}

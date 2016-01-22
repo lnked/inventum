@@ -1,0 +1,103 @@
+.carousel {
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+	max-width: 1280px;
+	padding: 0 5rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+
+	&__wrapper {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	&__navigation {
+		width: 30px;
+		height: 61px;
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin-top: -31px;
+		cursor: pointer;
+		background: none;
+		border: 0;
+		
+		&:after,
+		&:before {
+			width: 100%;
+			height: 100%;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			z-index: 1;
+			background-repeat: no-repeat;
+			background-image: url(../images/arrows.png);
+			transition: opacity $time;
+			background-size: 62px 124px;
+		}
+
+		&:after {
+			opacity: 0;
+		}
+
+		&:before {
+			opacity: 1;
+		}
+
+		&:hover:after {
+			opacity: 1;
+		}
+
+		&:hover:before {
+			opacity: 0;
+		}
+
+		&_prev {
+			left: 0;
+
+			&:before {
+				background-position: 0 0;
+			}
+
+			&:after {
+				background-position: 0 100%;
+			}
+		}
+
+		&_next {
+			right: 0;
+
+			&:before {
+				background-position: 100% 0;
+			}
+
+			&:after {
+				background-position: 100% 100%;
+			}
+		}
+	}
+	
+	&__item {
+		height: 7.8rem;
+		float: left;
+		line-height: 7.8rem;
+		margin: 0 2rem;
+		cursor: pointer;
+		position: relative;
+		text-align: center;
+
+		&__image {
+			height: 7.8rem;
+
+			&__src {
+				max-width: 100%;
+				max-height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+	}
+}

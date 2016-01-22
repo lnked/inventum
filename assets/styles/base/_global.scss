@@ -1,0 +1,28 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+html, body { height: 100%; }
+
+html {
+    font-size: $fontBase;
+    text-size-adjust: 100%;
+}
+
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+}
+
+body {
+    text-rendering: optimizeLegibility; //auto | optimizeSpeed | optimizeLegibility | geometricPrecision
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-family: $fontDefault;
+    color: $colorText;
+    background-color: $body;
+}

@@ -1,0 +1,137 @@
+::-webkit-input-placeholder 		{ color: $placeholderColor; opacity: $placeholderOpacity; transition: opacity $time ease; }
+:-moz-placeholder 					{ color: $placeholderColor; opacity: $placeholderOpacity; transition: opacity $time ease; }
+::-moz-placeholder 					{ color: $placeholderColor; opacity: $placeholderOpacity; transition: opacity $time ease; }
+:-ms-input-placeholder 				{ color: $placeholderColor; opacity: $placeholderOpacity; transition: opacity $time ease; }
+
+:focus::-webkit-input-placeholder 	{ color: transparent; opacity: 0; }
+:focus::-moz-placeholder          	{ color: transparent; opacity: 0; }
+:focus:-moz-placeholder           	{ color: transparent; opacity: 0; }
+:focus:-ms-input-placeholder      	{ color: transparent; opacity: 0; }
+
+input[placeholder]          		{ text-overflow: ellipsis; }
+input::-moz-placeholder     		{ text-overflow: ellipsis; }
+input:-moz-placeholder      		{ text-overflow: ellipsis; } 
+input:-ms-input-placeholder 		{ text-overflow: ellipsis; }
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+select {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+}
+
+label {
+	cursor: pointer;
+}
+
+button {
+	-webkit-appearance: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+@keyframes shake{
+    0% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+}
+
+.form {
+	clear: both;
+
+	&__row {
+		clear: both;
+		margin-bottom: 2rem;
+	}
+
+	&__column {
+		width: 328px;
+		float: left;
+
+		&_pl {
+			padding-left: 10px;
+		}
+
+		&_pr {
+			padding-right: 10px;
+		}
+	}
+
+	&__label {
+		clear: both;
+    	position: relative;
+		margin-bottom: 33px;
+
+		&__name {
+			color: #fff;
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: 1;
+			letter-spacing: 0.07ex;
+			margin-bottom: 9px;
+		}
+	}
+
+	&__input,
+	&__textarea {
+	    width: 100%;
+	   	padding: 0 15px;
+		font-family: $fontForms;
+		color: #fff;
+		color: rgba(255, 255, 255, 0.5);
+	    position: relative;
+		font-size: 2rem;
+		font-weight: 300;
+		background: url(../images/input-pixel.png);
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid #fff;
+		border-color: rgba(255, 255, 255, 0.5);
+		box-sizing: border-box;
+		-webkit-rtl-ordering: logical;
+		-webkit-user-select: text;
+		cursor: auto;
+		
+		&.error {
+			background: rgba(255, 0, 0, 0.1);
+			border-color: rgb(255, 0, 0);
+			border-color: rgba(255, 0, 0, 0.5);
+		
+			animation-name: shake;
+			animation-duration: 300ms;
+			animation-iteration-count: 3;
+			animation-timing-function: linear;
+		}
+
+		&::-ms-clear {
+		    display: none;
+		}
+	}
+
+	&__error-text {
+		position: absolute;
+		top: 100%;
+		font-size: 1.3em;
+		font-weight: 300;
+		line-height: 1;
+		margin-top: 4px;
+		color: rgb(255, 0, 0);
+	}
+
+	&__input {
+	    height: 51px;
+	    -webkit-appearance: none;
+	}
+
+	&__textarea {
+		padding: 10px 17px;
+	    max-width: 100%;
+	    resize: vertical;
+		-webkit-appearance: textfield;
+	}
+}

@@ -1,0 +1,146 @@
+/* -------------------------------------
+* timeline
+* ------------------------------------- */
+.timeline {
+	clear: both;
+	list-style: none;
+	list-style-type: none !important;
+	margin: 30px 0 30px 2px !important;
+	padding-left: 32px;
+	border-left: 3px solid #c1a189;
+	
+	&__item {
+		margin: 40px 0;
+		position: relative;
+	}
+
+	p {
+		margin: 0 0 15px;
+	}
+
+	&__date {
+		margin-top: -10px;
+		top: 50%;
+		left: -95px;
+		font-size: 0.95em;
+		line-height: 20px;
+		position: absolute;
+	}
+
+	&__circle {
+		margin-top: -10px;
+		top: 50%;
+		left: -44px;
+		width: 10px;
+		height: 10px;
+		background: #c1a189;
+		border: 5px solid #fff;
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+	}
+	
+	&__content {
+		max-height: 20px;
+		padding: 15px 20px;
+		border-color: transparent;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 0.5rem;
+		position: relative;
+		max-height: 180px;
+		border-color: #fff;
+		margin-right: 20px;
+		transform: translateX(20px);
+		transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+
+		&:before, &:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border: solid transparent;
+			position: absolute;
+			pointer-events: none;
+			right: 100%;
+		}
+
+		&:before {
+			border-right-color: inherit;
+			border-width: 15px;
+			top: 50%;
+			margin-top: -15px;
+		}
+
+		&:after {
+			border-right-color: #2F231B;
+			border-width: 14px;
+			top: 50%;
+			margin-top: -14px;
+			right: auto;
+			left: -27px;
+		}
+
+		p {
+			max-height: 0;
+			color: transparent;
+			text-align: justify;
+			word-break: break-word;
+			hyphens: auto;
+			overflow: hidden;
+
+			max-height: 200px;
+			color: #eee9dc;
+			transition: color 0.3s linear 0.3s;
+		}
+	}
+}
+
+/* -------------------------------------
+* mobile phones (vertical version only)
+* ------------------------------------- */
+@media screen and (max-width: 767px) {
+
+	.timeline {
+		margin-left: 0;
+		padding-left: 0;
+		border-left: none;
+
+		&__item {
+			margin: 50px 0;
+		}
+
+		&__content {
+			padding-top: 45px;
+			border-color: #eee9dc;
+
+			&:before, &:after {
+				bottom: 100%;
+			}
+
+			&:before {
+				border-bottom-color: inherit;
+				border-width: 17px;
+				top: -16px;
+				left: 50px;
+				margin-left: -17px;
+			}
+
+			&:after {
+				border-bottom-color: #48b379;
+				border-width: 20px;
+				top: -20px;
+				left: 50px;
+				margin-left: -20px;
+			}
+
+			p {
+				font-size: 0.9em;
+				line-height: 1.4;
+			}
+		}
+
+		&__circle, &__date {
+			display: none;
+		}
+	}
+}

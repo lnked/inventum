@@ -1,0 +1,51 @@
+.section {
+	clear: both;
+	margin-bottom: 5rem;
+
+	&__wrapper {
+		@extend .layout;
+	}
+
+	&_news {
+		padding: 30px;
+		background-color: #cae6f1;
+	}
+
+	&_carousel {
+		padding: 7rem 0;
+		background-color: #e8f9ff;
+		margin-bottom: 0;
+	}
+
+	&_gallery {
+		padding: 30px;
+		background-color: #d4e7ee;
+	}
+
+	&__title {
+		color: #093;
+		font-size: 5rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 5rem;
+
+		&__name {
+			position: relative;
+			padding-bottom: 18px;
+			display: inline-block;
+
+			&:after {
+				width: 68%;
+				height: 0.2rem;
+				content: "";
+				opacity: 0.6;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				margin-left: -34%;
+				background-color: #093;
+			}
+		}
+	}
+}

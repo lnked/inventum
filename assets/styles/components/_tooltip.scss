@@ -1,0 +1,46 @@
+.tooltip {
+	width: 230px;
+	position: absolute;
+	left: 50%;
+	bottom: 100%;
+	border: 1px solid #e4e7e7;
+	margin-bottom: 13px;
+	z-index: 1000;
+	margin-left: -115px;
+	padding: 1rem 1.5rem;
+	border-radius: 6px;
+	background-color: #e4e7e7;
+	color: #323232;
+	font-family: $fontArial;
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 1.6rem;
+	cursor: default;
+	@include opacity(0);
+	transform: translateY(20%);
+	display: none;
+	user-select: none;
+	transition: opacity $time, transform $time;
+	box-sizing: border-box;
+
+	&.show {
+		display: block;
+	}
+
+	&.animate {
+		@include opacity(1);
+		transform: translateY(0);
+	}
+
+	&:after {
+		width: 18px;
+		height: 9px;
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -9px;
+		background: url(../images/tooltip-corner.png) 50% 50% no-repeat;
+		background-size: 100%;
+	}
+}

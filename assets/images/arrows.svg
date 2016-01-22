@@ -1,0 +1,40 @@
+<svg id="arrows" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61.344" height="122.188" viewBox="0 0 61.344 122.188">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #90b9c8;
+        stroke-width: 0.5px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        filter: url(#filter);
+      }
+
+      .cls-3 {
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="0.656" y="61.813" width="30.219" height="60.376" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#093"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="32" y="61.813" width="30.031" height="60.188" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#093"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="_" data-name="&lt; " class="cls-1" d="M30.686,60.006L0.993,30,30.686-.007" transform="translate(-0.656)"/>
+  <g transform="translate(-0.656)" style="fill: none; filter: url(#filter)">
+    <path id="_копия" data-name="&lt;  копия" class="cls-2" d="M30.686,122.006L0.993,92,30.686,61.993" style="stroke: inherit; filter: none; fill: inherit"/>
+  </g>
+  <use transform="translate(-0.656)" xlink:href="#_копия" style="stroke: #90b9c8; filter: none; fill: none"/>
+  <path id="_копия_2" data-name="&lt;  копия 2" class="cls-1" d="M32.188,60.009L61.665,30.094,32.188,0.18" transform="translate(-0.656)"/>
+  <g transform="translate(-0.656)" style="fill: none; filter: url(#filter-2)">
+    <path id="_копия_2-2" data-name="&lt;  копия 2" class="cls-3" d="M32.188,121.819L61.665,91.9,32.188,61.99" style="stroke: inherit; filter: none; fill: inherit"/>
+  </g>
+  <use transform="translate(-0.656)" xlink:href="#_копия_2-2" style="stroke: #90b9c8; filter: none; fill: none"/>
+</svg>

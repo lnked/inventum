@@ -1,0 +1,55 @@
+.projects {
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+
+	&__item {
+		@extend .inline;
+		margin: 0 4rem 5rem;
+
+		&:nth-child(4n+4) {
+			margin-right: 0;
+		}
+
+		&:nth-child(4n+1) {
+			margin-left: 0;
+		}
+
+		&__link {
+			display: block;
+			text-decoration: none;
+		}
+
+		&__image {
+			width: 24.1rem;
+			height: 24.1rem;
+			line-height: 24.1rem;
+			background-color: #f4fbfd;
+			border-radius: 50%;
+			display: block;
+
+			&__src {
+				max-height: 90%;
+				max-width: 85%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		&__title {
+			position: relative;
+			top: -22px;
+			color: #333;
+			font-size: 2rem;
+			font-weight: 900;
+			line-height: 2.5rem;
+			display: inline;
+			border-bottom: 1px solid #acacac;
+		}
+
+		&__link:hover &__title {
+			border-bottom: 0;
+			padding-bottom: 1px;
+		}
+	}
+}

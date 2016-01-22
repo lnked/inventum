@@ -1,0 +1,156 @@
+.slider {
+	width: 100%;
+	height: 44rem;
+	overflow: hidden;
+	font-size: 0;
+	position: relative;
+	line-height: 0;
+	background-color: #152930;
+	overflow: hidden;
+	
+	&__wrapper {
+		height: 100%;
+		position: relative;
+	}
+	
+	&__overlay {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 100;
+	}
+
+	&__navigation {
+		width: 30px;
+		height: 61px;
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin-top: -31px;
+		cursor: pointer;
+		background: none;
+		border: 0;
+		z-index: 1000;
+		
+		&:after,
+		&:before {
+			width: 100%;
+			height: 100%;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			z-index: 1;
+			background-repeat: no-repeat;
+			background-image: url(../images/arrows.png);
+			transition: opacity $time;
+			background-size: 62px 124px;
+		}
+
+		&:after {
+			opacity: 0;
+		}
+
+		&:before {
+			opacity: 1;
+		}
+
+		&:hover:after {
+			opacity: 1;
+		}
+
+		&:hover:before {
+			opacity: 0;
+		}
+
+		&_prev {
+			left: 65px;
+
+			&:before {
+				background-position: 0 0;
+			}
+
+			&:after {
+				background-position: 0 100%;
+			}
+		}
+
+		&_next {
+			right: 65px;
+
+			&:before {
+				background-position: 100% 0;
+			}
+
+			&:after {
+				background-position: 100% 100%;
+			}
+		}
+	}
+
+	&__item {
+	    float: left;
+		height: 44rem;
+		position: relative;
+		overflow: hidden;
+		
+		&__image {
+			width: 100%;
+			height: 100%;
+			opacity: .3;
+			background-color: #f00;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: cover;
+		}
+
+		&__content {
+			display: none;
+			position: absolute;
+
+			&__title {}
+			&__description {}
+			&__date {
+				&__title {}
+				&__count {}
+				&__more {}
+			}
+		}
+	}
+}
+
+ul.slick-dots {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	font-size: 0;
+	line-height: 0;
+	bottom: 32px;
+	z-index: 1000;
+	text-align: center;
+}
+
+ul.slick-dots li {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 6px;
+}
+
+ul.slick-dots li button {
+	width: 0.8rem;
+	height: 0.8rem;
+	cursor: pointer;
+	padding: 0;
+	font-size: 0;
+	text-indent: -100px;
+	overflow: hidden;
+	background-color: #007495;
+	border: 0;
+}
+
+ul.slick-dots li.slick-active button {
+	background-color: #0099c4;
+}

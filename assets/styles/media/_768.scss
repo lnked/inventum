@@ -1,0 +1,6 @@
+@media only screen and (max-width: 768px) {
+	.sandwich {
+		z-index: 10000;
+		@include opacity(1);
+	}
+}

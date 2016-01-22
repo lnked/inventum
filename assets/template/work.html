@@ -1,0 +1,83 @@
+@@include('./components/meta.html', {
+	"title": "Main"
+})
+
+<!-- @@include('./popups/popup.html') -->
+
+<article class="layout-wrapper">
+	@@include('./components/header.html', {
+		"current": ""
+	})
+
+	<!-- @@include('./components/slider.html') -->
+
+	<section class="news layout">
+		
+	</section>
+	Новости
+
+	Наши проекты
+
+
+	Фотогалерея
+
+
+	Опрос
+
+	Какую информацию вы бы хотели видеть больше на сайте?
+
+
+	Информацию для предпринимателей
+
+Информацию посвященную спортивным мероприятиям
+
+Развивающие и обучающие программы
+
+
+	<section class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		
+		@@include('./components/checkbox.html', {
+			"title": "checkbox",
+			"name": "checkbox",
+			"value": 1
+		})
+
+		<br>
+
+		@@include('./components/radio.html', {
+			"title": "radio 1",
+			"name": "radio",
+			"value": 1
+		})
+
+		<br>
+
+		@@include('./components/radio.html', {
+			"title": "radio 2",
+			"name": "radio",
+			"value": 2
+		})
+
+		<br>
+		<br>
+		
+		<select name="">
+			<option value="">1</option>
+			<option value="">2</option>
+			<option value="">3</option>
+			<option value="">4</option>
+			<option value="">5</option>
+		</select>
+		
+		<br>
+
+		<div style="padding: 30px 0;">
+			<a href="#popup-test" class="button js-open-popup" data-popup="popup-test">Открыть попап</a>
+		</div>
+
+		<br>
+
+	</section>
+</article>
+
+@@include('./components/footer.html')

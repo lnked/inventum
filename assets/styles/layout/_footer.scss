@@ -1,0 +1,115 @@
+.layout-footer {
+	position: relative;
+	height: $footerHeight;
+	margin-top: -$footerHeight;
+	padding-top: 5.7rem;
+	box-sizing: border-box;
+	background: #18494f url(../images/footer.png) 50% 0;
+	
+	&__wrapper {
+		@extend .layout;
+	}
+	
+	&__block {
+		float: left;
+		width: 33.333%;
+		height: 19rem;
+		box-sizing: border-box;
+
+		&_left {
+			border-left: 1px solid #59767c;
+		}
+		
+		&_right {
+			border-right: 1px solid #59767c;
+		}
+	}
+
+	&__contacts {
+		font-size: 1.6rem;
+		font-weight: 300;
+		line-height: 3rem;
+		color: #babdbe;
+		text-align: center;
+
+		&__email {
+			color: #078bb1;
+		}
+
+		a {
+			color: #078bb1;
+			text-decoration: none;
+		}
+	}
+
+	&__title {
+		color: #babdbe;
+		font-size: 2rem;
+		font-weight: 400;
+		line-height: 2rem;
+		text-align: center;
+		margin-bottom: 3rem;
+		text-transform: uppercase;
+	}
+
+	&__bottom {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #0f1f24;
+		height: 8rem;
+	}
+
+	&__copiright {
+		position: absolute;
+		left: 8rem;
+		top: 0;
+		color: #babdbe;
+		font-size: 1.2rem;
+		font-weight: 300;
+		line-height: 8rem;
+
+		&__mid {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 2rem;
+		}
+	}
+
+	&__studio {
+		position: absolute;
+		top: 0;
+		right: 105px;
+		color: #babdbe;
+		font-size: 1.2rem;
+		font-weight: 300;
+		line-height: 8rem;
+		
+		&__link {
+			color: #babdbe;
+			text-decoration: underline;
+			transition: color $time;
+
+			&:hover {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&__counters {
+		position: absolute;
+		top: 0;
+		left: 275px;
+		font-size: 0;
+		line-height: 8rem;
+
+		&__item {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 0;
+			font-size: 0;
+		}
+	}
+}
