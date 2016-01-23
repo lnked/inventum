@@ -1,5 +1,6 @@
 .section {
 	clear: both;
+	position: relative;
 	margin-bottom: 5rem;
 
 	&__wrapper {
@@ -7,8 +8,22 @@
 	}
 
 	&_news {
-		padding: 30px;
-		background-color: #cae6f1;
+		overflow: hidden;
+		padding: 80px 0 90px;
+		background: #cae6f1 url(../images/news-background.jpg);
+
+		&:after {
+			content: "";
+			width: 120%;
+			height: 60px;
+			position: absolute;
+			left: -10%;
+			right: -10%;
+			bottom: -30px;
+			display: block;
+			background-color: #fff;
+			transform: rotate(-1.7deg);
+		}
 	}
 
 	&_carousel {
@@ -18,8 +33,31 @@
 	}
 
 	&_gallery {
-		padding: 30px;
-		background-color: #d4e7ee;
+		overflow: hidden;
+		padding: 100px 0 80px;
+		background: #d4e7ee url(../images/gallery-background.jpg);
+		background-size: cover;
+
+		&:after,
+		&:before {
+			content: "";
+			width: 120%;
+			height: 60px;
+			position: absolute;
+			left: -10%;
+			right: -10%;
+			display: block;
+			background-color: #fff;
+			transform: rotate(-1.7deg);
+		}
+
+		&:before {
+			top: -30px;
+		}
+		
+		&:after {
+			bottom: -30px;
+		}
 	}
 
 	&__title {

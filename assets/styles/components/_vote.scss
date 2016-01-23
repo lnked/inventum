@@ -19,9 +19,16 @@
 	}
 
 	&__answer {
-		&__radio {}
+		clear: both;
+		
+		&__radio {
+			display: inline-block;
+			vertical-align: top;
+		}
 
 		&__label {
+			display: inline-block;
+			vertical-align: top;
 			color: #152930;
 			font-size: 1.6rem;
 			font-weight: 400;

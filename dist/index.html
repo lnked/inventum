@@ -115,19 +115,52 @@
 		<a href="" class="layout-header__logo logo"></a>
 		
 		<a href="" class="layout-header__feedback">Обратная связь</a>
-
+		
 		<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
 			<ul class="navigation__list">
 			    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
 			    <li class="navigation__item"><a href="./news.html" class="navigation__link ">Новости</a></li>
 			    <li class="navigation__item"><a href="./documents.html" class="navigation__link ">Документы</a></li>
-			    <li class="navigation__item"><a href="./work.html" class="navigation__link ">Направления работы</a></li>
+			    <li class="navigation__item"><a href="./work.html" data-submenu="work" class="navigation__link ">Направления работы</a></li>
 			    <li class="navigation__item"><a href="./press-center.html" class="navigation__link ">Пресс-центр</a></li>
 			    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
 			</ul>
 		</nav>
-
+		
+		<form action="" class="layout-header__search">
+			<input class="layout-header__search__input">
+			<button type="submit" class="layout-header__search__button"></button>
+		</form>
 	</div>
+	<!--
+	<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
+		<ul class="navigation__list">
+		    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
+		    <li class="navigation__item"><a href="./news.html" class="navigation__link ">Новости</a></li>
+		    <li class="navigation__item"><a href="./documents.html" class="navigation__link ">Документы</a></li>
+		    <li class="navigation__item"><a href="./work.html" data-submenu="work" class="navigation__link ">Направления работы</a>
+		    	<div class="submenu">
+					<ul class="submenu__list">
+						<li class="submenu__item"><a href="" class="submenu__item__link">Инновации</a></li>
+						<li class="submenu__item">
+							<ul class="submenu__item__list">
+								<li class="submenu__item"><a href="" class="submenu__item__link">Зворыкинская премия</a></li>
+								<li class="submenu__item"><a href="" class="submenu__item__link">Кубанская школа инвесторов</a></li>
+								<li class="submenu__item"><a href="" class="submenu__item__link">От идеи к делу</a></li>
+							</ul>
+						</li>
+						<li class="submenu__item"><a href="" class="submenu__item__link">Предпринимательство</a></li>
+						<li class="submenu__item"><a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a></li>
+						<li class="submenu__item"><a href="" class="submenu__item__link">Духовно-нравственное воспитание</a></li>
+						<li class="submenu__item"><a href="" class="submenu__item__link">Профилактика экстремизма</a></li>
+					</ul>
+				</div>
+			</li>
+		    <li class="navigation__item"><a href="./press-center.html" class="navigation__link ">Пресс-центр</a></li>
+		    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
+		</ul>
+	</nav>
+	 -->
 </header>
 
 	<div class="slider">
@@ -137,10 +170,13 @@
 			<div class="slider__item__content">
 				<div class="slider__item__title">От идеи к делу!</div>
 				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
+				<div class="slider__item__more clearfix">
+					<a href="" class="slider__item__more__link">подробнее</a>
+				</div>
+
 				<div class="slider__item__date">
 					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
 					<div class="slider__item__date__count">12. 12. 2015</div>
-					<a href="" class="slider__item__date__more">подробнее</a>
 				</div>
 			</div>
 			<div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
@@ -150,10 +186,13 @@
 			<div class="slider__item__content">
 				<div class="slider__item__title">От идеи к делу!</div>
 				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
+				<div class="slider__item__more clearfix">
+					<a href="" class="slider__item__more__link">подробнее</a>
+				</div>
+
 				<div class="slider__item__date">
 					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
 					<div class="slider__item__date__count">12. 12. 2015</div>
-					<a href="" class="slider__item__date__more">подробнее</a>
 				</div>
 			</div>
 			<div class="slider__item__image" style="background-image: url(./images/slider-2.jpg);"></div>
@@ -163,10 +202,13 @@
 			<div class="slider__item__content">
 				<div class="slider__item__title">От идеи к делу!</div>
 				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
+				<div class="slider__item__more clearfix">
+					<a href="" class="slider__item__more__link">подробнее</a>
+				</div>
+
 				<div class="slider__item__date">
 					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
 					<div class="slider__item__date__count">12. 12. 2015</div>
-					<a href="" class="slider__item__date__more">подробнее</a>
 				</div>
 			</div>
 			<div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
@@ -311,6 +353,7 @@
 					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
 					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
 					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
 				</ul>
 
 				<div class="gallery__more"><a href="" class="gallery__more__link">Форум "Регион 93" 2015</a></div>
@@ -330,7 +373,7 @@
 						<li class="vote__answers__item">
 							<label class="vote__answer">
 								<span class="vote__answer__radio">
-									<input type="radio" name="">
+									<input type="radio" name="vote">
 								</span>
 								<span class="vote__answer__label">Информацию для предпринимателей</span>
 							</label>
@@ -338,7 +381,7 @@
 						<li class="vote__answers__item">
 							<label class="vote__answer">
 								<span class="vote__answer__radio">
-									<input type="radio" name="">
+									<input type="radio" name="vote" checked>
 								</span>
 								<span class="vote__answer__label">Информацию посвященную спортивным мероприятиям</span>
 							</label>
@@ -346,7 +389,7 @@
 						<li class="vote__answers__item">
 							<label class="vote__answer">
 								<span class="vote__answer__radio">
-									<input type="radio" name="">
+									<input type="radio" name="vote">
 								</span>
 								<span class="vote__answer__label">Развивающие и обучающие программы</span>
 							</label>
