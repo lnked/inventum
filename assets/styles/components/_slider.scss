@@ -106,6 +106,7 @@
 			background-color: #f00;
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
+			background-attachment: fixed;
 			background-size: cover;
 		}
 
@@ -116,7 +117,7 @@
 			right: 0;
 			z-index: 100;
 			line-height: 1;
-			padding: 65px 10px 0;
+			padding: 72px 0px 0;
 			@extend .layout;
 		}
 
@@ -125,6 +126,7 @@
 			font-size: 6rem;
 			font-weight: 700;
 			margin-bottom: 25px;
+		    letter-spacing: 0.007ex;
 		}
 
 		&__description {
@@ -133,12 +135,15 @@
 			font-size: 2.2rem;
 			font-weight: 300;
 			line-height: 3rem;
-			margin-bottom: 4rem;
+			margin-bottom: 3.3rem;
+			padding-right: 3rem;
+			letter-spacing: 0.003ex;
 		}
 		
 		&__more {
 			clear: both;
-			margin-bottom: 15px;
+			padding-right: 102px;
+			margin-bottom: 13px;
 
 			&__link {
 				float: right;
@@ -158,13 +163,14 @@
 				font-size: 1.6rem;
 				font-weight: 400;
 				line-height: 1;
-				margin-bottom: 15px;
+				margin-bottom: 11px;
 			}
 
 			&__count {
 				font-size: 3rem;
 				font-weight: 100;
 				line-height: 1;
+				letter-spacing: -0.015ex;
 			}
 		}
 	}

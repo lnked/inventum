@@ -1,8 +1,10 @@
 .gallery {
 	font-size: 0;
 	line-height: 0;
-	margin-bottom: -2rem;
 	text-align: center;
+    padding-top: .3rem;
+    margin-left: -2rem;
+	margin-bottom: -2.6rem;
 
 	&__item {
 		@extend .inline;
@@ -32,6 +34,7 @@
 
 	&__more {
 		clear: both;
+		margin-left: -.9rem;
 
 		&__link {
 			color: #1a6785;

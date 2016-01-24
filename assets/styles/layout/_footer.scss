@@ -8,11 +8,12 @@
 	
 	&__wrapper {
 		@extend .layout;
+		padding: 0;
 	}
 	
 	&__block {
 		float: left;
-		width: 33.333%;
+		width: 32.8%;
 		height: 19rem;
 		box-sizing: border-box;
 
@@ -48,7 +49,7 @@
 		font-weight: 400;
 		line-height: 2rem;
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: 3.4rem;
 		text-transform: uppercase;
 	}
 
@@ -63,12 +64,12 @@
 
 	&__copiright {
 		position: absolute;
-		left: 8rem;
+		left: 7rem;
 		top: 0;
 		color: #babdbe;
 		font-size: 1.2rem;
 		font-weight: 300;
-		line-height: 8rem;
+		line-height: 7.5rem;
 
 		&__mid {
 			display: inline-block;
@@ -80,7 +81,8 @@
 	&__studio {
 		position: absolute;
 		top: 0;
-		right: 105px;
+	    right: 119px;
+    	letter-spacing: 0.01ex;
 		color: #babdbe;
 		font-size: 1.2rem;
 		font-weight: 300;
@@ -101,9 +103,9 @@
 	&__counters {
 		position: absolute;
 		top: 0;
-		left: 275px;
+		left: 264px;
 		font-size: 0;
-		line-height: 8rem;
+		line-height: 8.5rem;
 
 		&__item {
 			display: inline-block;

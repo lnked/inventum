@@ -1,7 +1,7 @@
 .section {
 	clear: both;
 	position: relative;
-	margin-bottom: 5rem;
+	margin-bottom: 4.4rem;
 
 	&__wrapper {
 		@extend .layout;
@@ -9,7 +9,7 @@
 
 	&_news {
 		overflow: hidden;
-		padding: 80px 0 90px;
+		padding: 77px 0 90px;
 		background: #cae6f1 url(../images/news-background.jpg);
 
 		&:after {
@@ -19,22 +19,27 @@
 			position: absolute;
 			left: -10%;
 			right: -10%;
-			bottom: -30px;
+			bottom: -40px;
 			display: block;
 			background-color: #fff;
-			transform: rotate(-1.7deg);
+			transform: rotate(-1.2deg);
 		}
 	}
 
 	&_carousel {
-		padding: 7rem 0;
+		padding: 7.1rem 0;
 		background-color: #e8f9ff;
 		margin-bottom: 0;
+	}
+	
+	&_vote {
+	    margin-bottom: 8.5rem;
 	}
 
 	&_gallery {
 		overflow: hidden;
-		padding: 100px 0 80px;
+		margin-bottom: 4.7rem;
+		padding: 96px 0 75px;
 		background: #d4e7ee url(../images/gallery-background.jpg);
 		background-size: cover;
 
@@ -48,15 +53,15 @@
 			right: -10%;
 			display: block;
 			background-color: #fff;
-			transform: rotate(-1.7deg);
+			transform: rotate(-1.2deg);
 		}
 
 		&:before {
-			top: -30px;
+			top: -40px;
 		}
 		
 		&:after {
-			bottom: -30px;
+			bottom: -40px;
 		}
 	}
 
@@ -66,22 +71,24 @@
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-		margin-bottom: 5rem;
+		margin-bottom: 3.9rem;
 
 		&__name {
 			position: relative;
-			padding-bottom: 18px;
+			letter-spacing: 0.0ex;
+			text-indent: -20px;
+			padding-bottom: 14px;
 			display: inline-block;
 
 			&:after {
-				width: 68%;
+				width: 73%;
 				height: 0.2rem;
 				content: "";
 				opacity: 0.6;
 				position: absolute;
 				left: 50%;
-				bottom: 0;
-				margin-left: -34%;
+				bottom: 3px;
+				margin-left: -39.4%;
 				background-color: #093;
 			}
 		}
