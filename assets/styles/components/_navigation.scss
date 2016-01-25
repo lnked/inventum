@@ -24,8 +24,8 @@
 		top: 0;
 		z-index: 3000;
 	}
-	
-	&__list {
+
+	&__wrapper {
 		padding: 0;
 		@extend .layout;
 	}
