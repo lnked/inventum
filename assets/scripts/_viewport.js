@@ -46,7 +46,7 @@
 		scrollTop = $(window).scrollTop();
 
 		$.fn.viewport.options.elements.map(function(){
-			viewport = scrollTop + wheight / 2;
+			viewport = scrollTop + wheight;
 
 	        if ($(this).offset().top <= viewport && !$(this).hasClass('active'))
 	        {
