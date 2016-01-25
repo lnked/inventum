@@ -1717,7 +1717,7 @@ textarea {
     margin: 0 2rem 5.3rem; }
     .gallery__item:nth-child(5n+5) {
       margin-right: 0; }
-    .gallery__item:nth-child(5n+1) {
+    .gallery__item:first-child {
       margin-left: 0; }
     .gallery__item__image {
       display: block;
