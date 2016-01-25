@@ -11,6 +11,7 @@
         font-family: $family;
         font-weight: $weight;
         font-style: $style;
+        font-display: swap;
         src: url('#{$path}.eot');
         src: url('#{$path}.eot?#iefix') format('embedded-opentype'),
              url('#{$path}.woff2') format('woff2'),

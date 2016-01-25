@@ -3,7 +3,6 @@
 	height: 16rem;
 	background-color: #fff;
 	border-top: 5px solid #92c271;
-	box-shadow: 0 0.2rem 0.8rem rgba(22, 63, 75, 0.4);
 	box-sizing: border-box;
 
 	&__wrapper {
@@ -44,7 +43,7 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		bottom: 22px;
+		bottom: 0;
 	}
 
 	&__search {
@@ -98,4 +97,10 @@
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 960px) {
+ 	.layout-header {
+ 		
+ 	}
 }

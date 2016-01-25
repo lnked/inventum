@@ -30,6 +30,9 @@
 			background-color: #f4fbfd;
 			border-radius: 50%;
 			display: block;
+			transform: scale(.3, .3);
+			@include opacity(0);
+			transition: opacity .9s, transform .7s;
 
 			&__src {
 				max-height: 90%;
@@ -48,11 +51,24 @@
 			line-height: 2.5rem;
 			display: inline;
 			border-bottom: 1px solid #acacac;
+			transform: translate3d(0, 3rem, 0);
+			@include opacity(0);
+			transition: opacity .9s, transform .7s;
 		}
 
 		&__link:hover &__title {
 			border-bottom: 0;
 			padding-bottom: 1px;
+		}
+
+		&.active &__image {
+			transform: scale(1, 1);
+			@include opacity(1);
+		}
+		
+		&.active &__title {
+			transform: translate3d(0, 0, 0);
+			@include opacity(1);
 		}
 	}
 }

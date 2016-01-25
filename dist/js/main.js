@@ -14,6 +14,8 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 	"use strict";
 
 	window.body = $('body');
+	
+	var navigation = $('#navigation');
 
 	$.app = {
 		
@@ -225,6 +227,31 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 			});
 		},
 
+		navFixed: function(top)
+		{
+			if (top >= 91)
+			{
+				if (!navigation.hasClass('fixed'))
+				{
+					navigation.addClass('fixed');
+				}
+			}
+			else {
+				navigation.removeClass('fixed');
+			}
+		},
+
+		navigation: function()
+		{
+			var _this = this;
+
+			_this.navFixed($(window).scrollTop());
+
+			$(window).on('scroll', function(){
+				_this.navFixed($(window).scrollTop());
+			});
+		},
+
 		init: function()
 		{
 			this.disableHover();
@@ -238,6 +265,7 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 
 			this.slickSider();
 			this.carousel();
+			this.navigation();
 		}
 
 	};
@@ -2431,7 +2459,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 		scrollTop = $(window).scrollTop();
 
 		$.fn.viewport.options.elements.map(function(){
-			viewport = scrollTop + wheight;
+			viewport = scrollTop + wheight / 2;
 
 	        if ($(this).offset().top <= viewport && !$(this).hasClass('active'))
 	        {
@@ -2442,7 +2470,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 
 })( jQuery, window, document );
 
-//$('.effected').viewport();
+$('.effected').viewport();
 
 
 // init.js

@@ -2,6 +2,8 @@
 	"use strict";
 
 	window.body = $('body');
+	
+	var navigation = $('#navigation');
 
 	$.app = {
 		
@@ -213,6 +215,31 @@
 			});
 		},
 
+		navFixed: function(top)
+		{
+			if (top >= 91)
+			{
+				if (!navigation.hasClass('fixed'))
+				{
+					navigation.addClass('fixed');
+				}
+			}
+			else {
+				navigation.removeClass('fixed');
+			}
+		},
+
+		navigation: function()
+		{
+			var _this = this;
+
+			_this.navFixed($(window).scrollTop());
+
+			$(window).on('scroll', function(){
+				_this.navFixed($(window).scrollTop());
+			});
+		},
+
 		init: function()
 		{
 			this.disableHover();
@@ -226,6 +253,7 @@
 
 			this.slickSider();
 			this.carousel();
+			this.navigation();
 		}
 
 	};

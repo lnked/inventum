@@ -22,13 +22,31 @@
 			display: block;
 			font-size: 0;
 			line-height: 0;
+			@include opacity(0);
+			transform: scale(.3, .3);
+			transition: opacity .9s, transform .7s;
 
 			&__src {
 				max-width: 100%;
 				max-height: 100%;
 				display: inline-block;
 				vertical-align: middle;
+				
+				filter: grayscale(100%);
+				filter: url(#greyscale);
+				transition: filter $time;
 			}
+		}
+
+		&:hover &__image {
+			&__src {
+				filter: none;
+			}
+		}
+
+		&.active &__image {
+			transform: scale(1, 1);
+			@include opacity(1);
 		}
 	}
 

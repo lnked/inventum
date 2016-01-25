@@ -1,5 +1,18 @@
 .navigation {
 	clear: both;
+	height: 69px;
+    padding-top: 17px;
+    background-color: #fff;
+	box-sizing: border-box;
+	box-shadow: 0 0.2rem 0.8rem rgba(22, 63, 75, 0.4);
+
+	&.fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 3000;
+	}
 	
 	&__list {
 		padding: 0;
@@ -45,6 +58,7 @@
 }
 
 .submenu {
+	display: none;
 	margin-bottom: 0;
 	padding: 25px 0 35px;
 	background-color: #173c43;

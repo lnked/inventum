@@ -102,6 +102,115 @@
 </noscript>
 
 
+<div class="overlay" id="overlay"></div>
+
+<svg id="svg-filter"><filter id="svg-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur></filter></svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="svg-greyscale">
+	<filter id="greyscale">
+	<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0 0 0 1 0" />
+	</filter>
+</svg>
+
+<script type="text/html" id="tmpl-notification">
+	<div class="notification" id="popup_notification">
+	    {{#title}}
+	    <div class="notification__header">{{title}}</div>
+	    {{/title}}
+		
+		{{#text}}
+		<div class="notification__content clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-message">
+	<div class="popup popup_simple popup_message" id="popup_message">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-error">
+	<div class="popup popup_simple popup_error" id="popup_error">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+	    
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+	
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<div class="popup" id="popup-test">
+    <div class="popup__wrapper">
+		<span class="popup__close js-popup-close"></span>
+	    
+	    <header class="popup__header">
+	    	<h2>Popup</h2>
+		</header>
+
+		<section class="popup__conteiner clearfix">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptates doloremque commodi rerum voluptatibus cumque blanditiis, facilis ratione minus eius officiis corporis dolores nobis assumenda iusto deserunt maxime eligendi! Enim.</p>
+			<p>Omnis porro, sed recusandae illum adipisci quidem saepe tempore repudiandae exercitationem delectus, laborum soluta eaque modi corporis. Ad ullam et iure, non nam, eveniet sed, distinctio porro officia aliquam at.</p>
+		</section>
+
+		<footer class="popup__footer popup__footer_right">
+			<a href="" class="button js-popup-close">Применить</a>
+		</footer>
+	</div>
+</div>
+
+<script type="text/html" id="tmpl-mustache">
+	<h1>{{header}}</h1>
+	<p>{{content}}</p>
+	<ul>
+		{{#authors}}
+		    <li>{{#accent}} {{.}} {{/accent}}</li>
+		{{/authors}}
+
+		{{^authors}}
+		    <li>anonymous</li>
+		{{/authors}}
+	</ul>
+	
+	{{#stooges}}
+	<b>{{name}}</b>
+	{{/stooges}}
+
+	* {{name}}
+	* {{age}}
+	* {{company}}
+	* {{{company}}}
+	* {{&company}}
+	{{=<% %>=}}
+	* {{company}}
+	<%={{ }}=%>
+</script>
+
 <article class="layout-wrapper">
 	<span class="sandwich js-sandwich-menu">
 	<span class="sandwich__layer">Menu</span>
@@ -115,7 +224,7 @@
 		<a href="" class="layout-header__logo logo"></a>
 		
 		<a href="" class="layout-header__feedback">Обратная связь</a>
-		
+		<!-- 
 		<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
 			<ul class="navigation__list">
 			    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
@@ -126,13 +235,13 @@
 			    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
 			</ul>
 		</nav>
-		
+		 -->
 		<form action="" class="layout-header__search">
 			<input class="layout-header__search__input">
 			<button type="submit" class="layout-header__search__button"></button>
 		</form>
 	</div>
-	<!--
+	
 	<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
 		<ul class="navigation__list">
 		    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
@@ -160,7 +269,6 @@
 		    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
 		</ul>
 	</nav>
-	 -->
 </header>
 
 	<div class="slider">
@@ -282,7 +390,7 @@
 			
 			<div class="section__wrapper">
 				<ul class="projects">
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/IQ.png" class="projects__item__image__src" alt="">
@@ -291,7 +399,7 @@
 						</a>
 					</li>
 					
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/prav-otkritka.png" class="projects__item__image__src" alt="">
@@ -300,7 +408,7 @@
 						</a>
 					</li>
 					
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/navigator.png" class="projects__item__image__src" alt="">
@@ -309,7 +417,7 @@
 						</a>
 					</li>
 					
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/kub-state-investors.png" class="projects__item__image__src" alt="">
@@ -318,7 +426,7 @@
 						</a>
 					</li>
 					
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/start.png" class="projects__item__image__src" alt="">
@@ -327,7 +435,7 @@
 						</a>
 					</li>
 
-					<li class="projects__item">
+					<li class="projects__item effected">
 						<a href="" class="projects__item__link">
 							<span class="projects__item__image">
 								<img src="./images/projects/uspex.png" class="projects__item__image__src" alt="">
@@ -346,14 +454,14 @@
 			<div class="section__wrapper">
 				
 				<ul class="gallery">
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
 				</ul>
 
 				<div class="gallery__more"><a href="" class="gallery__more__link">Форум "Регион 93" 2015</a></div>
