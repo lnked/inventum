@@ -1,8 +1,6 @@
 .content {
-	width: 100%;
-	max-width: 99rem;
-	margin: 0 auto;
-
+	@extend .layout;
+	
 	&_white {
 		background-color: #fff;
 	}
