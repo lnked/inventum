@@ -44,7 +44,9 @@
 	}
 
 	&_fix {
-		width: 18rem;
+		min-width: 18rem;
+		padding: 0;
+		text-align: center;
 	}
 
 	&.disabled {

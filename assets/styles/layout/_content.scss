@@ -1,5 +1,6 @@
 .content {
 	@extend .layout;
+	padding: 0;
 
 	&_white {
 		background-color: #fff;

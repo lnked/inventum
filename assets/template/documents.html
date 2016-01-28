@@ -1,0 +1,71 @@
+@@include('./components/meta.html', {
+	"title": "Документы"
+})
+
+@@include('./popups/popup.html')
+
+<article class="layout-wrapper layout-wrapper_bg">
+	@@include('./components/header.html', {
+		"current": "documents"
+	})
+
+	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		
+		@@include('./components/breadcrumbs.html', {
+			"page1": "Главная",
+			"page2": "Документы",
+			"page3": ""
+		})
+
+		<section class="section">
+			
+			<h2 class="section__title section__title_inner"><span class="section__title__name section__title__name_noborder">Документы</span></h2>
+			
+			<div class="content content_white">
+			
+				<div class="doc">
+					<div class="doc__title"><a href="" class="doc__title__trigger">Новые документы</a></div>
+					<div class="doc__content"></div>
+				</div>
+
+				Закон о праве свободы слова и права собственности и еще чего-нибудь от 12. 12. 2015
+
+				Приказ департамента молодежной политики Краснодарского края от 27 февраля 2015 года №57 "О подготовке и проведении губернаторского конкурса молодежных инновационных проектов "Премия IQ 
+
+				<div class="content__header">
+					<div class="content__header__title">Предоставление государственных услуг</div>
+				</div>
+				
+				Закон Краснодарского края от 4 марта 1998г. №123-КЗ «О государственной молодежной политике в Краснодарском крае»
+				Постановление главы администрации (губернатора) Краснодарского края от 11 октября 2013 г. № 1159 "Об утверждении государственной программы Краснодарского края "Молодежь Кубани" 
+
+				Постановление главы администрации (губернатора) Краснодарского края от 7 декабря  2010 г. № 1093 "О порядке формирования  и финансового обеспечения выполнения  государственного задания в отношении государственных учреждений Краснодарского края
+
+				<div class="content__header">
+					<div class="content__header__title">Духовно-нравственное воспитание молодежи</div>
+				</div>
+				
+				<div class="content__header">
+					<div class="content__header__title">Антикоррупционное законодательство</div>
+				</div>
+				
+				<div class="content__header">
+					<div class="content__header__title">Методические рекомендации</div>
+				</div>
+				
+				<div class="content__header">
+					<div class="content__header__title">Профилактика экстремизма в молодежной среде</div>
+				</div>
+				
+				<div class="content__header">
+					<div class="content__header__title">Архивные документы</div>
+				</div>
+
+			</div>
+
+		</section>
+
+	</div>
+</article>
+
+@@include('./components/footer.html')

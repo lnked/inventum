@@ -49,7 +49,7 @@
 	clear: both;
 	line-height: 0;
 	font-size: 0;
-    margin-left: -2rem;
+	margin: 0 -2rem !important;
 	text-align: center;
 
 	&__item {
@@ -58,6 +58,8 @@
 		vertical-align: top;
 		margin: 0 1rem;
 		@extend .inline;
+		background: none !important;
+		padding: 0 !important;
 
 		&_push {
 			margin-bottom: 2rem;
