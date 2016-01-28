@@ -74,10 +74,12 @@
 		margin-bottom: 3.9rem;
 
 		&__name {
+			color: #093;
 			position: relative;
 			letter-spacing: 0.0ex;
 			text-indent: -20px;
 			padding-bottom: 14px;
+			text-decoration: none;
 			display: inline-block;
 
 			&:after {
@@ -90,6 +92,13 @@
 				bottom: 3px;
 				margin-left: -39.4%;
 				background-color: #093;
+				transition: opacity $time;
+			}
+
+			&:hover {
+				&:after {
+					opacity: 0;
+				}
 			}
 		}
 	}

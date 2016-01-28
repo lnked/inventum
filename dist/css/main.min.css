@@ -463,10 +463,12 @@ a:focus {
     margin-bottom: 39px;
     margin-bottom: 3.9rem; }
     .section__title__name {
+      color: #093;
       position: relative;
       letter-spacing: 0.0ex;
       text-indent: -20px;
       padding-bottom: 14px;
+      text-decoration: none;
       display: inline-block; }
       .section__title__name:after {
         width: 73%;
@@ -478,7 +480,11 @@ a:focus {
         left: 50%;
         bottom: 3px;
         margin-left: -39.4%;
-        background-color: #093; }
+        background-color: #093;
+        -webkit-transition: opacity 0.4s;
+        transition: opacity 0.4s; }
+      .section__title__name:hover:after {
+        opacity: 0; }
 
 #svg-filter,
 #svg-greyscale {
