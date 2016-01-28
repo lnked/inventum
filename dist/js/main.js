@@ -269,6 +269,38 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 			});
 		},
 
+		initSearch: function()
+		{
+			var _search, _overlay, _form;
+
+			_search = $(template('tmpl-search', {}));
+			
+			body.append(_search);
+			
+			_form = $('#search-form');
+			_overlay = $('#search-overlay');
+
+			body.on('click', '.js-search', function(){
+				_overlay.addClass('visible');
+				_form.addClass('visible');
+
+				setTimeout(function(){
+					_overlay.addClass('animate');
+					_form.addClass('animate');
+				}, 10);
+			});
+
+			body.on('click', '#search-overlay', function(){
+				_overlay.removeClass('animate');
+				_form.removeClass('animate');
+
+				setTimeout(function(){
+					_overlay.removeClass('visible');
+					_form.removeClass('visible');
+				}, 400);
+			});
+		},
+
 		init: function()
 		{
 			this.disableHover();
@@ -280,6 +312,7 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 			this.initSelect();
 			this.initSandwich();
 			this.initDocuments();
+			this.initSearch();
 
 			this.slickSider();
 			this.carousel();

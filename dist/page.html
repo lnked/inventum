@@ -104,16 +104,14 @@
 
 <div class="overlay" id="overlay"></div>
 
-<svg id="svg-filter"><filter id="svg-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur></filter></svg>
+<script type="text/html" id="tmpl-search">
+	<div class="overlay" id="search-overlay"></div>
 
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="svg-greyscale">
-	<filter id="greyscale">
-	<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
-		0.3333 0.3333 0.3333 0 0
-		0.3333 0.3333 0.3333 0 0
-		0 0 0 1 0" />
-	</filter>
-</svg>
+	<form action="/search" class="search-form" id="search-form">
+	   	<input name="q" class="search-form__input" placeholder="Поиск по сайту">
+	   	<button type="submit" class="search-form__button"></button>
+	</form>
+</script>
 
 <script type="text/html" id="tmpl-notification">
 	<div class="notification" id="popup_notification">
@@ -165,52 +163,6 @@
 	</div>
 </script>
 
-<div class="popup" id="popup-test">
-    <div class="popup__wrapper">
-		<span class="popup__close js-popup-close"></span>
-	    
-	    <header class="popup__header">
-	    	<h2>Popup</h2>
-		</header>
-
-		<section class="popup__conteiner clearfix">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptates doloremque commodi rerum voluptatibus cumque blanditiis, facilis ratione minus eius officiis corporis dolores nobis assumenda iusto deserunt maxime eligendi! Enim.</p>
-			<p>Omnis porro, sed recusandae illum adipisci quidem saepe tempore repudiandae exercitationem delectus, laborum soluta eaque modi corporis. Ad ullam et iure, non nam, eveniet sed, distinctio porro officia aliquam at.</p>
-		</section>
-
-		<footer class="popup__footer popup__footer_right">
-			<a href="" class="button js-popup-close">Применить</a>
-		</footer>
-	</div>
-</div>
-
-<script type="text/html" id="tmpl-mustache">
-	<h1>{{header}}</h1>
-	<p>{{content}}</p>
-	<ul>
-		{{#authors}}
-		    <li>{{#accent}} {{.}} {{/accent}}</li>
-		{{/authors}}
-
-		{{^authors}}
-		    <li>anonymous</li>
-		{{/authors}}
-	</ul>
-	
-	{{#stooges}}
-	<b>{{name}}</b>
-	{{/stooges}}
-
-	* {{name}}
-	* {{age}}
-	* {{company}}
-	* {{{company}}}
-	* {{&company}}
-	{{=<% %>=}}
-	* {{company}}
-	<%={{ }}=%>
-</script>
-
 <article class="layout-wrapper layout-wrapper_bg">
 	<span class="sandwich js-sandwich-menu">
 	<span class="sandwich__layer">Menu</span>
@@ -254,10 +206,9 @@
 			    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
 			</ul>
 			
-			<form action="" class="layout-header__search">
-				<input class="layout-header__search__input">
-				<button type="submit" class="layout-header__search__button"></button>
-			</form>
+			<div class="layout-header__search">
+				<button type="button" class="layout-header__search__button js-search"></button>
+			</div>
 		</div>
 
 		<div class="submenu-background" id="navigation-submenu"></div>
