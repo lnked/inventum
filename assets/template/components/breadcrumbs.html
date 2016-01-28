@@ -1,0 +1,18 @@
+<nav class="breadcrumbs clearfix">
+	<div class="breadcrumbs__wrapper">
+		<ol class="breadcrumbs__list">
+			<li class="breadcrumbs__item"><a href="/" class="breadcrumbs__item__link">@@page1</a></li>
+			
+			@@if (page3 == '')
+			{
+				<li class="breadcrumbs__item last"><a href="/examples" class="breadcrumbs__item__link current">@@page2</a></li>
+			}
+
+			@@if (page3 !== '')
+			{
+				<li class="breadcrumbs__item"><a href="/examples" class="breadcrumbs__item__link">@@page2</a></li>
+				<li class="breadcrumbs__item last"><a href="/examples/shop/cart" class="breadcrumbs__item__link current">@@page3</a></li>
+			}
+		</ol>
+	</div>
+</nav>

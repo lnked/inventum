@@ -1,0 +1,27 @@
+@@include('./components/meta.html', {
+	"title": "Сотрудники"
+})
+
+@@include('./popups/popup.html')
+
+<article class="layout-wrapper">
+	@@include('./components/header.html', {
+		"current": ""
+	})
+
+	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		
+		@@include('./components/breadcrumbs.html', {
+			"page1": "О нас",
+			"page2": "Сотрудники",
+			"page3": ""
+		})
+
+		<section class="section">
+		
+		</section>
+
+	</div>
+</article>
+
+@@include('./components/footer.html')

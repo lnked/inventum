@@ -93,7 +93,7 @@
     <script type="text/javascript" src="/js/vendor/pollyfill.request.animation.frame.js"></script>
     <![endif]-->
 
-    <title itemprop="name">Main</title>
+    <title itemprop="name">Сотрудники</title>
 </head>
 <body>
 
@@ -102,7 +102,114 @@
 </noscript>
 
 
+<div class="overlay" id="overlay"></div>
 
+<svg id="svg-filter"><filter id="svg-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur></filter></svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="svg-greyscale">
+	<filter id="greyscale">
+	<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0 0 0 1 0" />
+	</filter>
+</svg>
+
+<script type="text/html" id="tmpl-notification">
+	<div class="notification" id="popup_notification">
+	    {{#title}}
+	    <div class="notification__header">{{title}}</div>
+	    {{/title}}
+		
+		{{#text}}
+		<div class="notification__content clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-message">
+	<div class="popup popup_simple popup_message" id="popup_message">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-error">
+	<div class="popup popup_simple popup_error" id="popup_error">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+	    
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+	
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<div class="popup" id="popup-test">
+    <div class="popup__wrapper">
+		<span class="popup__close js-popup-close"></span>
+	    
+	    <header class="popup__header">
+	    	<h2>Popup</h2>
+		</header>
+
+		<section class="popup__conteiner clearfix">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptates doloremque commodi rerum voluptatibus cumque blanditiis, facilis ratione minus eius officiis corporis dolores nobis assumenda iusto deserunt maxime eligendi! Enim.</p>
+			<p>Omnis porro, sed recusandae illum adipisci quidem saepe tempore repudiandae exercitationem delectus, laborum soluta eaque modi corporis. Ad ullam et iure, non nam, eveniet sed, distinctio porro officia aliquam at.</p>
+		</section>
+
+		<footer class="popup__footer popup__footer_right">
+			<a href="" class="button js-popup-close">Применить</a>
+		</footer>
+	</div>
+</div>
+
+<script type="text/html" id="tmpl-mustache">
+	<h1>{{header}}</h1>
+	<p>{{content}}</p>
+	<ul>
+		{{#authors}}
+		    <li>{{#accent}} {{.}} {{/accent}}</li>
+		{{/authors}}
+
+		{{^authors}}
+		    <li>anonymous</li>
+		{{/authors}}
+	</ul>
+	
+	{{#stooges}}
+	<b>{{name}}</b>
+	{{/stooges}}
+
+	* {{name}}
+	* {{age}}
+	* {{company}}
+	* {{{company}}}
+	* {{&company}}
+	{{=<% %>=}}
+	* {{company}}
+	<%={{ }}=%>
+</script>
 
 <article class="layout-wrapper">
 	<span class="sandwich js-sandwich-menu">
@@ -157,81 +264,27 @@
 	</nav>
 </header>
 
-	
-
-	<section class="news layout">
+	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
 		
-	</section>
-	Новости
+		<nav class="breadcrumbs clearfix">
+	<div class="breadcrumbs__wrapper">
+		<ol class="breadcrumbs__list">
+			<li class="breadcrumbs__item"><a href="/" class="breadcrumbs__item__link">О нас</a></li>
+			
+			
+				<li class="breadcrumbs__item last"><a href="/examples" class="breadcrumbs__item__link current">Сотрудники</a></li>
+			
 
-	Наши проекты
+			
+		</ol>
+	</div>
+</nav>
 
-
-	Фотогалерея
-
-
-	Опрос
-
-	Какую информацию вы бы хотели видеть больше на сайте?
-
-
-	Информацию для предпринимателей
-
-Информацию посвященную спортивным мероприятиям
-
-Развивающие и обучающие программы
-
-
-	<section class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		<section class="section">
 		
-		<label class="control control_checkbox clearfix" role="checkbox">
-	<input type="checkbox" class="control__input" name="checkbox" value="1">
-	<span class="control__visible control__visible_checkbox"></span>
-	<span class="control__label">
-		<span class="control__label__middle">checkbox</span>
-	</span>
-</label>
+		</section>
 
-		<br>
-
-		<label class="control control_radio clearfix" role="radio">
-	<input type="radio" class="control__input" name="radio" value="1">
-	<span class="control__visible control__visible_radio"></span>
-	<span class="control__label">
-		<span class="control__label__middle">radio 1</span>
-	</span>
-</label>
-
-		<br>
-
-		<label class="control control_radio clearfix" role="radio">
-	<input type="radio" class="control__input" name="radio" value="2">
-	<span class="control__visible control__visible_radio"></span>
-	<span class="control__label">
-		<span class="control__label__middle">radio 2</span>
-	</span>
-</label>
-
-		<br>
-		<br>
-		
-		<select name="">
-			<option value="">1</option>
-			<option value="">2</option>
-			<option value="">3</option>
-			<option value="">4</option>
-			<option value="">5</option>
-		</select>
-		
-		<br>
-
-		<div style="padding: 30px 0;">
-			<a href="#popup-test" class="button js-open-popup" data-popup="popup-test">Открыть попап</a>
-		</div>
-
-		<br>
-
-	</section>
+	</div>
 </article>
 
 <footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
