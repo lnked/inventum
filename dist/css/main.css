@@ -180,7 +180,7 @@ svg {
 a:focus {
   outline: 0; }
 
-.layout, .layout-header__wrapper, .content, .layout-footer__wrapper, .section__wrapper, .navigation__wrapper, .slider__item__content, .breadcrumbs__wrapper {
+.layout, .layout-header__wrapper, .content, .layout-footer__wrapper, .section__wrapper, .navigation__wrapper, .slider__item__content, .breadcrumbs__wrapper, .contacts__wrapper {
   width: 100%;
   height: 100%;
   padding: 0 10px;
@@ -1968,6 +1968,41 @@ table {
       border-left: 0; }
     table tr td:last-child {
       border-right: 0; }
+
+.contacts {
+  clear: both; }
+  .contacts__wrapper {
+    margin-bottom: 25px;
+    margin-bottom: 2.5rem; }
+  .contacts__address, .contacts__section {
+    padding-left: 30px;
+    padding-left: 3rem;
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 25px;
+    line-height: 2.5rem;
+    margin-bottom: 25px;
+    margin-bottom: 2.5rem; }
+  .contacts__address {
+    color: #152930;
+    font-weight: 700;
+    background: url(../images/pic.png) 0 4px no-repeat; }
+  .contacts__section {
+    color: #333;
+    font-weight: 400; }
+    .contacts__section a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 700; }
+  .contacts__map {
+    height: 445px;
+    border: solid #fff;
+    border-width: 1px 0;
+    margin-bottom: -43px;
+    margin-bottom: -4.3rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
 
 .doc {
   clear: both;
