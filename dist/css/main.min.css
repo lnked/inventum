@@ -192,7 +192,7 @@ a:focus {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.inline, .navigation__item, .projects__item, .pagination__item, .news-list__item, .gallery__item {
+.inline, .navigation__item, .projects__item, .pagination__item, .news-list__item, .video-list__item, .gallery__item {
   display: inline-block;
   vertical-align: top;
   *display: inline;
@@ -2248,6 +2248,92 @@ table {
     font-weight: 400;
     line-height: 22px;
     line-height: 2.2rem; }
+
+.video-list {
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  margin: 0 -20px !important;
+  margin: 0 -2rem !important;
+  text-align: center; }
+  .video-list__item {
+    width: 300px;
+    width: 30rem;
+    text-align: left;
+    vertical-align: top;
+    margin: 0 10px;
+    margin: 0 1rem;
+    background: none !important;
+    padding: 0 !important; }
+    .video-list__item_push {
+      margin-bottom: 20px;
+      margin-bottom: 2rem; }
+
+.video-item {
+  position: relative; }
+  .video-item:after {
+    width: 100%;
+    height: 30px;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: #fff; }
+  .video-item__image {
+    width: 300px;
+    width: 30rem;
+    height: 200px;
+    height: 20rem;
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+    display: block; }
+    .video-item__image__src {
+      max-width: 100%;
+      max-height: 100%;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      -webkit-transition: -webkit-filter 0.4s, filter 0.4s;
+      transition: -webkit-filter 0.4s, filter 0.4s; }
+    .video-item__image:hover .video-item__image__src {
+      -webkit-filter: none;
+      filter: none; }
+  .video-item__content {
+    clear: both;
+    padding: 19px 20px;
+    height: 82px;
+    height: 8.2rem;
+    background-color: #fff;
+    overflow: hidden; }
+  .video-item__date {
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+    margin-bottom: .6rem;
+    color: #007495; }
+    .video-item__date__year {
+      color: #9fcc7b; }
+  .video-item__title {
+    color: #333;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 22px;
+    line-height: 2.2rem;
+    margin-bottom: 7px;
+    margin-bottom: .7rem; }
+    .video-item__title__link {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #fff;
+      -webkit-transition: border-color 0.4s;
+      transition: border-color 0.4s; }
+      .video-item__title__link:hover {
+        border-color: #cbcbcb; }
 
 .gallery-block {
   clear: both;

@@ -1,0 +1,97 @@
+.video-list {
+	clear: both;
+	line-height: 0;
+	font-size: 0;
+	margin: 0 -2rem !important;
+	text-align: center;
+
+	&__item {
+		width: 30rem;
+		text-align: left;
+		vertical-align: top;
+		margin: 0 1rem;
+		@extend .inline;
+		background: none !important;
+		padding: 0 !important;
+
+		&_push {
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.video-item {
+	position: relative;
+
+	&:after {
+		width: 100%;
+		height: 30px;
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		background-color: #fff;
+	}
+
+	&__image {
+		width: 30rem;
+		height: 20rem;
+		margin: 0;
+		line-height: 0;
+		font-size: 0;
+		display: block;
+
+		&__src {
+			max-width: 100%;
+			max-height: 100%;
+					
+			filter: grayscale(100%);
+			transition: filter $time;
+		}
+
+		&:hover &__src {
+			filter: none;
+		}
+	}
+
+	&__content {
+		clear: both;
+		padding: 19px 20px;
+		height: 8.2rem;
+		background-color: #fff;
+		overflow: hidden;
+	}
+
+	&__date {
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: .6rem;
+		color: #007495;
+		
+		&__year {
+			color: #9fcc7b;
+		}
+	}
+
+	&__title {
+		color: #333;
+		font-size: 1.6rem;
+		font-weight: 700;
+		line-height: 2.2rem;
+		margin-bottom: .7rem;
+
+		&__link {
+			color: #333;
+			text-decoration: none;
+			border-bottom: 1px solid #fff;
+			transition: border-color $time;
+
+			&:hover {
+				border-color: #cbcbcb;
+			}
+		}
+	}
+}
