@@ -162,59 +162,6 @@
 			}, false);
 		},
 
-		initTooltip: function()
-		{
-			var tooltip, item;
-
-			body.on('click', function(e){
-				if (!$(e.target).hasClass('tooltip') && !$(e.target).hasClass('js-tooltip') && $('.tooltip.show').length)
-				{
-					$('.tooltip.show').removeClass('animate');
-
-					setTimeout(function(){
-						$('.tooltip.show').removeClass('show');
-					}, 300);
-				}
-			});
-
-			body.on('click', '.js-tooltip', function(e){
-				e.preventDefault();
-				
-				item = $(this);
-
-				if ((item.data('tooltip') || item.find('.tooltip').length) && !$(e.target).hasClass('tooltip'))
-				{
-					tooltip = item.data('tooltip');
-
-					if (!item.find('.tooltip').length)
-					{
-						var span = document.createElement('span');
-						span.className = 'tooltip';
-						span.innerHTML = tooltip;
-
-						item.append(span);
-					}
-
-					if (item.find('.tooltip').hasClass('show'))
-					{
-						item.find('.tooltip').removeClass('animate');
-
-						setTimeout(function(){
-							item.find('.tooltip').removeClass('show');
-						}, 200);
-					}
-					else
-					{
-						item.find('.tooltip').addClass('show');
-
-						setTimeout(function(){
-							item.find('.tooltip').addClass('animate');
-						}, 10);
-					}
-				}
-			});
-		},
-
 		navFixed: function(top)
 		{
 			if (top >= 91)
@@ -287,6 +234,29 @@
 			
 		},
 
+		initDocuments: function()
+		{
+			body.on('click', '.js-doc-trigger', function(e){
+				e.preventDefault();
+
+				var doc = $(this).closest('.doc');
+				
+				doc.find('.doc__content').slideToggle(300, function(){
+					doc.toggleClass('open');
+				});
+
+				return !1;
+			});
+
+			body.on('mouseenter', '.js-doc-link', function(){
+				$(this).closest('.js-doc-item').addClass('hover');
+			});
+
+			body.on('mouseleave', '.js-doc-link', function(){
+				$(this).closest('.js-doc-item').removeClass('hover');
+			});
+		},
+
 		init: function()
 		{
 			this.disableHover();
@@ -297,6 +267,7 @@
 			this.initMask();
 			this.initSelect();
 			this.initSandwich();
+			this.initDocuments();
 
 			this.slickSider();
 			this.carousel();

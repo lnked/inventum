@@ -1,7 +1,144 @@
 .doc {
-	border: 3px solid red;
+	clear: both;
+	margin-bottom: 1rem;
 
 	&__title {
-		&__trigger {}
+		height: 4rem;
+		line-height: 4rem;
+		padding: 0 2.5rem;
+		background-color: $lb;
+
+		&__trigger {
+			color: #333;
+			font-size: 1.8rem;
+			font-weight: 700;
+			padding-right: 3rem;
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+
+			&:before, &:after {
+				width: 10px;
+				height: 16px;
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 50%;
+				margin-top: -8px;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				transition: opacity $time, transform $time;
+			}
+
+			&:before {
+				opacity: 1;
+				background-image: url(../images/arrow.png);
+			}
+
+			&:after {
+				opacity: 0;
+				background-image: url(../images/arrow-active.png);
+			}
+
+			&:hover {
+				&:before {
+					opacity: 0;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__content {
+		display: none;
+
+		&__list {
+			padding: 2.5rem 2.5rem 2.5rem 8.5rem;
+		}
+	}
+	
+	&__item {
+		clear: both;
+		margin-bottom: 2rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&__right {
+			float: right;
+		}
+
+		&__link {
+			display: block;
+			color: #333;
+			font-size: 1.6rem;
+			font-weight: 400;
+			line-height: 2.4rem;
+			margin-right: 16rem;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		&__date {
+			font-size: 1.5rem;
+			font-weight: 700;
+			line-height: 3.2rem;
+			color: #007495;
+			margin-right: 3rem;
+			
+			&__year {
+				color: #9fcc7b;
+			}
+		}
+
+		&__format {
+			width: 30px;
+			height: 30px;
+			float: right;
+			position: relative;
+
+			&__ico {
+				position: absolute;
+				left: 0;
+				top: 0;
+				transition: opacity $time;
+
+				&_passive {
+					z-index: 1;
+				}
+
+				&_active {
+					opacity: 0;
+					z-index: 2;
+				}
+			}
+		}
+
+		&.hover {
+			.doc__item__format__ico {
+				&_active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&.open {
+		.doc__content {
+			display: block;
+		}
+
+		.doc__title__trigger {
+			&:before, &:after {
+				transform: rotate(90deg);
+			}
+		}
 	}
 }
