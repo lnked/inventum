@@ -1,0 +1,66 @@
+@@include('./components/meta.html', {
+	"title": "Новости"
+})
+
+@@include('./popups/popup.html')
+
+<article class="layout-wrapper layout-wrapper_bg">
+	@@include('./components/header.html', {
+		"current": ""
+	})
+
+	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		
+		@@include('./components/breadcrumbs.html', {
+			"page1": "Пресс - центр",
+			"page2": "Фотогалерея",
+			"page3": ""
+		})
+
+		<section class="section">
+			
+			<div class="content content_inner">
+
+				<h1 class="content__title center">Другое название более длинное Форум "Регион 93"</h1>
+				
+				<ul class="gallery">
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+				</ul>
+
+				@@include('./components/pagination.html')
+				
+			</div>
+
+		</section>
+		
+		<section class="section section_carousel">
+			@@include('./components/carousel.html')
+		</section>
+
+	</div>
+</article>
+
+@@include('./components/footer.html')

@@ -3,7 +3,7 @@
     font-size: 0;
     line-height: 0;
     text-align: center;
-    margin: 3rem 0 10rem;
+    margin: 3rem 0 5.6rem;
 
     &__list {
 	    letter-spacing: normal;
@@ -12,7 +12,7 @@
 	}
 
 	&__item {
-	    margin: 0 2px;
+	    margin: 0 2px !important;
 	    padding: 0 !important;
 	    background: none !important;
 	    @extend .inline;

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!-- (c) lnk. celebro | http://www.celebro.ru/ -->
+
+<!--[if lt IE 7 ]> <html class="ie6" lang="ru"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie7" lang="ru"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie8" lang="ru"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9" lang="ru"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru" class="no-js" itemscope="itemscope" xmlns="http://www.w3.org/1999/xhtml" itemtype="http://schema.org/WebPage">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="on" http-equiv="cleartype">
+    <!--
+    <meta name="viewport" content="width=960, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    -->
+    <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+    
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="ru" itemprop="inLanguage">
+    <meta content="index, follow" name="robots">
+    
+    <meta content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" name="SKYPE_TOOLBAR">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta content="True" name="HandheldFriendly">
+    <meta content="320" name="MobileOptimized">
+
+    <meta content="" name="author">
+    <meta content="" name="copyright">
+    
+    <!--
+    <link rel="preload" href="FiraSans-Regular.woff">
+    <link rel="preload" href="FiraSans-SemiBold.woff">
+    -->
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/main.min.css">
+    <noscript><link rel="stylesheet" href="./css/main.full.css"></noscript>
+    
+    <!-- Google -->
+    <meta content="notranslate" name="google">
+
+    <!-- Open Graph -->
+    <meta content="website" property="og:type">
+    <meta content="example" property="og:title">
+    <meta content="example.com" property="og:url">
+    <meta content="http://example.com/og_image.jpg" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary" name="twitter:card">
+    <meta content="@example" name="twitter:site">
+    <meta content="example" name="twitter:title">
+    <meta content="@example" name="twitter:creator">
+    <meta content="http://example.com" name="twitter:domain">
+    
+    <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+    
+    <!-- Favicon -->
+    <!--
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="favicon.png">
+    -->
+
+    <!--[if lt IE 9]>
+    <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+        document.createElement('figure');
+        document.createElement('hgroup');
+        document.createElement('menu');
+        document.createElement('main');
+    </script>
+    <![endif]-->
+    
+    <!--[if lt IE 9]>
+	<link rel="stylesheet" href="./css/ie8.css" type="text/css">
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
+    <!--[if IE 9]>
+    <script type="text/javascript" src="/js/vendor/polyfill.typedarray.js"></script>
+    <script type="text/javascript" src="/js/vendor/pollyfill.request.animation.frame.js"></script>
+    <![endif]-->
+
+    <title itemprop="name">Новости</title>
+</head>
+<body>
+
+<noscript>
+    <div class="js_disabled">В вашем браузере отключена поддержка JavaScript! Для нормальной работоспособности сайта необходимо разрешить использование JavaScript.</div>
+</noscript>
+
+
+<div class="overlay" id="overlay"></div>
+
+<svg id="svg-filter"><filter id="svg-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur></filter></svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="svg-greyscale">
+	<filter id="greyscale">
+	<feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0.3333 0.3333 0.3333 0 0
+		0 0 0 1 0" />
+	</filter>
+</svg>
+
+<script type="text/html" id="tmpl-notification">
+	<div class="notification" id="popup_notification">
+	    {{#title}}
+	    <div class="notification__header">{{title}}</div>
+	    {{/title}}
+		
+		{{#text}}
+		<div class="notification__content clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-message">
+	<div class="popup popup_simple popup_message" id="popup_message">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<script type="text/html" id="tmpl-popup-error">
+	<div class="popup popup_simple popup_error" id="popup_error">
+	    <b class="popup__close popup__close_simple js-popup-close"></b>
+	    
+	    {{#title}}
+	    <header class="popup__header popup__header_simple">
+	    	{{title}}
+	    </header>
+	    {{/title}}
+	
+		{{#text}}
+		<div class="popup__message clearfix">
+			{{text}}
+		</div>
+	    {{/text}}
+	</div>
+</script>
+
+<div class="popup" id="popup-test">
+    <div class="popup__wrapper">
+		<span class="popup__close js-popup-close"></span>
+	    
+	    <header class="popup__header">
+	    	<h2>Popup</h2>
+		</header>
+
+		<section class="popup__conteiner clearfix">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptates doloremque commodi rerum voluptatibus cumque blanditiis, facilis ratione minus eius officiis corporis dolores nobis assumenda iusto deserunt maxime eligendi! Enim.</p>
+			<p>Omnis porro, sed recusandae illum adipisci quidem saepe tempore repudiandae exercitationem delectus, laborum soluta eaque modi corporis. Ad ullam et iure, non nam, eveniet sed, distinctio porro officia aliquam at.</p>
+		</section>
+
+		<footer class="popup__footer popup__footer_right">
+			<a href="" class="button js-popup-close">Применить</a>
+		</footer>
+	</div>
+</div>
+
+<script type="text/html" id="tmpl-mustache">
+	<h1>{{header}}</h1>
+	<p>{{content}}</p>
+	<ul>
+		{{#authors}}
+		    <li>{{#accent}} {{.}} {{/accent}}</li>
+		{{/authors}}
+
+		{{^authors}}
+		    <li>anonymous</li>
+		{{/authors}}
+	</ul>
+	
+	{{#stooges}}
+	<b>{{name}}</b>
+	{{/stooges}}
+
+	* {{name}}
+	* {{age}}
+	* {{company}}
+	* {{{company}}}
+	* {{&company}}
+	{{=<% %>=}}
+	* {{company}}
+	<%={{ }}=%>
+</script>
+
+<article class="layout-wrapper layout-wrapper_bg">
+	<span class="sandwich js-sandwich-menu">
+	<span class="sandwich__layer">Menu</span>
+</span>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+	<div class="layout-header__wrapper">
+		
+		<a href="./index.html" class="layout-header__logo logo"></a>
+		
+		<a href="" class="layout-header__feedback">Обратная связь</a>
+	</div>
+	
+	<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
+		<div class="navigation__wrapper">
+			<ul class="navigation__list">
+			    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
+			    <li class="navigation__item"><a href="./news.html" class="navigation__link ">Новости</a></li>
+			    <li class="navigation__item"><a href="./documents.html" class="navigation__link ">Документы</a></li>
+			    <li class="navigation__item"><a href="./work.html" class="navigation__link ">Направления работы</a>
+			    	<div class="navigation__item__submenu submenu">
+						<ul class="submenu__list">
+							<li class="submenu__item"><a href="" class="submenu__item__link">Инновации</a></li>
+							<li class="submenu__item">
+								<ul class="submenu__item__list">
+									<li class="submenu__item"><a href="" class="submenu__item__link">Зворыкинская премия</a></li>
+									<li class="submenu__item"><a href="" class="submenu__item__link">Кубанская школа инвесторов</a></li>
+									<li class="submenu__item"><a href="" class="submenu__item__link">От идеи к делу</a></li>
+								</ul>
+							</li>
+							<li class="submenu__item"><a href="" class="submenu__item__link">Предпринимательство</a></li>
+							<li class="submenu__item"><a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a></li>
+							<li class="submenu__item"><a href="" class="submenu__item__link">Духовно-нравственное воспитание</a></li>
+							<li class="submenu__item"><a href="" class="submenu__item__link">Профилактика экстремизма</a></li>
+						</ul>
+					</div>
+				</li>
+			    <li class="navigation__item"><a href="./press-center.html" class="navigation__link ">Пресс-центр</a></li>
+			    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
+			</ul>
+			
+			<form action="" class="layout-header__search">
+				<input class="layout-header__search__input">
+				<button type="submit" class="layout-header__search__button"></button>
+			</form>
+		</div>
+
+		<div class="submenu-background" id="navigation-submenu"></div>
+	</nav>
+</header>
+
+	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+		
+		<nav class="breadcrumbs clearfix">
+	<div class="breadcrumbs__wrapper">
+		<ol class="breadcrumbs__list">
+			<li class="breadcrumbs__item"><a href="/" class="breadcrumbs__item__link">Пресс - центр</a></li>
+			
+			
+				<li class="breadcrumbs__item last"><a href="/examples" class="breadcrumbs__item__link current">Фотогалерея</a></li>
+			
+
+			
+		</ol>
+	</div>
+</nav>
+
+		<section class="section">
+			
+			<h2 class="section__title section__title_inner"><span class="section__title__name section__title__name_noborder">Фотогалерея</span></h2>
+			
+			<div class="content">
+					
+				<div class="gallery-block">
+					<div class="gallery-block__list">
+						<ul class="gallery">
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+						</ul>
+					</div>
+
+					<div class="gallery-block__about">
+						<a href="./gallery-item.html" class="gallery-block__about__title">Форум "Регион 93"</a>
+						<span class="gallery-block__about__date">18.12. <span class="gallery-block__about__date__year">2015</span></span>
+						<div class="gallery-block__about__more"><a href="" class="gallery-block__about__more__link">Все фото</a></div>
+					</div>
+				</div>
+
+				<div class="gallery-block">
+					<div class="gallery-block__list">
+						<ul class="gallery">
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+						</ul>
+					</div>
+
+					<div class="gallery-block__about">
+						<a href="./gallery-item.html" class="gallery-block__about__title">Другое название более длинное Форум "Регион 93"</a>
+						<span class="gallery-block__about__date">18.12. <span class="gallery-block__about__date__year">2015</span></span>
+						<div class="gallery-block__about__more"><a href="" class="gallery-block__about__more__link">Все фото</a></div>
+					</div>
+				</div>
+
+				<div class="gallery-block">
+					<div class="gallery-block__list">
+						<ul class="gallery">
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+						</ul>
+					</div>
+
+					<div class="gallery-block__about">
+						<a href="./gallery-item.html" class="gallery-block__about__title">Другое название более длинное Форум "Регион 93"</a>
+						<span class="gallery-block__about__date">18.12. <span class="gallery-block__about__date__year">2015</span></span>
+						<div class="gallery-block__about__more"><a href="" class="gallery-block__about__more__link">Все фото</a></div>
+					</div>
+				</div>
+
+				<div class="gallery-block">
+					<div class="gallery-block__list">
+						<ul class="gallery">
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+						</ul>
+					</div>
+
+					<div class="gallery-block__about">
+						<a href="./gallery-item.html" class="gallery-block__about__title">Другое название более длинное Форум "Регион 93"</a>
+						<span class="gallery-block__about__date">18.12. <span class="gallery-block__about__date__year">2015</span></span>
+						<div class="gallery-block__about__more"><a href="" class="gallery-block__about__more__link">Все фото</a></div>
+					</div>
+				</div>
+
+				<div class="gallery-block">
+					<div class="gallery-block__list">
+						<ul class="gallery">
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+							<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
+						</ul>
+					</div>
+
+					<div class="gallery-block__about">
+						<a href="./gallery-item.html" class="gallery-block__about__title">Другое название более длинное Форум "Регион 93"</a>
+						<span class="gallery-block__about__date">18.12. <span class="gallery-block__about__date__year">2015</span></span>
+						<div class="gallery-block__about__more"><a href="" class="gallery-block__about__more__link">Все фото</a></div>
+					</div>
+				</div>
+
+				<div class="pagination clearfix">
+	<ol class="pagination__list" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		<li class="pagination__item"><a href="" class="pagination__item__text">в начало</a></li>
+		<li class="pagination__item"><a href="" class="pagination__item__nav pagination__item__nav_prev" rel="prev"></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page current"><span itemprop="name">1</span></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page"><span itemprop="name">2</span></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page"><span itemprop="name">3</span></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page"><span itemprop="name">4</span></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page"><span itemprop="name">5</span></a></li>
+		<li class="pagination__item"><a href="" itemprop="url" class="pagination__item__page"><span itemprop="name">6</span></a></li>
+		<li class="pagination__item"><a href="" class="pagination__item__nav pagination__item__nav_next" rel="next"></a></li>
+		<li class="pagination__item"><a href="" class="pagination__item__text">в конец</a></li>
+	</ol>
+</div>
+				
+			</div>
+
+		</section>
+		
+		<section class="section section_carousel">
+			<div class="carousel">
+	<div class="carousel__wrapper" id="carousel">
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/1.png" alt="" class="carousel__item__image__src">
+		</div>
+
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/2.png" alt="" class="carousel__item__image__src">
+		</div>
+
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/3.png" alt="" class="carousel__item__image__src">
+		</div>
+
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/4.png" alt="" class="carousel__item__image__src">
+		</div>
+
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
+		</div>
+
+		<div class="carousel__item slick-slide">
+			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
+		</div>
+	</div>
+</div>
+		</section>
+
+	</div>
+</article>
+
+<footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+	<div class="layout-footer__upper">
+		<div class="layout-footer__wrapper">
+
+			<div class="layout-footer__block layout-footer__block_left">
+				<h3 class="layout-footer__title">КОНТАКТНЫЕ ДАННЫЕ:</h3>
+
+				<div class="layout-footer__contacts">
+					г. Краснодар, ул. Ленина, 65<br>
+					+7 (861) 267-15-90<br>
+					+7 (861) 267-15-97<br>
+					<span class="layout-footer__contacts__email">e-mail: <a href="mailto:2004-2012@bk.ru">2004-2012@bk.ru</a></span>
+				</div>
+			</div>
+
+			<div class="layout-footer__block layout-footer__block_left layout-footer__block_right">
+				<h3 class="layout-footer__title">Подписаться на новости:</h3>
+
+				<form action="" class="subscribe">
+					<div class="subscribe__block clearfix">
+						<input placeholder="Ваш e-mail" name="email" class="subscribe__field">
+						<button type="submit" class="subscribe__button">Подписаться</button>
+					</div>
+
+					<label class="subscribe__unsibscribe">
+						<span class="subscribe__unsibscribe__checkbox">
+							<input type="checkbox" name="" class="subscribe__unsibscribe__checkbox__input">
+						</span>
+						<span class="subscribe__unsibscribe__label">Отписаться</span>
+					</label>
+				</form>
+			</div>
+			
+			<div class="layout-footer__block layout-footer__block_right">
+				 <h3 class="layout-footer__title">Мы в соцсетях:</h3>
+
+				 <ul class="social">
+				 	<li class="social__item"><a href="" class="social__item__link social__item__link_vk"></a></li>
+				 	<li class="social__item"><a href="" class="social__item__link social__item__link_fb"></a></li>
+				 	<li class="social__item"><a href="" class="social__item__link social__item__link_ok"></a></li>
+				 </ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="layout-footer__bottom">
+		<div class="layout-footer__wrapper">
+			<div class="layout-footer__copiright"><span class="layout-footer__copiright__mid">Copyright © 2011 «Инвентум»<br>Все права защищены</span></div>
+			<div class="layout-footer__counters">
+				<span class="layout-footer__counters__item"><img src="./images/counter.png" alt=""></span>
+			</div>
+			<div class="layout-footer__studio">Разработка сайта <a href="" class="layout-footer__studio__link">«Русь-технология»</a></div>
+		</div>
+	</div>
+</footer>
+
+<script src="./js/main.min.js"></script>
+
+</body>
+</html>
