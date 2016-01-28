@@ -26,10 +26,46 @@
 		img { margin: 6px 30px 20px; }
 		img[align="left"] { margin-left: 0; }
 		img[align="right"] { margin-right: 0; }
+	}
+	
+	p {
+		color: #152930;
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 2.2rem;
+		margin-bottom: 2.5rem;
+	}
 
-		p {
-			margin-bottom: 2.5rem;
+	ol {
+		list-style-type: decimal;
+		margin: 0 0 3rem 2rem;
+	}
+	
+	ul {
+		list-style-type: none;
+		margin: 0 0 4rem 2rem;
+
+		li {
+			padding-left: 2rem;
+			background: url(../images/li.png) 0 6px no-repeat;
 		}
+	}
+
+	ol li,
+	ul li {
+		color: #152930;
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 2.2rem;
+		margin-bottom: 2rem;
+	}
+
+	h3 {
+		color: #152930;
+		font-size: 1.6rem;
+		font-weight: 700;
+		line-height: 2.2rem;
+		margin-bottom: 1.5rem;
 	}
 
 	&__header {

@@ -1,7 +1,29 @@
-.table {
-	&__touch {
-		width: 100%;
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
+.table-touch {
+	width: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	border: solid #cae6f1;
+	border-width: 5px 0;
+	margin-bottom: 3rem;
+
+	tr {
+		td {
+			padding: 2rem;
+			border: solid #cae6f1;
+			border-width: 3px;
+
+			&:first-child {
+				border-left: 0;
+			}
+			
+			&:last-child {
+				border-right: 0;
+			}
+		}
 	}
 }
