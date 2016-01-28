@@ -73,6 +73,10 @@
 		text-align: center;
 		margin-bottom: 3.9rem;
 
+		&_inner {
+			margin: 3rem 0;
+		}
+
 		&__name {
 			color: #093;
 			position: relative;
@@ -93,6 +97,14 @@
 				margin-left: -39.4%;
 				background-color: #093;
 				transition: opacity $time;
+			}
+
+			&_noborder {
+				padding-bottom: 0;
+
+				&:after {
+					opacity: 0;
+				}
 			}
 
 			&:hover {

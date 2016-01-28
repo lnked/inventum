@@ -11,6 +11,7 @@
 
 @import "layout/layout";
 @import "layout/header";
+@import "layout/content";
 @import "layout/footer";
 @import "layout/section";
 @import "layout/popup";
@@ -28,7 +29,9 @@
 @import "components/carousel";
 @import "components/social";
 @import "components/subscribe";
+@import "components/employees";
 @import "components/breadcrumbs";
+@import "components/pagination";
 
 @import "modules/news";
 @import "modules/gallery";

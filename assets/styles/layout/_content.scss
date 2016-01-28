@@ -1,0 +1,27 @@
+.content {
+	width: 100%;
+	max-width: 99rem;
+	margin: 0 auto;
+
+	&_white {
+		background-color: #fff;
+	}
+
+	&__header {
+		height: 6rem;
+		line-height: 6rem;
+		padding: 0 2.5rem;
+		background-color: #e6f8ff;
+
+		&__title {
+			color: #333;
+			font-size: 1.8rem;
+			font-weight: 700;
+			float: left;
+
+			&_right {
+				float: right;
+			}
+		}
+	}
+}

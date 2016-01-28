@@ -8,9 +8,13 @@
 	&__item {
 		width: 30rem;
 		text-align: left;
-		@extend .inline;
 		vertical-align: top;
 		margin: 0 1rem;
+		@extend .inline;
+
+		&_push {
+			margin-bottom: 2rem;
+		}
 	}
 }
 

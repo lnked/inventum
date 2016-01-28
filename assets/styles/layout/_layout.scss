@@ -20,6 +20,10 @@
 	min-height: 100%;
 	overflow: hidden;
 
+	&_bg {
+		background: #cae6f1 url(../images/background.png);
+	}
+
 	&__inner {
 		padding-top: 69px;
 		padding-bottom: $footerHeight;
