@@ -298,6 +298,37 @@ a:focus {
 .content_white {
   background-color: #fff; }
 
+.content_page {
+  padding: 40px 85px;
+  padding: 4rem 8.5rem; }
+
+.content__title {
+  color: #333;
+  font-size: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 40px;
+  line-height: 4rem;
+  margin-bottom: 50px;
+  margin-bottom: 5rem; }
+
+.content__text {
+  color: #152930;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 22px;
+  line-height: 2.2rem; }
+  .content__text img {
+    margin: 6px 30px 20px; }
+  .content__text img[align="left"] {
+    margin-left: 0; }
+  .content__text img[align="right"] {
+    margin-right: 0; }
+  .content__text p {
+    margin-bottom: 25px;
+    margin-bottom: 2.5rem; }
+
 .content__header {
   height: 60px;
   height: 6rem;
@@ -1877,9 +1908,7 @@ textarea {
         opacity: 1; }
 
 .news {
-  clear: both;
-  padding: 40px 85px;
-  padding: 4rem 8.5rem; }
+  clear: both; }
   .news__title {
     color: #333;
     font-size: 30px;

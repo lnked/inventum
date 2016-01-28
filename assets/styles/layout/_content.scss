@@ -1,8 +1,35 @@
 .content {
 	@extend .layout;
-	
+
 	&_white {
 		background-color: #fff;
+	}
+
+	&_page {
+		padding: 4rem 8.5rem;
+	}
+	
+	&__title {
+		color: #333;
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 4rem;
+		margin-bottom: 5rem;
+	}
+
+	&__text {
+		color: #152930;
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 2.2rem;
+
+		img { margin: 6px 30px 20px; }
+		img[align="left"] { margin-left: 0; }
+		img[align="right"] { margin-right: 0; }
+
+		p {
+			margin-bottom: 2.5rem;
+		}
 	}
 
 	&__header {
