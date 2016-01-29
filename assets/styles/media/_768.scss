@@ -3,4 +3,50 @@
 		z-index: 10000;
 		@include opacity(1);
 	}
+
+	.layout-header {
+	    height: 11rem;
+		box-shadow: 0 0.2rem 0.8rem rgba(22, 63, 75, 0.4);
+
+		&__feedback {
+			right: 9rem;
+		}
+
+		&__navigation {
+			display: none;
+		}
+    }
+
+    .layout-wrapper {
+    	&__inner {
+    		padding-top: 0;
+    		padding-bottom: 0;
+    	}
+    }
+
+    .layout-footer {
+    	height: auto;
+    	margin-top: 0;
+	    padding-top: 3rem;
+
+    	&__block {
+    		clear: both;
+    		width: 100%;
+    		height: auto;
+    		margin-bottom: 4rem;
+    	}
+
+    	&__bottom {
+			position: relative;
+			left: auto;
+			right: auto;
+			top: auto;
+			bottom: auto;
+    	}
+    }
+	
+	.subscribe {
+		padding: 0;
+    	max-width: 30rem;
+    }
 }

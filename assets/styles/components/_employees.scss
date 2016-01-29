@@ -3,14 +3,20 @@
 	padding: 2rem 2.5rem;
 	border-bottom: 5px solid #e6f8ff;
 
+	&__image,
+	&__name,
+	&__contact {
+		width: 33.333%;
+		padding: 0 1rem;
+		box-sizing: border-box;
+	}
+
 	&__image {
 		float: left;
-		width: 22rem;
 		height: 22rem;
-		margin: 0 4rem;
 		line-height: 22rem;
 		text-align: center;
-		background: #e2f5fc url(../images/emploeer.png) 50% 50% no-repeat;
+		background: url(../images/emploeer.png) 50% 50% no-repeat;
 
 		&__src {
 			max-width: 100%;
@@ -20,12 +26,10 @@
 	}
 
 	&__name {
-		width: 34rem;
 		font-weight: 700;
 	}
 
 	&__contact {
-		width: 30rem;
 		font-weight: 400;
 	}
 

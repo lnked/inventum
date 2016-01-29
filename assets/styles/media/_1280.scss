@@ -1,2 +1,38 @@
-@media screen and (min-width: 1281px) {}
-@media only screen and (max-width: 1280px) {}
+@media only screen and (max-width: 1300px) {
+	.layout-header {
+		&__logo {
+			left: 2rem;
+		}
+
+		&__wrapper {
+	    	padding-left: 2rem;
+	    	padding-right: 2rem;
+    	}
+    }
+
+    .navigation {
+    	&__wrapper {
+		    padding: 0 2rem;
+		}
+	}
+
+	.breadcrumbs {
+		padding: 0 2rem;
+	}
+
+	.carousel {
+		&__navigation {
+			&_prev {
+				left: 10px;
+			}
+
+			&_next {
+				right: 10px;
+			}
+		}
+	}
+
+	.subscribe {
+	    width: 90%;
+	}
+}

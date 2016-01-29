@@ -84,3 +84,8 @@ svg {
 a:focus {
     outline: 0;
 }
+
+a[href]:not([class]) {
+    color: #080;
+    text-decoration: underline;
+}

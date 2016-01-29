@@ -1,1 +1,7 @@
-@media only screen and (max-width: 960px) {}
+@media only screen and (max-width: 960px) {
+    .gallery {
+	    &__more {
+	    	text-align: center;
+	    }
+    }
+}

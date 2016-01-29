@@ -21,7 +21,21 @@
 	overflow: hidden;
 
 	&_bg {
-		background: #cae6f1 url(../images/background.png);
+		background-image: url(../images/background.png);
+	}
+
+	&_bg,
+	&_photo,
+	&_video {
+		background-color: #cae6f1;
+	}
+
+	&_photo {
+		background-image: url(../images/photo.png);
+	}
+	
+	&_video {
+		background-image: url(../images/video.png);
 	}
 
 	&__inner {

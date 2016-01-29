@@ -113,24 +113,19 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 						{
 							breakpoint: 1024,
 							settings: {
-								slidesToShow: 3,
-								slidesToScroll: 3,
-								infinite: true,
-								dots: true
+								slidesToShow: 3
 							}
 						},
 						{
 							breakpoint: 600,
 							settings: {
-								slidesToShow: 2,
-								slidesToScroll: 2
+								slidesToShow: 2
 							}
 						},
 						{
 							breakpoint: 480,
 							settings: {
-								slidesToShow: 1,
-								slidesToScroll: 1
+								slidesToShow: 1
 							}
 						}
 					]

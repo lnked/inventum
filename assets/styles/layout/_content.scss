@@ -46,7 +46,7 @@
 		margin: 0 0 3rem 2rem;
 	}
 	
-	ul {
+	ul:not([class]) {
 		list-style-type: none;
 		margin: 0 0 4rem 2rem;
 
@@ -56,8 +56,8 @@
 		}
 	}
 
-	ol li,
-	ul li {
+	ol:not([class]) li,
+	ul:not([class]) li {
 		color: #152930;
 		font-size: 1.6rem;
 		font-weight: 400;
@@ -87,6 +87,7 @@
 
 			&_right {
 				float: right;
+				margin-right: 7.5rem;
 			}
 		}
 	}

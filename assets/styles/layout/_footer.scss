@@ -5,19 +5,24 @@
 	padding-top: 5.7rem;
     overflow: hidden;
 	box-sizing: border-box;
-	background: #18494f url(../images/footer.png) 50% 0;
+	background: #18494f url(../images/footer.png) 50% 50%;
 	
 	&__wrapper {
 		@extend .layout;
 		padding: 0;
+
+		&_border {
+			border-left: 1px solid #59767c;
+			border-right: 1px solid #59767c;
+		}
 	}
 	
 	&__block {
-		float: left;
-		width: 32.8%;
+		width: 33.33333%;
 		height: 19rem;
+		float: left;
 		box-sizing: border-box;
-
+		
 		&_left {
 			border-left: 1px solid #59767c;
 		}
