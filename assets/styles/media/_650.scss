@@ -1,0 +1,9 @@
+@media only screen and (max-width: 650px) {
+    .section_news {
+    	.news-list__item {
+    		&:nth-child(2) {
+    			display: none;
+    		}
+    	}
+    }
+}

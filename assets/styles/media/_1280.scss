@@ -20,6 +20,21 @@
 		padding: 0 2rem;
 	}
 
+	.projects {
+		&__item {
+			margin-right: 2rem;
+			margin-left: 2rem;
+
+			&:nth-child(4n+4) {
+				margin-right: 2rem;
+			}
+
+			&:nth-child(4n+1) {
+				margin-left: 2rem;
+			}
+		}
+	}
+
 	.carousel {
 		&__navigation {
 			&_prev {
@@ -35,4 +50,23 @@
 	.subscribe {
 	    width: 90%;
 	}
+
+    .section {
+    	padding-left: 2rem;
+    	padding-right: 2rem;
+    	
+    	&_news {
+	    	.news-list__item {
+	    		&:nth-child(4) {
+	    			display: none;
+	    		}
+	    	}
+	    }
+    }
+
+    .gallery {
+    	&__more {
+    		text-align: center;
+    	}
+    }
 }

@@ -1,4 +1,28 @@
 @media only screen and (max-width: 768px) {
+    .layout-wrapper {
+    	&__inner {
+    		padding-bottom: 0;
+    	}
+    }
+	
+	.breadcrumbs {
+		height: auto;
+		padding: 1.5rem 2rem 2rem;
+		
+		&__item {
+			float: none;
+			clear: both;
+			margin-bottom: 1.2rem;
+			
+			&.last {
+				margin-bottom: 0;
+			}
+
+			&__link {
+				line-height: 1.2;
+			}
+		}
+	}
 
     .layout-footer {
     	height: auto;
@@ -25,4 +49,53 @@
 		padding: 0;
     	max-width: 30rem;
     }
+
+    .content {
+    	ul:not([class]) {
+    		margin-left: 0;
+    	}
+
+    	&__text {
+    		img,
+    		img[align="left"],
+    		img[align="right"] {
+				margin-left: auto;
+				margin-right: auto;
+				display: block;
+				clear: both;
+				float: none;
+			}
+		}
+
+    	&__header {
+    		height: auto;
+    		padding-top: 1rem;
+    		padding-bottom: 1rem;
+		    line-height: 4rem;
+
+    		&__title {
+    			&_right {
+    				clear: both;
+    				float: none;
+    			}
+    		}
+    	}
+    }
+
+    .employeer + .content__header {
+    	height: auto;
+		line-height: 3rem;
+    }
+
+    .employeer {
+    	&__image, &__name {
+    		margin-bottom: 2rem;
+    	}
+
+    	&__image, &__name, &__contact {
+    		width: 100%;
+    		float: none;
+    		line-height: 1.4;
+    	}
+	}
 }

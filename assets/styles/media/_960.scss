@@ -3,11 +3,10 @@
 		z-index: 10000;
 		@include opacity(1);
 	}
-	
+
     .layout-wrapper {
     	&__inner {
     		padding-top: 0;
-    		padding-bottom: 0;
     	}
     }
 
@@ -24,9 +23,34 @@
 		}
     }
 
-    .gallery {
-	    &__more {
-	    	text-align: center;
+    .section {
+	    &_news {
+	    	.news-list__item {
+	    		&:nth-child(3) {
+	    			display: none;
+	    		}
+	    	}
 	    }
+    }
+	
+	.contacts {
+		&__wrapper {
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+	}
+
+    .content {
+    	&_page {
+		    padding: 3rem 2.5rem;
+		}
+
+    	&__header {
+    		&__title {
+    			&_right {
+    				margin-right: 0;
+    			}
+    		}
+    	}
     }
 }
