@@ -3,7 +3,7 @@
 
 	window.body = $('body');
 	
-	var navigation = $('#navigation');
+	var _this, label, placeholder, _template, navigation = $('#navigation');
 
 	$.app = {
 		
@@ -20,13 +20,15 @@
 		initSelect: function()
 		{
 			$('select').selectbox();
+
+			body.on('change', '.js-form-select', function(e){
+				$(this).closest('.js-form-label').removeClass('error');
+			});
 		},
 
 		initMask: function()
 		{
-			$(".watch-datemask").mask("99/99/9999");
-			$(".watch-phonemask").mask("+ 7 (999) 999-99-99");
-			$(".watch-cartnumber").mask("999-999-999");
+			$(".js-phone-watcher").mask("+ 7 (999) 999-99-99");
 		},
 		
 		initFastclick: function()
@@ -34,11 +36,104 @@
 			FastClick.attach(document.body);
 		},
 
+		
 		initPopup: function()
 		{
 			$.popup.init('.js-open-popup', {
-				cssPosition: false,
+				cssPosition: !0,
 				wrapper: '.layout-wrapper'
+			});
+
+			body.on('popup.after_open', function(e, popup){
+				_this.preloadForm(popup, '.js-form-input');
+			});
+		},
+
+		checkForm: function(element, isempty)
+		{
+			if (!isempty || (isempty && $.trim($(element).val()) == ''))
+			{
+				label = $(element).closest('.js-form-label');
+				
+				if (label.find('.selectbox').length && $.trim($(element).val()) !== '')
+				{
+					label.find('.selectbox').addClass('is-checked');
+				}
+
+				if (!label.find('.js-label-name').length)
+				{
+					if ($(element).hasClass('js-form-select'))
+					{
+						placeholder = $(element).data('placeholder');
+					}
+					else {
+						placeholder = $(element).prop('placeholder');
+						$(element).prop('placeholder', '');
+					}
+
+					if (placeholder.indexOf('*') >= 0)
+					{
+						placeholder = placeholder.replace('*', '<span class="form__label__star">*</span>');
+					}
+
+					_template = $(template('tmpl-form-label', { name: placeholder }));
+
+					label.append(_template);
+
+					if ($.trim($(element).val()) !== '')
+					{
+						label.addClass('focus');
+					}
+				}
+			}
+		},
+
+		preloadForm: function(parent, class_name)
+		{
+			if ($(parent).find(class_name).length)
+			{
+				$(parent).find(class_name).each(function(){
+					_this.checkForm($(this), !1);
+				});
+			}
+		},
+
+		initForm: function()
+		{
+			_this = this;
+			
+			_this.preloadForm('body', '.js-form-input');
+
+			body.on('focus', '.js-form-input', function(e){
+				_this.checkForm($(this), !1);
+				$(this).closest('.js-form-label').addClass('focus');
+			});
+
+			body.on('select.open', function(e, select){
+				$(select).closest('.js-form-label').addClass('focus');
+			});
+
+			body.on('select.close', function(e, select){
+				var $select = $(select).closest('.js-form-label').find('.js-form-select');
+				
+				if ($.trim($select.val()) == '')
+				{
+					$(select).closest('.js-form-label').removeClass('focus');
+				}
+			});
+
+			body.on('change', '.js-form-select', function(e){
+				if ($.trim($(this).val()) == '')
+				{
+					$(this).closest('.js-form-label').removeClass('focus');
+				}
+			});
+
+			body.on('blur', '.js-form-input', function(e){
+				if ($.trim($(this).val()) == '')
+				{
+					$(this).closest('.js-form-label').removeClass('focus');
+				}
 			});
 		},
 
@@ -290,6 +385,8 @@
 
 			this.initFastclick();
 
+			this.initForm();
+
 			this.initPopup();
 			this.initMask();
 			this.initSelect();
@@ -300,6 +397,8 @@
 			this.slickSider();
 			this.carousel();
 			this.navigation();
+
+			$.app.ajaxForm.init();
 		}
 
 	};

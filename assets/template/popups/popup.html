@@ -9,4 +9,15 @@
 	</form>
 </script>
 
+<script type="text/html" id="tmpl-form-label">
+	<span class="form__label__name js-label-name">
+		{{{name}}}
+	</span>
+</script>
+
+<script type="text/html" id="tmpl-form-success">
+	<div class="form__result__success">{{{message}}}</div>
+</script>
+
 @@include('./message.html')
+@@include('./feedback.html')

@@ -12,8 +12,8 @@
 			link_class: '.js-request-link',
 			error_class: 'error',
 			error_message: 'form__error-message',
-			form_label: '.form__wrapper',
-			checkbox_label: 'checkbox__label'
+			form_label: 'form__label',
+			checkbox_label: 'control'
 		},
 
 		callback_stack: {},
@@ -51,9 +51,17 @@
 		    
 		    if (response.hasOwnProperty('message'))
 		    {
-		        $.popup.message(response.title, response.message);
+		    	if (form.find('.js-form-result').length)
+		    	{
+		    		form.find('.js-form-result').append(template('tmpl-form-success', { message: response.message }));
+		    		form.find('.js-form-result').addClass('active');
+		    	}
+		    	
+		    	if (form.find('.js-form-button').length)
+		    	{
+		    		form.find('.js-form-button').removeClass('active');
+		    	}
 		    }
-
 		},
 
 		validation: function(form, errors)
@@ -70,30 +78,32 @@
 			    {
 			       	for(fieldName in errors)
 			        {
-			        	if (form.find('input[name="'+fieldName+'"]').length > 0)
-			            {
-			                field = form.find('input[name="'+fieldName+'"]');
-			            }
+						// if (form.find('input[name="'+fieldName+'"]').length > 0)
+						// {
+						// 	field = form.find('input[name="'+fieldName+'"]');
+						// }
 
-			            if (form.find('select[name="'+fieldName+'"]').length > 0)
-			            {
-			                field = form.find('select[name="'+fieldName+'"]');
-			            }
+						// if (form.find('select[name="'+fieldName+'"]').length > 0)
+						// {
+						// 	field = form.find('select[name="'+fieldName+'"]');
+						// }
 
-			            if (form.find('textarea[name="'+fieldName+'"]').length > 0)
-			            {
-			                field = form.find('textarea[name="'+fieldName+'"]');
-			            }
+						// if (form.find('textarea[name="'+fieldName+'"]').length > 0)
+						// {
+						// 	field = form.find('textarea[name="'+fieldName+'"]');
+						// }
 
-			            if (field.closest('.' + _this.config.checkbox_label).length > 0)
+						field = form.find('[name="'+fieldName+'"]').closest('.' + _this.config.form_label);
+
+			            if (form.find('[name="'+fieldName+'"]').closest('.' + _this.config.checkbox_label).length)
 			            {
-			                field = field.closest('.' + _this.config.checkbox_label);
+			                field = form.find('[name="'+fieldName+'"]').closest('.' + _this.config.checkbox_label);
 			            }
 
 			            if (typeof field !== 'undefined')
 			            {
 		                	field.addClass(_this.config.error_class);
-		                	field.closest(_this.config.form_label).append('<div class="' + _this.config.error_message + '">' + errors[fieldName] + '</div>');
+		                	field.closest('.'+_this.config.form_label).append('<div class="' + _this.config.error_message + '">' + errors[fieldName] + '</div>');
 		                }
 			        }
 			    }
@@ -264,12 +274,22 @@
 		    });
 		},
 
+		removeError: function()
+		{
+			_this = this;
+
+			$('body').on('focus, click', '.js-form-input', function(){
+				$(this).closest('.' + _this.config.form_label).removeClass(_this.config.error_class);
+			});
+		},
+
 		init: function(config)
 		{
 			this.extend(config);
 			
 			this.initForm();
 			this.initLink();
+			this.removeError();
 		}
 
 	};
