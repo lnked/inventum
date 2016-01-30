@@ -243,13 +243,13 @@ a[href]:not([class]) {
   box-sizing: border-box; }
   .layout-header__logo {
     position: absolute;
-    left: 2px;
+    left: 0;
     top: 21px; }
   .layout-header__feedback {
     height: 36px;
     height: 3.6rem;
     position: absolute;
-    right: 21px;
+    right: 0;
     top: 35px;
     display: block;
     padding: 0 37px;
@@ -280,8 +280,8 @@ a[href]:not([class]) {
     bottom: 0; }
   .layout-header__search {
     position: absolute;
-    right: 92px;
-    right: 9.2rem;
+    right: 72px;
+    right: 7.2rem;
     bottom: 28px; }
     .layout-header__search__input {
       display: none; }
@@ -318,7 +318,9 @@ a[href]:not([class]) {
         filter: alpha(opacity=100); }
 
 .content {
-  padding: 0; }
+  padding: 0;
+  margin-bottom: 80px;
+  margin-bottom: 8rem; }
   .content_white {
     background-color: #fff; }
   .content_page {
@@ -1848,12 +1850,13 @@ textarea {
   line-height: 5.3rem; }
 
 .breadcrumbs {
-  width: 100%;
-  background-color: #e6f8ff;
-  padding: 0;
   clear: both;
+  width: 100%;
   height: 40px;
-  height: 4rem; }
+  height: 4rem;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e6f8ff; }
   .breadcrumbs__wrapper {
     padding: 0; }
   .breadcrumbs__list {
@@ -1902,8 +1905,8 @@ textarea {
   font-size: 0;
   line-height: 0;
   text-align: center;
-  margin: 30px 0 56px;
-  margin: 3rem 0 5.6rem; }
+  margin: 30px 0 0;
+  margin: 3rem 0 0; }
   .pagination__list {
     letter-spacing: normal;
     margin: 0 !important;
@@ -2307,8 +2310,8 @@ table {
   clear: both;
   line-height: 0;
   font-size: 0;
-  margin: 0 -20px !important;
-  margin: 0 -2rem !important;
+  margin: 0 -40px;
+  margin: 0 -4rem;
   text-align: center; }
   .news-list__item {
     width: 300px;
@@ -2316,12 +2319,10 @@ table {
     text-align: left;
     vertical-align: top;
     margin: 0 10px;
-    margin: 0 1rem;
-    background: none !important;
-    padding: 0 !important; }
+    margin: 0 1rem; }
     .news-list__item_push {
-      margin-bottom: 20px;
-      margin-bottom: 2rem; }
+      margin: 0 14px 20px;
+      margin: 0 1.4rem 2rem; }
 
 .news-item {
   position: relative; }
@@ -2569,17 +2570,12 @@ table {
   text-align: center;
   padding-top: 3px;
   padding-top: .3rem;
-  margin: 0 -20px -26px !important;
-  margin: 0 -2rem -2.6rem !important; }
+  margin: 0 -40px -26px !important;
+  margin: 0 -4rem -2.6rem !important; }
   .gallery__item {
-    margin: 0 20px 53px !important;
-    margin: 0 2rem 5.3rem !important;
-    padding: 0 !important;
-    background: none !important; }
-    .gallery__item:nth-child(5n+5) {
-      margin-right: 0; }
-    .gallery__item:first-child {
-      margin-left: 0; }
+    margin: 0 23px 53px;
+    margin: 0 2.3rem 5.3rem;
+    padding: 0; }
     .gallery__item__image {
       display: block;
       font-size: 0;
@@ -2673,25 +2669,18 @@ table {
   .contacts__wrapper {
     padding-left: 2rem;
     padding-right: 2rem; }
-  .content_page {
-    padding: 3rem 2.5rem; }
-  .content__header__title_right {
-    margin-right: 0; } }
+  .pagination {
+    margin-bottom: 4rem; }
+  .content {
+    margin-bottom: 0; }
+    .content_page {
+      padding: 3rem 2.5rem; }
+    .content__header__title_right {
+      margin-right: 0; } }
 
 @media only screen and (max-width: 768px) {
   .layout-wrapper__inner {
     padding-bottom: 0; }
-  .breadcrumbs {
-    height: auto;
-    padding: 1.5rem 2rem 2rem; }
-    .breadcrumbs__item {
-      float: none;
-      clear: both;
-      margin-bottom: 1.2rem; }
-      .breadcrumbs__item.last {
-        margin-bottom: 0; }
-      .breadcrumbs__item__link {
-        line-height: 1.2; }
   .layout-footer {
     height: auto;
     margin-top: 0;
@@ -2770,6 +2759,19 @@ table {
         margin-left: 0; }
       .pagination__item__nav_next {
         margin-right: 0; } }
+
+@media only screen and (max-width: 375px) {
+  .breadcrumbs {
+    height: auto;
+    padding: 1.5rem 2rem 2rem; }
+    .breadcrumbs__item {
+      float: none;
+      clear: both;
+      margin-bottom: 1.2rem; }
+      .breadcrumbs__item.last {
+        margin-bottom: 0; }
+      .breadcrumbs__item__link {
+        line-height: 1.2; } }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   .logo {

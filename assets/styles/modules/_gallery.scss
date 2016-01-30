@@ -86,21 +86,20 @@
 	line-height: 0;
 	text-align: center;
     padding-top: .3rem;
-    margin: 0 -2rem -2.6rem !important;
+    margin: 0 -4rem -2.6rem !important;
 
 	&__item {
 		@extend .inline;
-		margin: 0 2rem 5.3rem !important;
-		padding: 0 !important;
-		background: none !important;
+		margin: 0 2.3rem 5.3rem;
+		padding: 0;
 
-		&:nth-child(5n+5) {
-			margin-right: 0;
-		}
+		// &:nth-child(5n+5) {
+		// 	margin-right: 0;
+		// }
 
-		&:first-child {
-			margin-left: 0;
-		}
+		// &:first-child {
+		// 	margin-left: 0;
+		// }
 
 		&__image {
 			display: block;

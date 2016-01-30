@@ -39,8 +39,14 @@
 			padding-right: 2rem;
 		}
 	}
-
+	
+	.pagination {
+		margin-bottom: 4rem;
+	}
+	
     .content {
+    	margin-bottom: 0;
+
     	&_page {
 		    padding: 3rem 2.5rem;
 		}

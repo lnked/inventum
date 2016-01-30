@@ -1,9 +1,10 @@
 .breadcrumbs {
-	width: 100%;
-	background-color: #e6f8ff;
-	padding: 0;
 	clear: both;
+	width: 100%;
 	height: 4rem;
+	padding: 0;
+	overflow: hidden;
+	background-color: #e6f8ff;
 	
 	&__wrapper {
 		@extend .layout;

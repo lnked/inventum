@@ -12,14 +12,14 @@
 
 	&__logo {
 		position: absolute;
-		left: 2px;
+		left: 0;
 		top: 21px;
 	}
 
 	&__feedback {
 		height: 3.6rem;
 		position: absolute;
-	    right: 21px;
+	    right: 0;
 		top: 35px;
 		display: block;
 		padding: 0 3.7rem;
@@ -49,7 +49,7 @@
 
 	&__search {
 		position: absolute;
-	    right: 9.2rem;
+	    right: 7.2rem;
 	    bottom: 28px;
 
 		&__input {
