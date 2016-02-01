@@ -54,6 +54,7 @@
 
 	&__item {
 		width: 30rem;
+		max-width: 100%;
 		@extend .inline;
 		text-align: left;
 		vertical-align: top;

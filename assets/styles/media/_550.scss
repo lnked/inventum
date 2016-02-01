@@ -1,24 +1,26 @@
 @media only screen and (max-width: 550px) {
 	.layout-header {
-		height: auto;
-		padding: 2.5rem 0;
+		border-top: 0;
+		height: 70px;
+		padding: 0;
 		
 		&__logo {
-			float: none;
-			position: relative;
-			left: auto;
-			top: auto;
-			right: auto;
-		    margin-bottom: 2.5rem;
+			width: 18rem;
+			height: 4.3rem;
+			top: 13px;
 		}
 
 		&__feedback {
-			position: relative;
-			left: auto;
-			right: auto;
-			top: auto;
-			text-align: center;
+			width: 28px;
+			height: 24px;
+			background: url(../images/feedback.png) 50% 50% no-repeat;
+			text-indent: -1000px;
+			overflow: hidden;
+			border: 0;
+			box-shadow: none;
 			padding: 0;
+		    right: 6.5rem;
+			top: 24px;
 		}
     }
 

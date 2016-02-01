@@ -1,4 +1,15 @@
 @media only screen and (max-width: 960px) {
+
+	.slider__navigation {
+		&_prev {
+			left: 10px;
+		}
+
+		&_next {
+			right: 10px;
+		}
+	}
+
 	.sandwich {
 		z-index: 10000;
 		@include opacity(1);

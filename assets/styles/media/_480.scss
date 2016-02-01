@@ -1,5 +1,57 @@
 @media only screen and (max-width: 480px) {
+	.section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .slider {
+    	&__item {
+    		&__content {
+		    	padding-top: 2.5rem;
+				padding-left: 1rem;
+		    	padding-right: 1rem;
+    		}
+
+    		&__title {
+				font-size: 4rem;
+    		}
+
+    		&__description {
+				opacity: 0.6;
+				font-size: 1.6rem;
+				line-height: 2.2rem;
+				padding-right: 0;
+				margin-bottom: 1rem;
+    		}
+			
+			&__more {
+				padding-right: 0;
+			}
+			
+			&__date {
+				&__title {
+					font-size: 1.4rem;
+				}
+
+				&__count {
+					font-size: 2.5rem;
+				}
+			}
+    	}
+	}
+
+	ul.slick-dots {
+		bottom: 20px;
+	}
+
 	.vote {
+		&__question {
+			color: #333;
+			font-size: 1.6rem;
+			font-weight: 700;
+			line-height: 2.2rem;
+		}
+
 		&__buttons {
 			.button {
 				min-width: auto;

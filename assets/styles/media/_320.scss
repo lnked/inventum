@@ -1,1 +1,22 @@
-@media only screen and (max-width: 320px) {}
+@media only screen and (max-width: 320px) {
+	.gallery {
+		max-width: 320px;
+		margin: 0 auto 2rem !important;
+
+		&__item {
+			padding: 0;
+			display: block;
+			margin: 0 0 2rem;
+			clear: both;
+
+			&__image__src {
+				width: 100%;
+				height: auto;
+			}
+		}
+		
+		&__more {
+			text-align: left;
+		}
+	}
+}

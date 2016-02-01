@@ -4,7 +4,11 @@
     		padding-bottom: 0;
     	}
     }
-	
+
+    .social {
+        padding-top: 0;
+    }
+
     .vote {
         &__answers {
             padding: 0;
@@ -14,10 +18,29 @@
     }
 
     .section {
-        background-image: none;
+        margin-bottom: 3rem;
         
+        &_news {
+            padding-top: 40px;
+        }
+
+        &_gallery {
+            background-image: none;
+        }
+
         &_news, &_gallery {
-            padding-bottom: 120px;
+            padding-bottom: 100px;
+        }
+            
+        &__title {
+            color: #093;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+
+            &__name {
+                // padding-bottom: 15px;
+            }
         }
 
         &__wrapper {
