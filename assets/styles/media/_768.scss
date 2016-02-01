@@ -5,6 +5,42 @@
         }
     }
 
+    .doc {
+        &__title {
+            height: auto;
+            line-height: 1;
+            padding: 1rem 2.5rem;
+
+            &__trigger {
+                line-height: 1.4;
+            }
+        }
+    
+        &__content__list {
+            padding: 2.5rem;
+        }
+
+        &__item {
+            clear: both;
+
+            &__right {
+                float: none;
+                clear: both;
+                margin-bottom: 1rem;
+            }
+
+            &__link {
+                clear: both;
+                margin-right: 0;
+            }
+
+            &__format {
+                float: left;
+                margin-right: 1rem;
+            }
+        }
+    }
+
     .layout-wrapper {
     	&__inner {
     		padding-bottom: 0;
@@ -26,6 +62,10 @@
     .section {
         margin-bottom: 3rem;
         
+        &_carousel {
+            margin-bottom: 0;
+        }
+        
         &_news {
             padding-top: 40px;
         }
@@ -43,6 +83,10 @@
             font-size: 3.5rem;
             font-weight: 700;
             line-height: 2.5rem;
+
+            &_inner {
+                margin: 3rem 0 3.5rem;
+            }
         }
 
         &__wrapper {
