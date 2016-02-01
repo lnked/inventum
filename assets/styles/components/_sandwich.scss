@@ -61,7 +61,7 @@ $sandwichBackgroundActive: #fff;
     }
 }
 
-.page-visible .header {
+.page-visible .navigation {
     visibility: visible;
 }
 
@@ -72,7 +72,8 @@ $sandwichBackgroundActive: #fff;
         @include opacity(.8);
     }
     
-    .header {
+    .navigation {
+        opacity: 1;
         transform: translate3d(0, 0, 0);
     }
 
