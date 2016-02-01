@@ -667,6 +667,7 @@ a[href]:not([class]) {
   .popup__dialog {
     width: 445px;
     width: 44.5rem;
+    max-width: 100%;
     height: auto;
     position: absolute;
     top: 50%;
@@ -2776,6 +2777,8 @@ table {
       margin-right: 0; } }
 
 @media only screen and (max-width: 768px) {
+  .slider__navigation {
+    display: none !important; }
   .layout-wrapper__inner {
     padding-bottom: 0; }
   .social {
@@ -2886,7 +2889,8 @@ table {
     .layout-header__logo {
       width: 18rem;
       height: 4.3rem;
-      top: 13px; }
+      top: 13px;
+      background-image: url(../images/logo-small.png); }
     .layout-header__feedback {
       width: 28px;
       height: 24px;
@@ -2911,6 +2915,10 @@ table {
         margin-right: 0; } }
 
 @media only screen and (max-width: 480px) {
+  .form__col {
+    width: 100%; }
+    .form__col:not(:last-child) {
+      margin-bottom: 2rem; }
   .section {
     padding-left: 1rem;
     padding-right: 1rem; }
@@ -2982,7 +2990,18 @@ table {
         width: 100%;
         height: auto; }
     .gallery__more {
-      text-align: left; } }
+      text-align: left; }
+  .slider__item__content {
+    padding-top: 2rem; }
+  .slider__item__title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem; }
+  .slider__item__description {
+    line-height: 2rem; }
+  .slider__item__date__title {
+    font-size: 1.4rem; }
+  .slider__item__date__count {
+    font-size: 2.5rem; } }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   .logo {

@@ -1,4 +1,14 @@
 @media only screen and (max-width: 480px) {
+	.form {
+		&__col {
+			width: 100%;
+			
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
 	.section {
         padding-left: 1rem;
         padding-right: 1rem;

@@ -6,17 +6,19 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 
 ;(function($) {
 	"use strict";
-
+	
 	var defaults = {
 		wrapper: 'body',
+		popupClass: '.popup',
 		triggerClass: '.js-open-popup',
+		dialogClass: '.js-popup-dialog',
 		speed: 550,
 		overlay: {
 			enable: !0,
 			element: '#overlay'
 		},
 		overlayClickClose: !0,
-		cssPosition: !1,
+		cssPosition: !0,
 		bodyclass: !0,
 		hashCheck: !0,
 		hashChange: !0,
@@ -31,6 +33,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 	noty = null,
 	temp = null,
 	nested = [],
+	$dialog = '',
 	$trigger = '',
 	$body = $('body'),
 	$win = $(window), 
@@ -123,6 +126,19 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 				$popup.css(this._getPosition($popup));
 			}
         },
+        
+        _checkScroll: function(popup)
+        {
+        	$dialog = $(popup).find(defaults.dialogClass);
+
+        	if ($dialog.outerHeight() > $win.height())
+        	{
+        		$dialog.addClass('is-scrolling')
+    		}
+    		else {
+    			$dialog.removeClass('is-scrolling')
+    		}
+        },
 
 		close: function(element, callback)
 		{
@@ -186,7 +202,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
     		popup = this;
 
     		$(defaults.wrapper).on('click.wrapClose', function(e) {
-    			if (!$(this).closest('.popup').length && !$(e.target).hasClass(defaults.triggerClass.substr(1)) && !$(e.target).closest(defaults.triggerClass).length)
+    			if (!$(e.target).closest(defaults.popupClass).length && !$(e.target).hasClass(defaults.triggerClass.substr(1)) && !$(e.target).closest(defaults.triggerClass).length)
     			{
 					popup.close();
 	    		}
@@ -205,7 +221,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 
 			if (defaults.keyHooks)
 			{
-				$body.on('keydown', function(e) {
+				$body.on('keypress keydown', function(e) {
 					if(e.keyCode == 27) {
 		                popup.close();
 		            }
@@ -219,26 +235,30 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 	            });
 	        }
 
-	        if (!defaults.cssPosition)
-	        {
-		        $win.on('resize.popup', function() {
-		            clearTimeout(resizeTimeout);
-	                
-	                resizeTimeout = setTimeout(function() {
-	                    
-	                    $body.find('.popup.is-open').each(function() {
-		                    popup._changePosition($(this));
-		                });
+	        $win.on('resize.popup', function() {
+	            clearTimeout(resizeTimeout);
+                
+                resizeTimeout = setTimeout(function() {
+                    
+                    $body.find('.popup.is-open').each(function() {
+                    	if (!defaults.cssPosition)
+        				{
+	                    	popup._changePosition($(this));
+	                    }
 
-	                }, 100);
-		        });
-	        }
+	                    popup._checkScroll($(this));
+	                });
+
+                }, 100);
+	        });
 
 	        return this;
 		},
-        
+
         show: function(selector, overlay, bodyclass)
         {
+        	popup = this;
+
         	if (typeof selector !== 'undefined' && selector !== '')
 			{
 				var data = data || {}, prop = {}, $popup;
@@ -285,10 +305,12 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 					this.initWrapClose();
 				}
 
+				popup._checkScroll($popup);
+
 				setTimeout(function(){
 					$popup.addClass('animate');
 					$body.trigger('popup.after_open', $popup);
-
+					
 					if (nested.length)
 					{
 						$body.trigger('popup.init_nested', { popup: $popup, nested: nested });
@@ -304,7 +326,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
         clicks: function(trigger)
         {
         	popup = this;
-
+        	
         	$body.on('click', trigger, function(e) {
         		var overlay = defaults.overlay.enable, bodyclass = defaults.bodyclass, element;
 
@@ -394,7 +416,7 @@ $.popup.open('popup-choose-photo-source/nested-tab');
 				if ($('.popup.is-open').length)
 				{
 					selector_cache = $('.popup.is-open').attr('id');
-			
+				
 					if (!nested.length || (selector !== selector_cache))
 					{
 						popup.close($('.popup.is-open'));
