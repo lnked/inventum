@@ -18,5 +18,20 @@
 			}
 		}
 	}
+	
+	.layout-header {
+		z-index: 8888;
+	}
 
+	.navigation {
+	    top: 70px;
+	    z-index: 0;
+		max-width: 100%;
+    	transform: translate3d(0, -100%, 0);
+		box-shadow: 2px 0 8px rgba(22, 63, 75, 0.4);
+	}
+
+	.menu-overlay {
+     	display: none !important;
+    }
 }

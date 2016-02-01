@@ -1,5 +1,5 @@
 $sandwichBackground: #92c271;
-$sandwichBackgroundActive: #fff;
+$sandwichBackgroundActive: #92c271;
 
 .menu-overlay {
     width: 100%;
@@ -74,6 +74,7 @@ $sandwichBackgroundActive: #fff;
     
     .navigation {
         opacity: 1;
+        z-index: 8888;
         transform: translate3d(0, 0, 0);
     }
 
