@@ -354,7 +354,9 @@ a[href]:not([class]) {
     line-height: 22px;
     line-height: 2.2rem; }
     .content__text img {
-      margin: 6px 30px 20px; }
+      margin: 6px 30px 20px;
+      max-width: 100%;
+      height: auto; }
     .content__text img[align="left"] {
       margin-left: 0; }
     .content__text img[align="right"] {
@@ -2895,8 +2897,10 @@ table {
     .doc__item__format {
       float: left;
       margin-right: 1rem; }
-  .layout-wrapper__inner {
-    padding-bottom: 0; }
+  .layout-wrapper {
+    min-height: 0; }
+    .layout-wrapper__inner {
+      padding-bottom: 0; }
   .social {
     padding-top: 0; }
   .vote__answers {
@@ -2917,7 +2921,7 @@ table {
       color: #093;
       font-size: 3.5rem;
       font-weight: 700;
-      line-height: 2.5rem; }
+      line-height: 3.5rem; }
       .section__title_inner {
         margin: 3rem 0 3.5rem; }
     .section__wrapper {
@@ -3023,6 +3027,8 @@ table {
       padding: 0;
       right: 6.5rem;
       top: 24px; }
+  .sandwich {
+    top: 2.2rem; }
   .pagination__item {
     margin: 0 1px !important; }
     .pagination__item__text {
@@ -3039,8 +3045,17 @@ table {
     width: 100%; }
     .form__col:not(:last-child) {
       margin-bottom: 2rem; }
-  .sandwich {
-    top: 2.2rem; }
+  .gallery-block__list .gallery {
+    text-align: center !important; }
+  .gallery-block__about {
+    height: auto;
+    line-height: 1.5;
+    padding: 1rem 1.5rem; }
+    .gallery-block__about__more, .gallery-block__about__date, .gallery-block__about__title {
+      float: none;
+      clear: both;
+      display: block;
+      margin-bottom: 1rem; }
   .section {
     padding-left: 1rem;
     padding-right: 1rem; }
@@ -3099,6 +3114,17 @@ table {
     display: none !important; } }
 
 @media only screen and (max-width: 375px) {
+  .video-list {
+    margin: 0 !important;
+    padding: 0 !important; }
+    .video-list__item {
+      max-width: 100%;
+      margin: 0 0 2rem !important; }
+  .video-item {
+    width: 100%; }
+    .video-item__image {
+      max-width: 100%;
+      height: auto; }
   .breadcrumbs {
     height: auto;
     padding: 1.5rem 2rem 2rem; }
@@ -3109,7 +3135,11 @@ table {
       .breadcrumbs__item.last {
         margin-bottom: 0; }
       .breadcrumbs__item__link {
-        line-height: 1.2; } }
+        line-height: 1.2; }
+  .gallery {
+    margin: 0 !important; }
+    .gallery__item {
+      margin: 0 0 2rem; } }
 
 @media only screen and (max-width: 320px) {
   .gallery {

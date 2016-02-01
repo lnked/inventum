@@ -42,6 +42,8 @@
     }
 
     .layout-wrapper {
+        min-height: 0;
+
     	&__inner {
     		padding-bottom: 0;
     	}
@@ -65,7 +67,7 @@
         &_carousel {
             margin-bottom: 0;
         }
-        
+
         &_news {
             padding-top: 40px;
         }
@@ -82,7 +84,7 @@
             color: #093;
             font-size: 3.5rem;
             font-weight: 700;
-            line-height: 2.5rem;
+            line-height: 3.5rem;
 
             &_inner {
                 margin: 3rem 0 3.5rem;
