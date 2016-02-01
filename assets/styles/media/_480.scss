@@ -1,3 +1,33 @@
 @media only screen and (max-width: 480px) {
-	
+	.vote {
+		&__buttons {
+			.button {
+				min-width: auto;
+				padding: 0 15px;
+				margin: 0 1px 2rem;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
+		&__answer {
+			text-align: left;
+
+			&__radio {
+				float: left;
+				display: block;
+			}
+
+			&__label {
+				display: block;
+				margin-left: 28px;
+			}
+		}
+	}
 }
