@@ -24,19 +24,28 @@
             clear: both;
 
             &__right {
+                width: auto;
                 float: none;
                 clear: both;
+                text-align: right;
                 margin-bottom: 1rem;
+                position: relative;
+                right: auto;
+                top: auto;
             }
 
             &__link {
                 clear: both;
                 margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        
+            &__date {
+                margin-right: 1.5rem;
             }
 
             &__format {
-                float: left;
-                margin-right: 1rem;
+                float: right;
             }
         }
     }

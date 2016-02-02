@@ -45,4 +45,15 @@
 			margin: 0 0 2rem;
 		}
 	}
+
+	.layout-footer {
+		&__copiright {
+			left: 2rem;
+		}
+
+		&__counters {
+			left: auto;
+			right: 2rem;
+		}
+	}
 }

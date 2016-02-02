@@ -58,6 +58,7 @@
 		transition: border-color $time;
 		position: relative;
 		z-index: 1300;
+		font-family: $fontDefault;
 
 		&_similar {
 			height: 0;
@@ -105,8 +106,8 @@
 
 .submenu {
 	height: 100%;
-	display: none;
 	margin-bottom: 0;
+	display: none;
 	@include opacity(0);
 	transform: translate3d(0, -3rem, 0);
 	transition: transform $time, opacity $time;
@@ -128,7 +129,7 @@
 
 	&__item {
 		clear: both;
-		padding-bottom: 2rem;
+		// padding-bottom: 2rem;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -138,10 +139,13 @@
 			color: #fff;
 			font-size: 1.6rem;
 			font-weight: 400;
-			line-height: 1;
+			line-height: 4rem;
+			display: block;
+			text-decoration: none;
 
 			&:hover {
-				text-decoration: none;
+				text-decoration: underline;
+				color: $green;
 			}
 		}
 

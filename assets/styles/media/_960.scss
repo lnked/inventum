@@ -19,7 +19,7 @@
     .navigation {
     	width: 100%;
     	height: 100%;
-    	max-width: 320px;
+    	max-width: 80%;
     	position: fixed;
     	left: 0;
     	top: 0;
@@ -52,6 +52,51 @@
     		display: block;
     		border: 0;
     		margin: 0;
+			
+			&_dropdown {
+				position: relative;
+
+				&:before, &:after {
+					width: 16px;
+					height: 16px;
+					content: "";
+					position: absolute;
+					right: 20px;
+					top: 16px;
+					z-index: 2000;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					transition: opacity $time, transform $time;
+				}
+
+				&:before {
+					opacity: 1;
+					background-image: url(../images/dropdown-passive.png);
+				}
+
+				&:after {
+					opacity: 0;
+					background-image: url(../images/dropdown-active.png);
+				}
+				
+				.navigation__item__submenu {
+					display: none;
+				}
+			}
+
+			&.open {
+				&:before {
+					opacity: 0;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+
+				.navigation__item__submenu {
+					display: block;
+				}
+			}
 
     		&__submenu {
 			    width: 100%;
@@ -92,6 +137,59 @@
 			clear: both;
 			margin-bottom: 0;
 			padding-bottom: 0;
+			
+			&_dropdown {
+				position: relative;
+
+				&:before, &:after {
+					width: 16px;
+					height: 16px;
+					content: "";
+					position: absolute;
+					right: 20px;
+					top: 16px;
+					z-index: 2000;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					transition: opacity $time, transform $time;
+				}
+
+				&:before {
+					opacity: 1;
+					background-image: url(../images/dropdown-passive.png);
+				}
+
+				&:after {
+					opacity: 0;
+					background-image: url(../images/dropdown-active.png);
+				}
+
+				.submenu__item__list {
+					display: none;
+				}
+			}
+
+			&.open {
+				&:before {
+					opacity: 0;
+				}
+
+				&:after {
+					opacity: 1;
+				}
+
+				.submenu__item__list {
+					display: block;
+				}
+			}
+
+			&__list {
+				margin: 0;
+
+				.submenu__item__link {
+					padding-left: 6rem;
+				}
+			}
 
 			&__link {
 				font-size: 1.5rem;

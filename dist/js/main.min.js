@@ -402,12 +402,38 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 			});
 		},
 
+		initNav: function()
+		{
+			body.on('click', '.navigation__link', function(e){
+				if ($(window).width() < 960)
+				{
+					if ($(this).closest('.navigation__item_dropdown').length)
+					{
+						e.preventDefault();
+						$(this).closest('.navigation__item_dropdown').toggleClass('open');
+					}
+				}
+			});
+
+			body.on('click', '.submenu__item__link', function(e){
+				if ($(window).width() < 960)
+				{
+					if ($(this).closest('.submenu__item_dropdown').length)
+					{
+						e.preventDefault();
+						$(this).closest('.submenu__item_dropdown').toggleClass('open');
+					}
+				}
+			});
+		},
+
 		init: function()
 		{
 			this.disableHover();
 
 			this.initFastclick();
 
+			this.initNav();
 			this.initForm();
 
 			this.initPopup();

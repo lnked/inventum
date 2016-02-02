@@ -19,11 +19,16 @@
 		    <li class="navigation__item"><a href="./about.html" class="navigation__link @@if (current == 'about') { current }">О нас</a></li>
 		    <li class="navigation__item"><a href="./news.html" class="navigation__link @@if (current == 'news') { current }">Новости</a></li>
 		    <li class="navigation__item"><a href="./documents.html" class="navigation__link @@if (current == 'documents') { current }">Документы</a></li>
-		    <li class="navigation__item"><a href="./work.html" class="navigation__link @@if (current == 'worl') { current }">Направления работы</a>
+		    <li class="navigation__item navigation__item_dropdown">
+
+		    	<a href="" class="navigation__link @@if (current == 'worl') { current }">Направления работы</a>
+		    	
 		    	<div class="navigation__item__submenu submenu">
 					<ul class="submenu__list">
-						<li class="submenu__item"><a href="" class="submenu__item__link">Инновации</a></li>
-						<li class="submenu__item">
+						<li class="submenu__item submenu__item_dropdown">
+						
+							<a href="" class="submenu__item__link">Инновации</a>
+							
 							<ul class="submenu__item__list">
 								<li class="submenu__item"><a href="" class="submenu__item__link">Зворыкинская премия</a></li>
 								<li class="submenu__item"><a href="" class="submenu__item__link">Кубанская школа инвесторов</a></li>

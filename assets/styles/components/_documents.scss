@@ -62,13 +62,19 @@
 	
 	&__item {
 		clear: both;
+		position: relative;
 		margin-bottom: 2rem;
+		min-height: 3rem;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
 
 		&__right {
+			width: 14rem;
+			position: absolute;
+			right: 0;
+			top: 0;
 			float: right;
 		}
 
