@@ -129,7 +129,6 @@
 
 	&__item {
 		clear: both;
-		// padding-bottom: 2rem;
 
 		&:last-child {
 			margin-bottom: 0;
@@ -140,6 +139,7 @@
 			font-size: 1.6rem;
 			font-weight: 400;
 			line-height: 4rem;
+			letter-spacing: .01ex;
 			display: block;
 			text-decoration: none;
 

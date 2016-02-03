@@ -1,8 +1,16 @@
 @media only screen and (max-width: 768px) {
-    .slider {
-        &__navigation {
-            display: none !important;
-        }
+    .content__title,
+    .news__title {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .content__title {
+        margin-bottom: 2rem;
+    }
+
+    .news__title {
+        margin-bottom: 1.5rem;
     }
 
     .doc {

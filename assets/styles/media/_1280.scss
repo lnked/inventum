@@ -1,9 +1,4 @@
 @media only screen and (max-width: 1300px) {
-	.slider__item__content {
-		padding-left: 2rem;
-    	padding-right: 2rem;
-	}
-
 	.layout-header {
 		&__logo {
 			left: 2rem;
@@ -73,5 +68,18 @@
     	&__more {
     		text-align: center;
     	}
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+	.slider {
+        &__navigation {
+            display: none !important;
+        }
+
+        &__item__content {
+			padding-left: 2rem;
+	    	padding-right: 2rem;
+		}
     }
 }
