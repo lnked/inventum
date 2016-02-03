@@ -48,7 +48,6 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 			FastClick.attach(document.body);
 		},
 
-		
 		initPopup: function()
 		{
 			$.popup.init('.js-open-popup', {
@@ -323,7 +322,7 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 				}
 			});
 
-			body.on('mouseleave', '.navigation__item', function(){
+			body.on('mouseleave', '.navigation__item', function(e){
 				var item = $(this);
 
 				if ($(window).width() > 960)
@@ -331,12 +330,11 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
 					if (item.find('.submenu').length)
 					{
 						item.find('.submenu').removeClass('active');
-						submenu.removeClass('active');
 
-						setTimeout(function(){
-							item.find('.submenu').removeClass('show');
-							submenu.removeClass('show');
-						}, 300);
+						submenu.removeClass('active');
+						submenu.removeClass('show');
+
+						item.find('.submenu').removeClass('show');
 					}
 				}
 			});
