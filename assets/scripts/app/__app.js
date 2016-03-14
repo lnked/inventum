@@ -330,7 +330,7 @@
 
 				var doc = $(this).closest('.doc');
 				
-				doc.find('.doc__content').slideToggle(300, function(){
+				doc.find('.doc__content').eq(0).slideToggle(300, function(){
 					doc.toggleClass('open');
 				});
 

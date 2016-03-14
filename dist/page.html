@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!-- (c) lnk. celebro | http://www.celebro.ru/ -->
-
 <!--[if lt IE 7 ]> <html class="ie6" lang="ru"> <![endif]-->
 <!--[if IE 7 ]> <html class="ie7" lang="ru"> <![endif]-->
 <!--[if IE 8 ]> <html class="ie8" lang="ru"> <![endif]-->
@@ -8,417 +7,347 @@
 <!--[if gt IE 8]><!-->
 <html lang="ru" class="no-js" itemscope="itemscope" xmlns="http://www.w3.org/1999/xhtml" itemtype="http://schema.org/WebPage">
 <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta content="on" http-equiv="cleartype">
     <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
-    
     <meta content="" name="description">
     <meta content="" name="keywords">
     <meta content="ru" itemprop="inLanguage">
     <meta content="index, follow" name="robots">
-    
     <meta content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" name="SKYPE_TOOLBAR">
     <meta content="telephone=no" name="format-detection">
     <meta content="address=no" name="format-detection">
     <meta content="True" name="HandheldFriendly">
     <meta content="320" name="MobileOptimized">
-
     <meta content="" name="author">
     <meta content="" name="copyright">
-    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/main.min.css">
-    
-    <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
-    
+    <script>
+        (function(d)
+        {
+            d.className = d.className.replace(/\bno-js/, '');
+        })(document.documentElement);
+    </script>
     <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-
     <title itemprop="name">Новости</title>
 </head>
+
 <body>
-
-<div class="overlay" id="overlay"></div>
-
-<script type="text/html" id="tmpl-search">
-	<div class="overlay" id="search-overlay"></div>
-
-	<form action="/search" class="search-form" id="search-form">
-	   	<input name="q" class="search-form__input" placeholder="Поиск по сайту">
-	   	<button type="submit" class="search-form__button"></button>
-	</form>
-</script>
-
-<script type="text/html" id="tmpl-form-label">
-	<span class="form__label__name js-label-name">
-		{{{name}}}
-	</span>
-</script>
-
-<script type="text/html" id="tmpl-form-success">
-	<div class="form__result__success">{{{message}}}</div>
-</script>
-
-<script type="text/html" id="tmpl-notification">
-	<div class="notification" id="popup_notification">
-	    {{#title}}
-	    <div class="notification__header">{{title}}</div>
-	    {{/title}}
-		
-		{{#text}}
-		<div class="notification__content clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-
-<script type="text/html" id="tmpl-popup-message">
-	<div class="popup popup_simple popup_message" id="popup_message">
-	    <b class="popup__close popup__close_simple js-popup-close"></b>
-
-	    {{#title}}
-	    <header class="popup__header popup__header_simple">
-	    	{{title}}
-	    </header>
-	    {{/title}}
-
-		{{#text}}
-		<div class="popup__message clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-
-<script type="text/html" id="tmpl-popup-error">
-	<div class="popup popup_simple popup_error" id="popup_error">
-	    <b class="popup__close popup__close_simple js-popup-close"></b>
-	    
-	    {{#title}}
-	    <header class="popup__header popup__header_simple">
-	    	{{title}}
-	    </header>
-	    {{/title}}
-	
-		{{#text}}
-		<div class="popup__message clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-<div class="popup" id="popup-feedback">
-	<div class="popup__dialog js-popup-dialog">
-		<div class="popup__content">
-
-			<span class="popup__close js-popup-close"></span>
-			
-			<form action="../json/feedback.json" method="post" class="form form-ajax clearfix">
-				
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<input name="fio" placeholder="Ф. И. О. *" class="form__input js-form-input">
-					</label>
-				</div>
-
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<input name="org" placeholder="Организация" class="form__input js-form-input">
-					</label>
-				</div>
-
-				<div class="form__row clearfix">
-					<div class="form__col form__col_l">
-						<label class="form__label js-form-label">
-							<input name="email" placeholder="E - mail: *" class="form__input js-form-input">
-						</label>
-					</div>
-
-					<div class="form__col form__col_r">
-						<label class="form__label js-form-label">
-							<input placeholder="Телефон:" class="form__input form__input_phone js-phone-watcher js-form-input">
-						</label>
-					</div>
-				</div>
-
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<select name="theme" class="js-form-select js-form-input" data-placeholder="Тип обращения *">
-							<option value="" data-classname="is-empty" selected></option>
-							<option value="1">Руководителю</option>
-							<option value="2">Найдена ошибка на сайте</option>
-							<option value="3">Еще тип обращения</option>
-						</select>
-					</label>
-				</div>
-				
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<textarea name="text" placeholder="Текст обращения:" cols="30" rows="10" class="form__textarea form__textarea_feedback js-form-input"></textarea>
-					</label>
-				</div>
-				
-				<!-- Ключ 6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep -->
-				<!-- Секретный ключ 6LdY3RYTAAAAAH_JsUmyeZnSOAYDaZsMX2cYXvPM -->
-
-				<div class="form__row clearfix">
-					<div class="g-recaptcha" data-sitekey="6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep" data-size="normal"></div>
-				</div>
-				
-				<div class="form__result js-form-result"></div>
-
-				<div class="form__button active js-form-button">
-					<button type="submit" class="button button_fix button_green">Отправить</button>
-				</div>
-
-			</form>
-		
-		</div>
-	</div>
-</div>
-
-<article class="layout-wrapper layout-wrapper_bg">
-	<span class="sandwich js-sandwich-menu">
-	<span class="sandwich__layer">Menu</span>
-</span>
-
-<div class="menu-overlay" id="menu-overlay"></div>
-
-<header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-	<div class="layout-header__wrapper">
-		
-		<a href="./index.html" class="layout-header__logo logo"></a>
-		
-		<a href="#popup-feedback" class="layout-header__feedback js-open-popup">Обратная связь</a>
-	</div>
-</header>
-
-<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
-	<div class="navigation__wrapper">
-		<ul class="navigation__list">
-		    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
-		    <li class="navigation__item"><a href="./news.html" class="navigation__link  current ">Новости</a></li>
-		    <li class="navigation__item"><a href="./documents.html" class="navigation__link ">Документы</a></li>
-		    <li class="navigation__item navigation__item_dropdown">
-
-		    	<a href="" class="navigation__link ">Направления работы</a>
-		    	
-		    	<div class="navigation__item__submenu submenu">
-					<ul class="submenu__list">
-						<li class="submenu__item submenu__item_dropdown">
-						
-							<a href="" class="submenu__item__link">Инновации</a>
-							
-							<ul class="submenu__item__list">
-								<li class="submenu__item"><a href="" class="submenu__item__link">Зворыкинская премия</a></li>
-								<li class="submenu__item"><a href="" class="submenu__item__link">Кубанская школа инвесторов</a></li>
-								<li class="submenu__item"><a href="" class="submenu__item__link">От идеи к делу</a></li>
-							</ul>
-						</li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Предпринимательство</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Духовно-нравственное воспитание</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Профилактика экстремизма</a></li>
-					</ul>
-				</div>
-
-			</li>
-		    <li class="navigation__item navigation__item_dropdown">
-
-		    	<a href="./press-center.html" class="navigation__link ">Пресс-центр</a>
-
-		    	<div class="navigation__item__submenu submenu">
-					<ul class="submenu__list"> 
-						<li class="submenu__item"><a href="./gallery.html" class="submenu__item__link">Фотогалерея</a></li>
-						<li class="submenu__item"><a href="./video.html" class="submenu__item__link">Видео</a></li>
-					</ul>
-				</div>
-				
-				</li>
-		    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
-		</ul>
-		
-		<form action="" class="layout-header__search">
-			<input name="s" class="layout-header__search__input" placeholder="Поиск по сайту">
-			<button type="submit" class="layout-header__search__button js-search"></button>
-		</form>
-	</div>
-
-	<div class="submenu-background" id="navigation-submenu"></div>
-</nav>
-
-	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
-		
-		<nav class="breadcrumbs clearfix">
-	<div class="breadcrumbs__wrapper">
-		<ol class="breadcrumbs__list">
-			<li class="breadcrumbs__item"><a href="/" class="breadcrumbs__item__link">Направления работы</a></li>
-			
-			
-				<li class="breadcrumbs__item last"><a href="/examples" class="breadcrumbs__item__link current">Инновации</a></li>
-			
-
-			
-		</ol>
-	</div>
-</nav>
-
-		<section class="section">
-			
-			<div class="content content_white content_page">
-				
-				<h1 class="content__title">Кубанская школа инвесторов</h1>
-				
-				<div class="content__text">
-					<img src="./images/content/page-item.jpg" width="300" height="200" align="left" alt="">
-		
-					<p>Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет оценить значение систем массового участия. Разнообразный и богатый опыт сложившаяся структура организации играет важную роль в формировании форм развития.<br>Не следует, однако забывать, что укрепление и развитие структуры способствует подготовки и реализации дальнейших направлений развития. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности играет важную роль в формировании соответствующий условий активизации.</p>
-					
-					<p>Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет оценить значение систем массового участия. Разнообразный и богатый опыт сложившаяся структура организации играет важную роль в формировании форм развития.</p>
-					<p>Не следует, однако забывать, что укрепление и развитие структуры способствует подготовки и реализации дальнейших направлений развития. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности играет важную роль в формировании соответствующий условий активизации. Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития.</p>
-					<p>Товарищи! реализация намеченных плановых заданий требуют от нас анализа модели развития. Разнообразный и богатый опыт рамки и место обучения кадров позволяет оценить значение новых предложений.</p>
-
-					<h3>Нумерованный список:</h3>
-					
-					<ol>
-						<li>Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
-						<li>Развитие различных форм деятельности играет важную роль в формировании направлений развития</li>
-						<li>Форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
-					</ol>
-					
-					<h3>Список №2:</h3>
-					
-					<ul>
-						<li>Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
-						<li>Развитие различных форм деятельности играет важную роль в формировании направлений развития</li>
-						<li>Форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
-					</ul>
-
-					<h3 class="center">Таблица</h3>
-					
-					<div class="table-touch">
-						<table>
-							<colgroup>
-								<col width="25%">
-							</colgroup>
-							<tbody>
-								<tr>
-									<td>Наименование в две строки</td>
-									<td>Наименование 3</td>
-									<td>Наименование 5</td>
-									<td>Наименование 7</td>
-								</tr>
-								<tr>
-									<td>Наименование 2</td>
-									<td>Наименование 4</td>
-									<td>Наименование 6</td>
-									<td>Наименование 8</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-				</div>
-			</div>
-
-		</section>
-		
-		<section class="section section_carousel">
-			<div class="carousel">
-	<div class="carousel__wrapper" id="carousel">
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/1.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/2.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/3.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/4.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
-		</div>
-	</div>
-</div>
-		</section>
-
-	</div>
-</article>
-
-<footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-	<div class="layout-footer__upper">
-		<div class="layout-footer__wrapper layout-footer__wrapper_border clearfix">
-
-			<div class="layout-footer__block">
-				<h3 class="layout-footer__title">КОНТАКТНЫЕ ДАННЫЕ:</h3>
-
-				<div class="layout-footer__contacts">
-					г. Краснодар, ул. Ленина, 65<br>
-					+7 (861) 267-15-90<br>
-					+7 (861) 267-15-97<br>
-					<span class="layout-footer__contacts__email">e-mail: <a href="mailto:2004-2012@bk.ru">2004-2012@bk.ru</a></span>
-				</div>
-			</div>
-
-			<div class="layout-footer__block layout-footer__block_left layout-footer__block_right">
-				<h3 class="layout-footer__title">Подписаться на новости:</h3>
-
-				<form action="" class="subscribe">
-					<div class="subscribe__block clearfix">
-						<input placeholder="Ваш e-mail" name="email" class="subscribe__field">
-						<button type="submit" class="subscribe__button">Подписаться</button>
-					</div>
-
-					<label class="subscribe__unsibscribe">
-						<span class="subscribe__unsibscribe__checkbox">
-							<input type="checkbox" name="" class="subscribe__unsibscribe__checkbox__input">
-						</span>
-						<span class="subscribe__unsibscribe__label">Отписаться</span>
-					</label>
-				</form>
-			</div>
-			
-			<div class="layout-footer__block">
-				 <h3 class="layout-footer__title">Мы в соцсетях:</h3>
-
-				 <ul class="social">
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_vk"></a></li>
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_fb"></a></li>
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_ok"></a></li>
-				 </ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="layout-footer__bottom">
-		<div class="layout-footer__wrapper clearfix">
-			<div class="layout-footer__copiright"><span class="layout-footer__copiright__mid">Copyright © 2011 «Инвентум»<br>Все права защищены</span></div>
-			<div class="layout-footer__counters">
-				<span class="layout-footer__counters__item"><img src="./images/counter.png" alt=""></span>
-			</div>
-			<div class="layout-footer__studio">Разработка сайта <a href="" class="layout-footer__studio__link">«Русь-технология»</a></div>
-		</div>
-	</div>
-</footer>
-
-<script src="./js/vendor.min.js"></script>
-<script src="./js/main.min.js"></script>
-
+    <div class="overlay" id="overlay"></div>
+    <script type="text/html" id="tmpl-search">
+        <div class="overlay" id="search-overlay"></div>
+        <form action="/search" class="search-form" id="search-form">
+            <input name="q" class="search-form__input" placeholder="Поиск по сайту">
+            <button type="submit" class="search-form__button"></button>
+        </form>
+    </script>
+    <script type="text/html" id="tmpl-form-label">
+        <span class="form__label__name js-label-name"> {{{name}}} </span>
+    </script>
+    <script type="text/html" id="tmpl-form-success">
+        <div class="form__result__success">{{{message}}}</div>
+    </script>
+    <script type="text/html" id="tmpl-notification">
+        <div class="notification" id="popup_notification"> {{#title}}
+            <div class="notification__header">{{title}}</div> {{/title}} {{#text}}
+            <div class="notification__content clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <script type="text/html" id="tmpl-popup-message">
+        <div class="popup popup_simple popup_message" id="popup_message">
+            <b class="popup__close popup__close_simple js-popup-close"></b> {{#title}}
+            <header class="popup__header popup__header_simple"> {{title}} </header> {{/title}} {{#text}}
+            <div class="popup__message clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <script type="text/html" id="tmpl-popup-error">
+        <div class="popup popup_simple popup_error" id="popup_error">
+            <b class="popup__close popup__close_simple js-popup-close"></b> {{#title}}
+            <header class="popup__header popup__header_simple"> {{title}} </header> {{/title}} {{#text}}
+            <div class="popup__message clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <div class="popup" id="popup-feedback">
+        <div class="popup__dialog js-popup-dialog">
+            <div class="popup__content">
+                <span class="popup__close js-popup-close"></span>
+                <form action="../json/feedback.json" method="post" class="form form-ajax clearfix">
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <input name="fio" placeholder="Ф. И. О. *" class="form__input js-form-input"> </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <input name="org" placeholder="Организация" class="form__input js-form-input"> </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <div class="form__col form__col_l">
+                            <label class="form__label js-form-label">
+                                <input name="email" placeholder="E - mail: *" class="form__input js-form-input"> </label>
+                        </div>
+                        <div class="form__col form__col_r">
+                            <label class="form__label js-form-label">
+                                <input placeholder="Телефон:" class="form__input form__input_phone js-phone-watcher js-form-input"> </label>
+                        </div>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <select name="theme" class="js-form-select js-form-input" data-placeholder="Тип обращения *">
+                                <option value="" data-classname="is-empty" selected></option>
+                                <option value="1">Руководителю</option>
+                                <option value="2">Найдена ошибка на сайте</option>
+                                <option value="3">Еще тип обращения</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <textarea name="text" placeholder="Текст обращения:" cols="30" rows="10" class="form__textarea form__textarea_feedback js-form-input"></textarea>
+                        </label>
+                    </div>
+                    <!-- Ключ 6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep -->
+                    <!-- Секретный ключ 6LdY3RYTAAAAAH_JsUmyeZnSOAYDaZsMX2cYXvPM -->
+                    <div class="form__row clearfix">
+                        <div class="g-recaptcha" data-sitekey="6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep" data-size="normal"></div>
+                    </div>
+                    <div class="form__result js-form-result"></div>
+                    <div class="form__button active js-form-button">
+                        <button type="submit" class="button button_fix button_green">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <article class="layout-wrapper layout-wrapper_bg">
+        <span class="sandwich js-sandwich-menu">
+            <span class="sandwich__layer">Menu</span>
+        </span>
+        <div class="menu-overlay" id="menu-overlay"></div>
+        <header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+            <div class="layout-header__wrapper">
+                <a href="./index.html" class="layout-header__logo logo"></a>
+                <a href="#popup-feedback" class="layout-header__feedback js-open-popup">Обратная связь</a>
+            </div>
+        </header>
+        <nav class="layout-header__navigation navigation" id="navigation" role="navigation">
+            <div class="navigation__wrapper">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="./about.html" class="navigation__link ">О нас</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./news.html" class="navigation__link  current ">Новости</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./documents.html" class="navigation__link ">Документы</a>
+                    </li>
+                    <li class="navigation__item navigation__item_dropdown">
+                        <a href="" class="navigation__link ">Направления работы</a>
+                        <div class="navigation__item__submenu submenu">
+                            <ul class="submenu__list">
+                                <li class="submenu__item submenu__item_dropdown">
+                                    <a href="" class="submenu__item__link">Инновации</a>
+                                    <ul class="submenu__item__list">
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">Зворыкинская премия</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">Кубанская школа инвесторов</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">От идеи к делу</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Предпринимательство</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Духовно-нравственное воспитание</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Профилактика экстремизма</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navigation__item navigation__item_dropdown">
+                        <a href="./press-center.html" class="navigation__link ">Пресс-центр</a>
+                        <div class="navigation__item__submenu submenu">
+                            <ul class="submenu__list">
+                                <li class="submenu__item">
+                                    <a href="./gallery.html" class="submenu__item__link">Фотогалерея</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="./video.html" class="submenu__item__link">Видео</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./links.html" class="navigation__link ">Полезные ссылки</a>
+                    </li>
+                </ul>
+                <form action="" class="layout-header__search">
+                    <input name="s" class="layout-header__search__input" placeholder="Поиск по сайту">
+                    <button type="submit" class="layout-header__search__button js-search"></button>
+                </form>
+            </div>
+            <div class="submenu-background" id="navigation-submenu"></div>
+        </nav>
+        <div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+            <nav class="breadcrumbs clearfix">
+                <div class="breadcrumbs__wrapper">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__item__link">Направления работы</a>
+                        </li>
+                        <li class="breadcrumbs__item last">
+                            <a href="/examples" class="breadcrumbs__item__link current">Инновации</a>
+                        </li>
+                    </ol>
+                </div>
+            </nav>
+            <section class="section">
+                <div class="content content_white content_page">
+                    <h1 class="content__title">Кубанская школа инвесторов</h1>
+                    <div class="content__text">
+                        <img src="./images/content/page-item.jpg" width="300" height="200" align="left" alt="">
+                        <p>Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет оценить значение систем массового участия. Разнообразный и богатый опыт сложившаяся структура организации играет важную роль в формировании
+                            форм развития.
+                            <br>Не следует, однако забывать, что укрепление и развитие структуры способствует подготовки и реализации дальнейших направлений развития. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности
+                            играет важную роль в формировании соответствующий условий активизации.</p>
+                        <p>Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет оценить значение систем массового участия. Разнообразный и богатый опыт сложившаяся структура организации играет важную роль в формировании
+                            форм развития.</p>
+                        <p>Не следует, однако забывать, что укрепление и развитие структуры способствует подготовки и реализации дальнейших направлений развития. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности играет
+                            важную роль в формировании соответствующий условий активизации. Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития.</p>
+                        <p>Товарищи! реализация намеченных плановых заданий требуют от нас анализа модели развития. Разнообразный и богатый опыт рамки и место обучения кадров позволяет оценить значение новых предложений.</p>
+                        <h3>Нумерованный список:</h3>
+                        <ol>
+                            <li>Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
+                            <li>Развитие различных форм деятельности играет важную роль в формировании направлений развития</li>
+                            <li>Форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
+                        </ol>
+                        <h3>Список №2:</h3>
+                        <ul>
+                            <li>Равным образом дальнейшее развитие различных форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
+                            <li>Развитие различных форм деятельности играет важную роль в формировании направлений развития</li>
+                            <li>Форм деятельности играет важную роль в формировании направлений прогрессивного развития</li>
+                        </ul>
+                        <h3 class="center">Таблица</h3>
+                        <div class="table-touch">
+                            <table>
+                                <colgroup>
+                                    <col width="25%"> </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td>Наименование в две строки</td>
+                                        <td>Наименование 3</td>
+                                        <td>Наименование 5</td>
+                                        <td>Наименование 7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Наименование 2</td>
+                                        <td>Наименование 4</td>
+                                        <td>Наименование 6</td>
+                                        <td>Наименование 8</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section section_carousel">
+                <div class="carousel">
+                    <div class="carousel__wrapper" id="carousel">
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/1.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/2.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/3.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/4.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/5.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/5.png" alt="" class="carousel__item__image__src"> </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
+    <footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+        <div class="layout-footer__upper">
+            <div class="layout-footer__wrapper layout-footer__wrapper_border clearfix">
+                <div class="layout-footer__block">
+                    <h3 class="layout-footer__title">КОНТАКТНЫЕ ДАННЫЕ:</h3>
+                    <div class="layout-footer__contacts"> г. Краснодар, ул. Ленина, 65
+                        <br> +7 (861) 267-15-90
+                        <br> +7 (861) 267-15-97
+                        <br>
+                        <span class="layout-footer__contacts__email">e-mail:
+                            <a href="mailto:2004-2012@bk.ru">2004-2012@bk.ru</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="layout-footer__block layout-footer__block_left layout-footer__block_right">
+                    <h3 class="layout-footer__title">Подписаться на новости:</h3>
+                    <form action="" class="subscribe">
+                        <div class="subscribe__block clearfix">
+                            <input placeholder="Ваш e-mail" name="email" class="subscribe__field">
+                            <button type="submit" class="subscribe__button">Подписаться</button>
+                        </div>
+                        <label class="subscribe__unsibscribe">
+                            <span class="subscribe__unsibscribe__checkbox">
+                                <input type="checkbox" name="" class="subscribe__unsibscribe__checkbox__input"> </span>
+                            <span class="subscribe__unsibscribe__label">Отписаться</span>
+                        </label>
+                    </form>
+                </div>
+                <div class="layout-footer__block">
+                    <h3 class="layout-footer__title">Мы в соцсетях:</h3>
+                    <ul class="social">
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_vk"></a>
+                        </li>
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_fb"></a>
+                        </li>
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_ok"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="layout-footer__bottom">
+            <div class="layout-footer__wrapper clearfix">
+                <div class="layout-footer__copiright">
+                    <span class="layout-footer__copiright__mid">Copyright © 2011 «Инвентум»
+                        <br>Все права защищены</span>
+                </div>
+                <div class="layout-footer__counters">
+                    <span class="layout-footer__counters__item">
+                        <img src="./images/counter.png" alt="">
+                    </span>
+                </div>
+                <div class="layout-footer__studio">Разработка сайта
+                    <a href="" class="layout-footer__studio__link">«Русь-технология»</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/vendor.min.js"></script>
+    <script src="./js/main.min.js"></script>
 </body>
+
 </html>

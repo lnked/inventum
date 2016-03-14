@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!-- (c) lnk. celebro | http://www.celebro.ru/ -->
-
 <!--[if lt IE 7 ]> <html class="ie6" lang="ru"> <![endif]-->
 <!--[if IE 7 ]> <html class="ie7" lang="ru"> <![endif]-->
 <!--[if IE 8 ]> <html class="ie8" lang="ru"> <![endif]-->
@@ -8,583 +7,549 @@
 <!--[if gt IE 8]><!-->
 <html lang="ru" class="no-js" itemscope="itemscope" xmlns="http://www.w3.org/1999/xhtml" itemtype="http://schema.org/WebPage">
 <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta content="on" http-equiv="cleartype">
     <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
-    
     <meta content="" name="description">
     <meta content="" name="keywords">
     <meta content="ru" itemprop="inLanguage">
     <meta content="index, follow" name="robots">
-    
     <meta content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" name="SKYPE_TOOLBAR">
     <meta content="telephone=no" name="format-detection">
     <meta content="address=no" name="format-detection">
     <meta content="True" name="HandheldFriendly">
     <meta content="320" name="MobileOptimized">
-
     <meta content="" name="author">
     <meta content="" name="copyright">
-    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/main.min.css">
-    
-    <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
-    
+    <script>
+        (function(d)
+        {
+            d.className = d.className.replace(/\bno-js/, '');
+        })(document.documentElement);
+    </script>
     <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-
     <title itemprop="name">Main</title>
 </head>
+
 <body>
-
-<div class="overlay" id="overlay"></div>
-
-<script type="text/html" id="tmpl-search">
-	<div class="overlay" id="search-overlay"></div>
-
-	<form action="/search" class="search-form" id="search-form">
-	   	<input name="q" class="search-form__input" placeholder="Поиск по сайту">
-	   	<button type="submit" class="search-form__button"></button>
-	</form>
-</script>
-
-<script type="text/html" id="tmpl-form-label">
-	<span class="form__label__name js-label-name">
-		{{{name}}}
-	</span>
-</script>
-
-<script type="text/html" id="tmpl-form-success">
-	<div class="form__result__success">{{{message}}}</div>
-</script>
-
-<script type="text/html" id="tmpl-notification">
-	<div class="notification" id="popup_notification">
-	    {{#title}}
-	    <div class="notification__header">{{title}}</div>
-	    {{/title}}
-		
-		{{#text}}
-		<div class="notification__content clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-
-<script type="text/html" id="tmpl-popup-message">
-	<div class="popup popup_simple popup_message" id="popup_message">
-	    <b class="popup__close popup__close_simple js-popup-close"></b>
-
-	    {{#title}}
-	    <header class="popup__header popup__header_simple">
-	    	{{title}}
-	    </header>
-	    {{/title}}
-
-		{{#text}}
-		<div class="popup__message clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-
-<script type="text/html" id="tmpl-popup-error">
-	<div class="popup popup_simple popup_error" id="popup_error">
-	    <b class="popup__close popup__close_simple js-popup-close"></b>
-	    
-	    {{#title}}
-	    <header class="popup__header popup__header_simple">
-	    	{{title}}
-	    </header>
-	    {{/title}}
-	
-		{{#text}}
-		<div class="popup__message clearfix">
-			{{text}}
-		</div>
-	    {{/text}}
-	</div>
-</script>
-<div class="popup" id="popup-feedback">
-	<div class="popup__dialog js-popup-dialog">
-		<div class="popup__content">
-
-			<span class="popup__close js-popup-close"></span>
-			
-			<form action="../json/feedback.json" method="post" class="form form-ajax clearfix">
-				
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<input name="fio" placeholder="Ф. И. О. *" class="form__input js-form-input">
-					</label>
-				</div>
-
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<input name="org" placeholder="Организация" class="form__input js-form-input">
-					</label>
-				</div>
-
-				<div class="form__row clearfix">
-					<div class="form__col form__col_l">
-						<label class="form__label js-form-label">
-							<input name="email" placeholder="E - mail: *" class="form__input js-form-input">
-						</label>
-					</div>
-
-					<div class="form__col form__col_r">
-						<label class="form__label js-form-label">
-							<input placeholder="Телефон:" class="form__input form__input_phone js-phone-watcher js-form-input">
-						</label>
-					</div>
-				</div>
-
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<select name="theme" class="js-form-select js-form-input" data-placeholder="Тип обращения *">
-							<option value="" data-classname="is-empty" selected></option>
-							<option value="1">Руководителю</option>
-							<option value="2">Найдена ошибка на сайте</option>
-							<option value="3">Еще тип обращения</option>
-						</select>
-					</label>
-				</div>
-				
-				<div class="form__row clearfix">
-					<label class="form__label js-form-label">
-						<textarea name="text" placeholder="Текст обращения:" cols="30" rows="10" class="form__textarea form__textarea_feedback js-form-input"></textarea>
-					</label>
-				</div>
-				
-				<!-- Ключ 6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep -->
-				<!-- Секретный ключ 6LdY3RYTAAAAAH_JsUmyeZnSOAYDaZsMX2cYXvPM -->
-
-				<div class="form__row clearfix">
-					<div class="g-recaptcha" data-sitekey="6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep" data-size="normal"></div>
-				</div>
-				
-				<div class="form__result js-form-result"></div>
-
-				<div class="form__button active js-form-button">
-					<button type="submit" class="button button_fix button_green">Отправить</button>
-				</div>
-
-			</form>
-		
-		</div>
-	</div>
-</div>
-
-<article class="layout-wrapper">
-	<span class="sandwich js-sandwich-menu">
-	<span class="sandwich__layer">Menu</span>
-</span>
-
-<div class="menu-overlay" id="menu-overlay"></div>
-
-<header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-	<div class="layout-header__wrapper">
-		
-		<a href="./index.html" class="layout-header__logo logo"></a>
-		
-		<a href="#popup-feedback" class="layout-header__feedback js-open-popup">Обратная связь</a>
-	</div>
-</header>
-
-<nav class="layout-header__navigation navigation" id="navigation" role="navigation">
-	<div class="navigation__wrapper">
-		<ul class="navigation__list">
-		    <li class="navigation__item"><a href="./about.html" class="navigation__link ">О нас</a></li>
-		    <li class="navigation__item"><a href="./news.html" class="navigation__link ">Новости</a></li>
-		    <li class="navigation__item"><a href="./documents.html" class="navigation__link ">Документы</a></li>
-		    <li class="navigation__item navigation__item_dropdown">
-
-		    	<a href="" class="navigation__link ">Направления работы</a>
-		    	
-		    	<div class="navigation__item__submenu submenu">
-					<ul class="submenu__list">
-						<li class="submenu__item submenu__item_dropdown">
-						
-							<a href="" class="submenu__item__link">Инновации</a>
-							
-							<ul class="submenu__item__list">
-								<li class="submenu__item"><a href="" class="submenu__item__link">Зворыкинская премия</a></li>
-								<li class="submenu__item"><a href="" class="submenu__item__link">Кубанская школа инвесторов</a></li>
-								<li class="submenu__item"><a href="" class="submenu__item__link">От идеи к делу</a></li>
-							</ul>
-						</li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Предпринимательство</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Духовно-нравственное воспитание</a></li>
-						<li class="submenu__item"><a href="" class="submenu__item__link">Профилактика экстремизма</a></li>
-					</ul>
-				</div>
-
-			</li>
-		    <li class="navigation__item navigation__item_dropdown">
-
-		    	<a href="./press-center.html" class="navigation__link ">Пресс-центр</a>
-
-		    	<div class="navigation__item__submenu submenu">
-					<ul class="submenu__list"> 
-						<li class="submenu__item"><a href="./gallery.html" class="submenu__item__link">Фотогалерея</a></li>
-						<li class="submenu__item"><a href="./video.html" class="submenu__item__link">Видео</a></li>
-					</ul>
-				</div>
-				
-				</li>
-		    <li class="navigation__item"><a href="./links.html" class="navigation__link ">Полезные ссылки</a></li>
-		</ul>
-		
-		<form action="" class="layout-header__search">
-			<input name="s" class="layout-header__search__input" placeholder="Поиск по сайту">
-			<button type="submit" class="layout-header__search__button js-search"></button>
-		</form>
-	</div>
-
-	<div class="submenu-background" id="navigation-submenu"></div>
-</nav>
-
-	<div class="layout-wrapper__inner" itemprop="mainContentOfPage">
-
-		<div class="slider">
-	<div class="slider__overlay"></div>
-	<div class="slider__wrapper" id="slider">
-		<div class="slider__item slick-slide">
-			<div class="slider__item__content">
-				<div class="slider__item__title">От идеи к делу!</div>
-				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
-				<div class="slider__item__more clearfix">
-					<a href="" class="slider__item__more__link">подробнее</a>
-				</div>
-
-				<div class="slider__item__date">
-					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
-					<div class="slider__item__date__count">12. 12. 2015</div>
-				</div>
-			</div>
-			<div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
-		</div>
-
-		<div class="slider__item slick-slide">
-			<div class="slider__item__content">
-				<div class="slider__item__title">От идеи к делу!</div>
-				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
-				<div class="slider__item__more clearfix">
-					<a href="" class="slider__item__more__link">подробнее</a>
-				</div>
-
-				<div class="slider__item__date">
-					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
-					<div class="slider__item__date__count">12. 12. 2015</div>
-				</div>
-			</div>
-			<div class="slider__item__image" style="background-image: url(./images/slider-2.jpg);"></div>
-		</div>
-
-		<div class="slider__item slick-slide">
-			<div class="slider__item__content">
-				<div class="slider__item__title">От идеи к делу!</div>
-				<div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести в Краснодаре 19 марта 2016 года.</div>
-				<div class="slider__item__more clearfix">
-					<a href="" class="slider__item__more__link">подробнее</a>
-				</div>
-
-				<div class="slider__item__date">
-					<div class="slider__item__date__title">Окончание подачи заявлений:</div>
-					<div class="slider__item__date__count">12. 12. 2015</div>
-				</div>
-			</div>
-			<div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
-		</div>
-	</div>
-</div>
-	
-		<section class="section section_news">
-			<h2 class="section__title"><a href="" class="section__title__name">Новости</a></h2>
-			
-			<ul class="news-list">
-				<li class="news-list__item">
-					<div class="news-item">
-						<a href="" class="news-item__image"><img src="./images/news-2.jpg" alt="" class="news-item__image__src"></a>
-						<div class="news-item__content">
-							<div class="news-item__date">18.12. <span class="news-item__date__year">2015</span></div>
-							<div class="news-item__title">
-								<a href="" class="news-item__title__link">Благотворительная акция «Елки желаний»</a>
-							</div>
-							<p class="news-item__anons">В рамках благотворительной акции каждый житель Кубани сможет сделать новогодний подарок. больному или нуждающемуся ребенку.</p>
-						</div>
-					</div>
-				</li>
-
-				<li class="news-list__item">
-					<div class="news-item">
-						<a href="" class="news-item__image"><img src="./images/news-2.jpg" alt="" class="news-item__image__src"></a>
-						<div class="news-item__content">
-							<div class="news-item__date">16.12. <span class="news-item__date__year">2015</span></div>
-							<div class="news-item__title">
-								<a href="" class="news-item__title__link">В Краснодаре прошел фестиваль национальных культур</a>
-							</div>
-							<p class="news-item__anons">В кубанской столице на базе Центра национальных культур 14 декабря состоялся фестиваль «Дружбой сильны». больному или нуждающемуся ребенку.</p>
-						</div>
-					</div>
-				</li>
-
-				<li class="news-list__item">
-					<div class="news-item">
-						<a href="" class="news-item__image"><img src="./images/news-2.jpg" alt="" class="news-item__image__src"></a>
-						<div class="news-item__content">
-							<div class="news-item__date">12.12. <span class="news-item__date__year">2015</span></div>
-							<div class="news-item__title">
-								<a href="" class="news-item__title__link">В Краснодаре прошло мероприятие по профилактике экстремизма</a>
-							</div>
-							<p class="news-item__anons">Вчера в краевой столице состоялась встреча лидеров национальных общин и лидеров Краснодарского края со студентами Кубанского государственного </p>
-						</div>
-					</div>
-				</li>
-
-				<li class="news-list__item">
-					<div class="news-item">
-						<a href="" class="news-item__image"><img src="./images/news-2.jpg" alt="" class="news-item__image__src"></a>
-						<div class="news-item__content">
-							<div class="news-item__date">18.12. <span class="news-item__date__year">2015</span></div>
-							<div class="news-item__title">
-								<a href="" class="news-item__title__link">Благотворительная акция «Елки желаний»</a>
-							</div>
-							<p class="news-item__anons">В рамках благотворительной акции каждый житель Кубани сможет сделать новогодний подарок. больному или нуждающемуся ребенку.</p>
-						</div>
-					</div>
-				</li>
-			</ul>
-
-		</section>
-
-		<section class="section">
-			<h2 class="section__title"><a href="" class="section__title__name">Наши проекты</a></h2>
-			
-			<div class="section__wrapper">
-				<ul class="projects">
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/IQ.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Премия IQ года</span>
-						</a>
-					</li>
-					
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/prav-otkritka.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Православная открытка</span>
-						</a>
-					</li>
-					
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/navigator.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Eдиный онлайн-портал<br>"Навигатор»</span>
-						</a>
-					</li>
-					
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/kub-state-investors.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Кубанская школа<br>инноваторов</span>
-						</a>
-					</li>
-					
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/start.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Успешный старт</span>
-						</a>
-					</li>
-
-					<li class="projects__item effected">
-						<a href="" class="projects__item__link">
-							<span class="projects__item__image">
-								<img src="./images/projects/uspex.png" class="projects__item__image__src" alt="">
-							</span>
-							<span class="projects__item__title">Успешный молодой<br>человек</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-
-		</section>
-		
-		<section class="section section_gallery">
-			<h2 class="section__title"><a href="" class="section__title__name">Фотогалерея</a></h2>
-			
-			<div class="section__wrapper">
-				
-				<ul class="gallery">
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-					<li class="gallery__item effected"><a href="" class="gallery__item__image"><img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src"></a></li>
-				</ul>
-
-				<div class="gallery__more"><a href="" class="gallery__more__link">Форум "Регион 93" 2015</a></div>
-			</div>
-
-		</section>
-		
-		<section class="section section_vote">
-			<h2 class="section__title"><a href="" class="section__title__name">Опрос</a></h2>
-			
-			<div class="section__wrapper">
-
-				<div class="vote">
-					<div class="vote__question">Какую информацию вы бы хотели видеть больше на сайте?</div>
-
-					<ul class="vote__answers">
-						<li class="vote__answers__item">
-							<label class="vote__answer">
-								<span class="vote__answer__radio">
-									<input type="radio" name="vote">
-								</span>
-								<span class="vote__answer__label">Информацию для предпринимателей</span>
-							</label>
-						</li>
-						<li class="vote__answers__item">
-							<label class="vote__answer">
-								<span class="vote__answer__radio">
-									<input type="radio" name="vote" checked>
-								</span>
-								<span class="vote__answer__label">Информацию посвященную спортивным мероприятиям</span>
-							</label>
-						</li>
-						<li class="vote__answers__item">
-							<label class="vote__answer">
-								<span class="vote__answer__radio">
-									<input type="radio" name="vote">
-								</span>
-								<span class="vote__answer__label">Развивающие и обучающие программы</span>
-							</label>
-						</li>
-					</ul>
-
-					<div class="vote__buttons clearfix">
-						<button type="submit" class="button button_fix button_blue">Голосовать</button>
-						<a href="" class="button button_fix button_green">Результаты опроса</a>
-					</div>
-				</div>
-
-			</div>
-		</section>
-		
-		<section class="section section_carousel">
-			<div class="carousel">
-	<div class="carousel__wrapper" id="carousel">
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/1.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/2.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/3.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/4.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
-		</div>
-
-		<div class="carousel__item slick-slide">
-			<img src="./images/carousel/5.png" alt="" class="carousel__item__image__src">
-		</div>
-	</div>
-</div>
-		</section>
-
-	</div>
-</article>
-
-<footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-	<div class="layout-footer__upper">
-		<div class="layout-footer__wrapper layout-footer__wrapper_border clearfix">
-
-			<div class="layout-footer__block">
-				<h3 class="layout-footer__title">КОНТАКТНЫЕ ДАННЫЕ:</h3>
-
-				<div class="layout-footer__contacts">
-					г. Краснодар, ул. Ленина, 65<br>
-					+7 (861) 267-15-90<br>
-					+7 (861) 267-15-97<br>
-					<span class="layout-footer__contacts__email">e-mail: <a href="mailto:2004-2012@bk.ru">2004-2012@bk.ru</a></span>
-				</div>
-			</div>
-
-			<div class="layout-footer__block layout-footer__block_left layout-footer__block_right">
-				<h3 class="layout-footer__title">Подписаться на новости:</h3>
-
-				<form action="" class="subscribe">
-					<div class="subscribe__block clearfix">
-						<input placeholder="Ваш e-mail" name="email" class="subscribe__field">
-						<button type="submit" class="subscribe__button">Подписаться</button>
-					</div>
-
-					<label class="subscribe__unsibscribe">
-						<span class="subscribe__unsibscribe__checkbox">
-							<input type="checkbox" name="" class="subscribe__unsibscribe__checkbox__input">
-						</span>
-						<span class="subscribe__unsibscribe__label">Отписаться</span>
-					</label>
-				</form>
-			</div>
-			
-			<div class="layout-footer__block">
-				 <h3 class="layout-footer__title">Мы в соцсетях:</h3>
-
-				 <ul class="social">
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_vk"></a></li>
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_fb"></a></li>
-				 	<li class="social__item"><a href="" class="social__item__link social__item__link_ok"></a></li>
-				 </ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="layout-footer__bottom">
-		<div class="layout-footer__wrapper clearfix">
-			<div class="layout-footer__copiright"><span class="layout-footer__copiright__mid">Copyright © 2011 «Инвентум»<br>Все права защищены</span></div>
-			<div class="layout-footer__counters">
-				<span class="layout-footer__counters__item"><img src="./images/counter.png" alt=""></span>
-			</div>
-			<div class="layout-footer__studio">Разработка сайта <a href="" class="layout-footer__studio__link">«Русь-технология»</a></div>
-		</div>
-	</div>
-</footer>
-
-<script src="./js/vendor.min.js"></script>
-<script src="./js/main.min.js"></script>
-
+    <div class="overlay" id="overlay"></div>
+    <script type="text/html" id="tmpl-search">
+        <div class="overlay" id="search-overlay"></div>
+        <form action="/search" class="search-form" id="search-form">
+            <input name="q" class="search-form__input" placeholder="Поиск по сайту">
+            <button type="submit" class="search-form__button"></button>
+        </form>
+    </script>
+    <script type="text/html" id="tmpl-form-label">
+        <span class="form__label__name js-label-name"> {{{name}}} </span>
+    </script>
+    <script type="text/html" id="tmpl-form-success">
+        <div class="form__result__success">{{{message}}}</div>
+    </script>
+    <script type="text/html" id="tmpl-notification">
+        <div class="notification" id="popup_notification"> {{#title}}
+            <div class="notification__header">{{title}}</div> {{/title}} {{#text}}
+            <div class="notification__content clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <script type="text/html" id="tmpl-popup-message">
+        <div class="popup popup_simple popup_message" id="popup_message">
+            <b class="popup__close popup__close_simple js-popup-close"></b> {{#title}}
+            <header class="popup__header popup__header_simple"> {{title}} </header> {{/title}} {{#text}}
+            <div class="popup__message clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <script type="text/html" id="tmpl-popup-error">
+        <div class="popup popup_simple popup_error" id="popup_error">
+            <b class="popup__close popup__close_simple js-popup-close"></b> {{#title}}
+            <header class="popup__header popup__header_simple"> {{title}} </header> {{/title}} {{#text}}
+            <div class="popup__message clearfix"> {{text}} </div> {{/text}} </div>
+    </script>
+    <div class="popup" id="popup-feedback">
+        <div class="popup__dialog js-popup-dialog">
+            <div class="popup__content">
+                <span class="popup__close js-popup-close"></span>
+                <form action="../json/feedback.json" method="post" class="form form-ajax clearfix">
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <input name="fio" placeholder="Ф. И. О. *" class="form__input js-form-input"> </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <input name="org" placeholder="Организация" class="form__input js-form-input"> </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <div class="form__col form__col_l">
+                            <label class="form__label js-form-label">
+                                <input name="email" placeholder="E - mail: *" class="form__input js-form-input"> </label>
+                        </div>
+                        <div class="form__col form__col_r">
+                            <label class="form__label js-form-label">
+                                <input placeholder="Телефон:" class="form__input form__input_phone js-phone-watcher js-form-input"> </label>
+                        </div>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <select name="theme" class="js-form-select js-form-input" data-placeholder="Тип обращения *">
+                                <option value="" data-classname="is-empty" selected></option>
+                                <option value="1">Руководителю</option>
+                                <option value="2">Найдена ошибка на сайте</option>
+                                <option value="3">Еще тип обращения</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form__row clearfix">
+                        <label class="form__label js-form-label">
+                            <textarea name="text" placeholder="Текст обращения:" cols="30" rows="10" class="form__textarea form__textarea_feedback js-form-input"></textarea>
+                        </label>
+                    </div>
+                    <!-- Ключ 6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep -->
+                    <!-- Секретный ключ 6LdY3RYTAAAAAH_JsUmyeZnSOAYDaZsMX2cYXvPM -->
+                    <div class="form__row clearfix">
+                        <div class="g-recaptcha" data-sitekey="6LdY3RYTAAAAADwQcJ-Hsy5Q8C7EN7iXc7gq5Gep" data-size="normal"></div>
+                    </div>
+                    <div class="form__result js-form-result"></div>
+                    <div class="form__button active js-form-button">
+                        <button type="submit" class="button button_fix button_green">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <article class="layout-wrapper">
+        <span class="sandwich js-sandwich-menu">
+            <span class="sandwich__layer">Menu</span>
+        </span>
+        <div class="menu-overlay" id="menu-overlay"></div>
+        <header class="layout-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+            <div class="layout-header__wrapper">
+                <a href="./index.html" class="layout-header__logo logo"></a>
+                <a href="#popup-feedback" class="layout-header__feedback js-open-popup">Обратная связь</a>
+            </div>
+        </header>
+        <nav class="layout-header__navigation navigation" id="navigation" role="navigation">
+            <div class="navigation__wrapper">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="./about.html" class="navigation__link ">О нас</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./news.html" class="navigation__link ">Новости</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./documents.html" class="navigation__link ">Документы</a>
+                    </li>
+                    <li class="navigation__item navigation__item_dropdown">
+                        <a href="" class="navigation__link ">Направления работы</a>
+                        <div class="navigation__item__submenu submenu">
+                            <ul class="submenu__list">
+                                <li class="submenu__item submenu__item_dropdown">
+                                    <a href="" class="submenu__item__link">Инновации</a>
+                                    <ul class="submenu__item__list">
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">Зворыкинская премия</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">Кубанская школа инвесторов</a>
+                                        </li>
+                                        <li class="submenu__item">
+                                            <a href="" class="submenu__item__link">От идеи к делу</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Предпринимательство</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Молодежные центры «Навигатор»</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Духовно-нравственное воспитание</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="" class="submenu__item__link">Профилактика экстремизма</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navigation__item navigation__item_dropdown">
+                        <a href="./press-center.html" class="navigation__link ">Пресс-центр</a>
+                        <div class="navigation__item__submenu submenu">
+                            <ul class="submenu__list">
+                                <li class="submenu__item">
+                                    <a href="./gallery.html" class="submenu__item__link">Фотогалерея</a>
+                                </li>
+                                <li class="submenu__item">
+                                    <a href="./video.html" class="submenu__item__link">Видео</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="./links.html" class="navigation__link ">Полезные ссылки</a>
+                    </li>
+                </ul>
+                <form action="" class="layout-header__search">
+                    <input name="s" class="layout-header__search__input" placeholder="Поиск по сайту">
+                    <button type="submit" class="layout-header__search__button js-search"></button>
+                </form>
+            </div>
+            <div class="submenu-background" id="navigation-submenu"></div>
+        </nav>
+        <div class="layout-wrapper__inner" itemprop="mainContentOfPage">
+            <div class="slider">
+                <div class="slider__overlay"></div>
+                <div class="slider__wrapper" id="slider">
+                    <div class="slider__item slick-slide">
+                        <div class="slider__item__content">
+                            <div class="slider__item__title">От идеи к делу!</div>
+                            <div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести
+                                в Краснодаре 19 марта 2016 года.</div>
+                            <div class="slider__item__more clearfix">
+                                <a href="" class="slider__item__more__link">подробнее</a>
+                            </div>
+                            <div class="slider__item__date">
+                                <div class="slider__item__date__title">Окончание подачи заявлений:</div>
+                                <div class="slider__item__date__count">12. 12. 2015</div>
+                            </div>
+                        </div>
+                        <div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
+                    </div>
+                    <div class="slider__item slick-slide">
+                        <div class="slider__item__content">
+                            <div class="slider__item__title">От идеи к делу!</div>
+                            <div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести
+                                в Краснодаре 19 марта 2016 года.</div>
+                            <div class="slider__item__more clearfix">
+                                <a href="" class="slider__item__more__link">подробнее</a>
+                            </div>
+                            <div class="slider__item__date">
+                                <div class="slider__item__date__title">Окончание подачи заявлений:</div>
+                                <div class="slider__item__date__count">12. 12. 2015</div>
+                            </div>
+                        </div>
+                        <div class="slider__item__image" style="background-image: url(./images/slider-2.jpg);"></div>
+                    </div>
+                    <div class="slider__item slick-slide">
+                        <div class="slider__item__content">
+                            <div class="slider__item__title">От идеи к делу!</div>
+                            <div class="slider__item__description">Краткое описание в несколько строк: конкурс проводится среди студентов 4-5 курсов высших учебных заведений, по теме Сегодня мы расскажем о не-конференции в сфере информационных технологий Баркемп, которую планируется провести
+                                в Краснодаре 19 марта 2016 года.</div>
+                            <div class="slider__item__more clearfix">
+                                <a href="" class="slider__item__more__link">подробнее</a>
+                            </div>
+                            <div class="slider__item__date">
+                                <div class="slider__item__date__title">Окончание подачи заявлений:</div>
+                                <div class="slider__item__date__count">12. 12. 2015</div>
+                            </div>
+                        </div>
+                        <div class="slider__item__image" style="background-image: url(./images/slider-1.jpg);"></div>
+                    </div>
+                </div>
+            </div>
+            <section class="section section_news">
+                <h2 class="section__title">
+                    <a href="" class="section__title__name">Новости</a>
+                </h2>
+                <ul class="news-list">
+                    <li class="news-list__item">
+                        <div class="news-item">
+                            <a href="" class="news-item__image">
+                                <img src="./images/news-2.jpg" alt="" class="news-item__image__src">
+                            </a>
+                            <div class="news-item__content">
+                                <div class="news-item__date">18.12.
+                                    <span class="news-item__date__year">2015</span>
+                                </div>
+                                <div class="news-item__title">
+                                    <a href="" class="news-item__title__link">Благотворительная акция «Елки желаний»</a>
+                                </div>
+                                <p class="news-item__anons">В рамках благотворительной акции каждый житель Кубани сможет сделать новогодний подарок. больному или нуждающемуся ребенку.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="news-list__item">
+                        <div class="news-item">
+                            <a href="" class="news-item__image">
+                                <img src="./images/news-2.jpg" alt="" class="news-item__image__src">
+                            </a>
+                            <div class="news-item__content">
+                                <div class="news-item__date">16.12.
+                                    <span class="news-item__date__year">2015</span>
+                                </div>
+                                <div class="news-item__title">
+                                    <a href="" class="news-item__title__link">В Краснодаре прошел фестиваль национальных культур</a>
+                                </div>
+                                <p class="news-item__anons">В кубанской столице на базе Центра национальных культур 14 декабря состоялся фестиваль «Дружбой сильны». больному или нуждающемуся ребенку.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="news-list__item">
+                        <div class="news-item">
+                            <a href="" class="news-item__image">
+                                <img src="./images/news-2.jpg" alt="" class="news-item__image__src">
+                            </a>
+                            <div class="news-item__content">
+                                <div class="news-item__date">12.12.
+                                    <span class="news-item__date__year">2015</span>
+                                </div>
+                                <div class="news-item__title">
+                                    <a href="" class="news-item__title__link">В Краснодаре прошло мероприятие по профилактике экстремизма</a>
+                                </div>
+                                <p class="news-item__anons">Вчера в краевой столице состоялась встреча лидеров национальных общин и лидеров Краснодарского края со студентами Кубанского государственного </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="news-list__item">
+                        <div class="news-item">
+                            <a href="" class="news-item__image">
+                                <img src="./images/news-2.jpg" alt="" class="news-item__image__src">
+                            </a>
+                            <div class="news-item__content">
+                                <div class="news-item__date">18.12.
+                                    <span class="news-item__date__year">2015</span>
+                                </div>
+                                <div class="news-item__title">
+                                    <a href="" class="news-item__title__link">Благотворительная акция «Елки желаний»</a>
+                                </div>
+                                <p class="news-item__anons">В рамках благотворительной акции каждый житель Кубани сможет сделать новогодний подарок. больному или нуждающемуся ребенку.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="section">
+                <h2 class="section__title">
+                    <a href="" class="section__title__name">Наши проекты</a>
+                </h2>
+                <div class="section__wrapper">
+                    <ul class="projects">
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/IQ.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Премия IQ года</span>
+                            </a>
+                        </li>
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/prav-otkritka.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Православная открытка</span>
+                            </a>
+                        </li>
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/navigator.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Eдиный онлайн-портал
+                                    <br>"Навигатор»</span>
+                            </a>
+                        </li>
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/kub-state-investors.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Кубанская школа
+                                    <br>инноваторов</span>
+                            </a>
+                        </li>
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/start.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Успешный старт</span>
+                            </a>
+                        </li>
+                        <li class="projects__item effected">
+                            <a href="" class="projects__item__link">
+                                <span class="projects__item__image">
+                                    <img src="./images/projects/uspex.png" class="projects__item__image__src" alt=""> </span>
+                                <span class="projects__item__title">Успешный молодой
+                                    <br>человек</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section section_gallery">
+                <h2 class="section__title">
+                    <a href="" class="section__title__name">Фотогалерея</a>
+                </h2>
+                <div class="section__wrapper">
+                    <ul class="gallery">
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                        <li class="gallery__item effected">
+                            <a href="" class="gallery__item__image">
+                                <img src="./images/gallery.jpg" width="220" height="146" alt="" class="gallery__item__image__src">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="gallery__more">
+                        <a href="" class="gallery__more__link">Форум "Регион 93" 2015</a>
+                    </div>
+                </div>
+            </section>
+            <section class="section section_vote">
+                <h2 class="section__title">
+                    <a href="" class="section__title__name">Опрос</a>
+                </h2>
+                <div class="section__wrapper">
+                    <div class="vote">
+                        <div class="vote__question">Какую информацию вы бы хотели видеть больше на сайте?</div>
+                        <ul class="vote__answers">
+                            <li class="vote__answers__item">
+                                <label class="vote__answer">
+                                    <span class="vote__answer__radio">
+                                        <input type="radio" name="vote"> </span>
+                                    <span class="vote__answer__label">Информацию для предпринимателей</span>
+                                </label>
+                            </li>
+                            <li class="vote__answers__item">
+                                <label class="vote__answer">
+                                    <span class="vote__answer__radio">
+                                        <input type="radio" name="vote" checked> </span>
+                                    <span class="vote__answer__label">Информацию посвященную спортивным мероприятиям</span>
+                                </label>
+                            </li>
+                            <li class="vote__answers__item">
+                                <label class="vote__answer">
+                                    <span class="vote__answer__radio">
+                                        <input type="radio" name="vote"> </span>
+                                    <span class="vote__answer__label">Развивающие и обучающие программы</span>
+                                </label>
+                            </li>
+                        </ul>
+                        <div class="vote__buttons clearfix">
+                            <button type="submit" class="button button_fix button_blue">Голосовать</button>
+                            <a href="" class="button button_fix button_green">Результаты опроса</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section section_carousel">
+                <div class="carousel">
+                    <div class="carousel__wrapper" id="carousel">
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/1.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/2.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/3.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/4.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/5.png" alt="" class="carousel__item__image__src"> </div>
+                        <div class="carousel__item slick-slide">
+                            <img src="./images/carousel/5.png" alt="" class="carousel__item__image__src"> </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
+    <footer class="layout-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+        <div class="layout-footer__upper">
+            <div class="layout-footer__wrapper layout-footer__wrapper_border clearfix">
+                <div class="layout-footer__block">
+                    <h3 class="layout-footer__title">КОНТАКТНЫЕ ДАННЫЕ:</h3>
+                    <div class="layout-footer__contacts"> г. Краснодар, ул. Ленина, 65
+                        <br> +7 (861) 267-15-90
+                        <br> +7 (861) 267-15-97
+                        <br>
+                        <span class="layout-footer__contacts__email">e-mail:
+                            <a href="mailto:2004-2012@bk.ru">2004-2012@bk.ru</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="layout-footer__block layout-footer__block_left layout-footer__block_right">
+                    <h3 class="layout-footer__title">Подписаться на новости:</h3>
+                    <form action="" class="subscribe">
+                        <div class="subscribe__block clearfix">
+                            <input placeholder="Ваш e-mail" name="email" class="subscribe__field">
+                            <button type="submit" class="subscribe__button">Подписаться</button>
+                        </div>
+                        <label class="subscribe__unsibscribe">
+                            <span class="subscribe__unsibscribe__checkbox">
+                                <input type="checkbox" name="" class="subscribe__unsibscribe__checkbox__input"> </span>
+                            <span class="subscribe__unsibscribe__label">Отписаться</span>
+                        </label>
+                    </form>
+                </div>
+                <div class="layout-footer__block">
+                    <h3 class="layout-footer__title">Мы в соцсетях:</h3>
+                    <ul class="social">
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_vk"></a>
+                        </li>
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_fb"></a>
+                        </li>
+                        <li class="social__item">
+                            <a href="" class="social__item__link social__item__link_ok"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="layout-footer__bottom">
+            <div class="layout-footer__wrapper clearfix">
+                <div class="layout-footer__copiright">
+                    <span class="layout-footer__copiright__mid">Copyright © 2011 «Инвентум»
+                        <br>Все права защищены</span>
+                </div>
+                <div class="layout-footer__counters">
+                    <span class="layout-footer__counters__item">
+                        <img src="./images/counter.png" alt="">
+                    </span>
+                </div>
+                <div class="layout-footer__studio">Разработка сайта
+                    <a href="" class="layout-footer__studio__link">«Русь-технология»</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/vendor.min.js"></script>
+    <script src="./js/main.min.js"></script>
 </body>
+
 </html>

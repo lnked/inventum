@@ -27,7 +27,7 @@
 				margin-top: -8px;
 				background-repeat: no-repeat;
 				background-position: 50% 50%;
-				transition: opacity $time, transform $time;
+				transition: opacity $time, transform .1s;
 			}
 
 			&:before {
@@ -136,15 +136,13 @@
 		}
 	}
 
-	&.open {
-		.doc__content {
-			display: block;
-		}
+	&.open>.doc__content {
+		display: block;
+	}
 
-		.doc__title__trigger {
-			&:before, &:after {
-				transform: rotate(90deg);
-			}
+	&.open>.doc__title__trigger {
+		&:before, &:after {
+			transform: rotate(90deg);
 		}
 	}
 }
