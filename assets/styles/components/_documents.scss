@@ -136,11 +136,12 @@
 		}
 	}
 
-	&.open .doc__content {
+	&.open > &__content {
 		display: block;
 	}
 
-	&.open>.doc__title>.doc__title__trigger {
+	&.open > &__title > &__title__trigger {
+
 		&:before, &:after {
 			transform: rotate(90deg);
 		}
