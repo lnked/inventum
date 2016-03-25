@@ -3,9 +3,8 @@
 	margin-bottom: 1rem;
 
 	&__title {
-		height: 4rem;
-		line-height: 4rem;
-		padding: 0 2.5rem;
+		line-height: 1.2;
+		padding: 10px 2.5rem;
 		background-color: $lb;
 
 		&__trigger {
@@ -23,8 +22,7 @@
 				content: "";
 				position: absolute;
 				right: 0;
-				top: 50%;
-				margin-top: -8px;
+				top: 14px;
 				background-repeat: no-repeat;
 				background-position: 50% 50%;
 				transition: opacity $time, transform .1s;
